@@ -1,8 +1,10 @@
-import React from 'react';
-import { ExternalLink, Github, Folder } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { ExternalLink, Github, Folder, X, Maximize2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = () => {
+    const [selectedProject, setSelectedProject] = useState(null);
+
     const projects = [
         {
             title: "Myntra Clone (E-Commerce)",
@@ -25,13 +27,13 @@ const Projects = () => {
             description: "FleetMetrics is designed for logistics and transportation companies to efficiently manage vehicles, drivers, trips, expenses, maintenance, and operational analytics from a single platform.",
             tags: ["Next.js", "React", "Tailwind CSS", "Node.js"],
             github: "#",
-            demo: "#",
+            demo: "#", // Add the URL here when live
             image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1773722881/Screenshot_2026-03-10_013632_qeahuc.png"
         }
     ];
 
     return (
-        <section id="projects" className="py-24 bg-black text-white">
+        <section id="projects" className="py-24 bg-black text-white relative">
             <div className="max-w-7xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -70,11 +72,18 @@ const Projects = () => {
                             }}
                             transition={{ duration: 0.6, delay: index * 0.15 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            className="group rounded-2xl bg-slate-900 border border-white/5 overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
+                            className="group rounded-2xl bg-slate-900 border border-white/5 overflow-hidden hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                            onClick={() => project.demo !== "#" && setSelectedProject(project)}
                         >
                             {/* Image Container */}
-                            <div className="relative h-48 overflow-hidden">
-                                <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors z-10"></div>
+                            <div className="relative h-48 overflow-hidden shrink-0">
+                                <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors z-10 flex items-center justify-center">
+                                    {project.demo !== "#" && (
+                                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-lg flex items-center gap-2 font-medium">
+                                            <Maximize2 size={18} /> Preview
+                                        </div>
+                                    )}
+                                </div>
                                 <img
                                     src={project.image}
                                     alt={project.title}
@@ -83,14 +92,18 @@ const Projects = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="p-6">
+                            <div className="p-6 flex flex-col flex-1">
                                 <div className="flex justify-between items-start mb-4">
                                     <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400">
                                         <Folder size={20} />
                                     </div>
                                     <div className="flex gap-3">
-                                        <a href={project.github} className="text-slate-400 hover:text-white transition-colors"><Github size={20} /></a>
-                                        <a href={project.demo} className="text-slate-400 hover:text-white transition-colors"><ExternalLink size={20} /></a>
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="text-slate-400 hover:text-white transition-colors z-20 relative"><Github size={20} /></a>
+                                        {project.demo !== "#" ? (
+                                            <button onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }} className="text-slate-400 hover:text-blue-400 transition-colors z-20 relative"><ExternalLink size={20} /></button>
+                                        ) : (
+                                            <span title="Demo not available yet" className="text-slate-600 cursor-not-allowed z-20 relative"><ExternalLink size={20} /></span>
+                                        )}
                                     </div>
                                 </div>
 
@@ -99,7 +112,7 @@ const Projects = () => {
                                     {project.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 mt-auto">
+                                <div className="flex flex-wrap gap-2 mt-auto pt-4">
                                     {project.tags.map((tag, i) => (
                                         <span key={i} className="text-xs font-mono text-slate-300">
                                             #{tag}
@@ -112,12 +125,73 @@ const Projects = () => {
                 </div>
 
                 <div className="mt-12 text-center md:hidden">
-                    <a href="#" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
-                        View All Projects <ExternalLink size={16} />
+                    <a href="https://github.com/AnshuShee?tab=repositories" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                        View GitHub <ExternalLink size={16} />
                     </a>
                 </div>
 
             </div>
+
+            {/* Iframe Preview Modal */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/80 backdrop-blur-sm"
+                        onClick={() => setSelectedProject(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className="bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden w-full max-w-6xl h-full max-h-[90vh] flex flex-col shadow-2xl shadow-blue-900/20"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Modal Header */}
+                            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/50">
+                                <div className="flex items-center gap-4">
+                                    <h3 className="font-bold text-lg text-white">{selectedProject.title}</h3>
+                                    <a 
+                                        href={selectedProject.demo} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="text-xs flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 transition-colors"
+                                    >
+                                        Open in new tab <ExternalLink size={14} />
+                                    </a>
+                                </div>
+                                <button 
+                                    onClick={() => setSelectedProject(null)}
+                                    className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+                                >
+                                    <X size={24} />
+                                </button>
+                            </div>
+                            
+                            {/* Iframe Body */}
+                            <div className="flex-1 bg-black relative">
+                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <div className="animate-pulse flex flex-col items-center gap-3 text-slate-500">
+                                        <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                                        <p className="text-sm font-medium">Loading project...</p>
+                                    </div>
+                                </div>
+                                <iframe 
+                                    src={selectedProject.demo} 
+                                    title={`Preview of ${selectedProject.title}`}
+                                    className="w-full h-full border-none relative z-10 bg-white"
+                                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
         </section>
     );
 };
