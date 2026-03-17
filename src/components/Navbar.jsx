@@ -41,7 +41,7 @@ const Navbar = () => {
                     <img 
                         src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1773729456/143457ae-6929-49ce-af62-354357503697-Photoroom_ggryld.png" 
                         alt="Anshu.dev Logo" 
-                        className="h-10 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                        className="h-16 sm:h-20 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
                     />
                 </a>
 
