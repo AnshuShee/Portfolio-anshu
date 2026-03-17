@@ -6,8 +6,23 @@ const CustomCursor = () => {
     const cursorY = useMotionValue(-100);
 
     const [isPointer, setIsPointer] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     useEffect(() => {
+        const checkTouch = () => {
+            const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth <= 1024;
+            setIsTouchDevice(isTouch);
+        };
+
+        checkTouch();
+        window.addEventListener('resize', checkTouch);
+
+        return () => window.removeEventListener('resize', checkTouch);
+    }, []);
+
+    useEffect(() => {
+        if (isTouchDevice) return;
+
         const moveCursor = (e) => {
             cursorX.set(e.clientX);
             cursorY.set(e.clientY);
@@ -22,7 +37,9 @@ const CustomCursor = () => {
         return () => {
             window.removeEventListener('mousemove', moveCursor);
         };
-    }, []);
+    }, [isTouchDevice]);
+
+    if (isTouchDevice) return null;
 
     return (
         <>
