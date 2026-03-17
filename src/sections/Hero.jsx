@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowRight, Github, Linkedin, Mail, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import TypingEffect from '../components/TypingEffect';
-import profilePic from '../assets/profile.jpg';
 
 
 const Hero = () => {
@@ -78,6 +77,9 @@ const Hero = () => {
                         <a href="mailto:anshu.shee.cg@gmail.com" className="hover:opacity-80 transition-opacity">
                             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjJlbSIgaGVpZ2h0PSIxLjJlbSIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxnIGZpbGw9Im5vbmUiPjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSIjZjRmMmVkIiByeD0iNjAiLz48cGF0aCBmaWxsPSIjNDI4NWY0IiBkPSJNNDEuNjM2IDIwMy4wMzloMzEuODE4di03Ny4yNzNMMjggOTEuNjc2djk3LjcyN2MwIDcuNTQ1IDYuMTE0IDEzLjYzNiAxMy42MzYgMTMuNjM2Ii8+PHBhdGggZmlsbD0iIzM0YTg1MyIgZD0iTTE4Mi41NDUgMjAzLjAzOWgzMS44MTljNy41NDUgMCAxMy42MzYtNi4xMTQgMTMuNjM2LTEzLjYzNlY5MS42NzVsLTQ1LjQ1NSAzNC4wOTEiLz48cGF0aCBmaWxsPSIjZmJiYzA0IiBkPSJNMTgyLjU0NSA2Ni42NzV2NTkuMDkxTDIyOCA5MS42NzZWNzMuNDkyYzAtMTYuODYzLTE5LjI1LTI2LjQ3Ny0zMi43MjctMTYuMzYzIi8+PHBhdGggZmlsbD0iI2VhNDMzNSIgZD0iTTczLjQ1NSAxMjUuNzY2di01OS4wOUwxMjggMTA3LjU4M2w1NC41NDUtNDAuOTA5djU5LjA5MUwxMjggMTY2LjY3NSIvPjxwYXRoIGZpbGw9IiNjNTIyMWYiIGQ9Ik0yOCA3My40OTN2MTguMTgybDQ1LjQ1NCAzNC4wOTF2LTU5LjA5TDYwLjcyNyA1Ny4xM0M0Ny4yMjcgNDcuMDE2IDI4IDU2LjYzIDI4IDczLjQ5MyIvPjwvZz48L3N2Zz4=" alt="Gmail" className="w-6 h-6 rounded-md hover:scale-110 transition-transform" />
                         </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjcxZW0iIGhlaWdodD0iMS4yZW0iIHZpZXdCb3g9IjAgMCAyNTYgMTgwIj48cGF0aCBmaWxsPSIjZjAwIiBkPSJNMjUwLjM0NiAyOC4wNzVBMzIuMTggMzIuMTggMCAwIDAgMjI3LjY5IDUuNDE4QzIwNy44MjQgMCAxMjcuODcgMCAxMjcuODcgMFM0Ny45MTIuMTY0IDI4LjA0NiA1LjU4MkEzMi4xOCAzMi4xOCAwIDAgMCA1LjM5IDI4LjI0Yy02LjAwOSAzNS4yOTgtOC4zNCA4OS4wODQuMTY1IDEyMi45N2EzMi4xOCAzMi4xOCAwIDAgMCAyMi42NTYgMjIuNjU3YzE5Ljg2NiA1LjQxOCA5OS44MjIgNS40MTggOTkuODIyIDUuNDE4czc5Ljk1NSAwIDk5LjgyLTUuNDE4YTMyLjE4IDMyLjE4IDAgMCAwIDIyLjY1Ny0yMi42NTdjNi4zMzgtMzUuMzQ4IDguMjkxLTg5LjEtLjE2NC0xMjMuMTM0IiBzdHJva2Utd2lkdGg9IjQuNSIgc3Ryb2tlPSIjZjAwIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTEwMi40MjEgMTI4LjA2bDY2LjMyOC0zOC40MThsLTY2LjMyOC0zOC40MTh6IiBzdHJva2Utd2lkdGg9IjQuNSIgc3Ryb2tlPSIjZmZmIi8+PC9zdmc+" alt="YouTube" className="h-6 w-auto rounded-md hover:scale-110 transition-transform" />
+                        </a>
                     </motion.div>
                 </div>
 
@@ -91,7 +93,7 @@ const Hero = () => {
                     >
                         <div className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20 group-hover:opacity-60 group-hover:blur-3xl transition-all duration-500"></div>
                         <img
-                            src={profilePic}
+                            src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1773738246/3504a569-8920-401c-a6f6-7c7350973141_xfuttq.png"
                             alt="Profile"
                             className="relative w-full h-full object-cover rounded-full border-4 border-slate-900/50 shadow-2xl shadow-blue-500/20 group-hover:scale-105 transition-transform duration-500"
                         />
