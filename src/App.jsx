@@ -19,7 +19,7 @@ import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
-    <div className="bg-slate-900 min-h-screen text-white font-sans selection:bg-blue-500/30 selection:text-blue-200">
+    <div className="bg-slate-900 min-h-screen overflow-x-hidden text-white font-sans selection:bg-blue-500/30 selection:text-blue-200">
       <ParticlesBackground />
       <CustomCursor />
       <AnimatePresence>
