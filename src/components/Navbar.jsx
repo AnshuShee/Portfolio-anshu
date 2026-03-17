@@ -37,8 +37,12 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                 {/* Logo */}
-                <a href="#home" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
-                    Anshu.dev
+                <a href="#home" className="hover:opacity-80 transition-opacity block">
+                    <img 
+                        src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1773729456/143457ae-6929-49ce-af62-354357503697-Photoroom_ggryld.png" 
+                        alt="Anshu.dev Logo" 
+                        className="h-10 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                    />
                 </a>
 
                 {/* Desktop Menu */}
