@@ -40,12 +40,21 @@ const Projects = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="flex flex-col md:flex-row justify-between items-end mb-12"
                 >
-                    <div>
-                        <h3 className="text-blue-500 font-semibold tracking-wider uppercase mb-2">My Work</h3>
-                        <h2 className="text-3xl md:text-4xl font-bold">Featured Projects</h2>
+                    <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-3 mb-2">
+                            <h3 className="text-blue-500 font-semibold tracking-wider uppercase">My Work</h3>
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+                                Live Demos Available
+                            </span>
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+                        <p className="text-slate-400 max-w-2xl text-lg">
+                            You can check out the live preview of most of these projects right away by clicking the external link icons below!
+                        </p>
                     </div>
-                    <a href="#" className="hidden md:flex items-center gap-2 text-slate-400 hover:text-white transition-colors mt-4 md:mt-0">
-                        View All Projects <ExternalLink size={16} />
+                    <a href="https://github.com/AnshuShee?tab=repositories" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-white transition-colors mt-6 md:mt-0 font-medium whitespace-nowrap">
+                        <Github size={18} /> View GitHub
                     </a>
                 </motion.div>
 
