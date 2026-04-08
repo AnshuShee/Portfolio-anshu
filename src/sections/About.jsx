@@ -1,60 +1,86 @@
 import React from 'react';
-import { Code, Database, Globe, Cpu } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
-    const stats = [
-        { icon: <Code size={24} />, label: "Frontend", value: "React, Tailwind" },
-        { icon: <Database size={24} />, label: "Backend", value: "Node, Express" },
-        { icon: <Cpu size={24} />, label: "Database", value: "MongoDB, SQL" },
-        { icon: <Globe size={24} />, label: "Other", value: "Git, AWS" },
-    ];
 
     return (
-        <section id="about" className="py-24 bg-black text-white">
-            <div className="max-w-7xl mx-auto px-6">
-
-                <div className="flex flex-col md:flex-row gap-8 md:gap-16 lg:gap-24">
-                    {/* Introduction */}
+        <section id="about" className="py-24 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+                    {/* Left: Image */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="md:w-1/2 space-y-6"
+                        transition={{ duration: 0.7 }}
+                        viewport={{ once: true, margin: '-100px' }}
+                        className="w-full lg:w-2/5 flex justify-center lg:justify-start"
                     >
-                        <h3 className="text-blue-500 font-semibold tracking-wider uppercase">About Me</h3>
-                        <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-                            Bridging creativity and code to build digital experiences.
-                        </h2>
-                        <p className="text-slate-400 text-lg leading-relaxed">
-                            I am a passionate Full Stack Developer with a strong foundation in building scalable web applications. My journey started with a curiosity for how things work on the internet, which led me to dive deep into the world of JavaScript and modern web technologies.
-                        </p>
-                        <p className="text-slate-400 text-lg leading-relaxed">
-                            When I'm not coding, I'm exploring new AI tools, contributing to open-source, or learning about the latest design trends. I believe in writing clean, maintainable code and creating interfaces that users love to use.
-                        </p>
+                        <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)] bg-white/5 backdrop-blur-sm group p-2">
+                             <div className="w-full h-full rounded-xl overflow-hidden relative">
+                                <img
+                                    src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1773738246/3504a569-8920-401c-a6f6-7c7350973141_xfuttq.png"
+                                    alt="Anshu's Profile"
+                                    className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
                     </motion.div>
 
-                    {/* Stats/Skills Grid */}
+                    {/* Right: Text */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-100px' }}
+                        variants={{
+                            visible: { transition: { staggerChildren: 0.15 } }
+                        }}
+                        className="w-full lg:w-3/5 space-y-6 text-center lg:text-left"
                     >
-                        {stats.map((stat, index) => (
-                            <div
-                                key={index}
-                                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-colors group"
+                        <motion.p 
+                            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+                            className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)]"
+                        >
+                            About Me
+                        </motion.p>
+                        
+                        <motion.h2 
+                            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+                            className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight" style={{ fontFamily: '"Anton", sans-serif' }}
+                        >
+                            Bridging creativity and code to build digital experiences.
+                        </motion.h2>
+                        
+                        <div className="space-y-4 mt-8">
+                            <motion.p 
+                                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+                                className="text-white/70 text-base md:text-lg leading-relaxed font-light"
                             >
-                                <div className="mb-4 text-blue-400 group-hover:text-blue-300 transition-colors">
-                                    {stat.icon}
-                                </div>
-                                <h4 className="text-xl font-bold mb-1">{stat.label}</h4>
-                                <p className="text-slate-400 text-sm">{stat.value}</p>
-                            </div>
-                        ))}
+                                I am a passionate Full Stack Developer with a strong foundation in building scalable web applications. My journey started with a curiosity for how things work on the internet, which led me to dive deep into the world of JavaScript and modern web technologies.
+                            </motion.p>
+                            
+                            <motion.p 
+                                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+                                className="text-white/70 text-base md:text-lg leading-relaxed font-light"
+                            >
+                                When I'm not coding, I'm exploring new AI tools, contributing to open-source, or learning about the latest design trends. I believe in writing clean, maintainable code and creating interfaces that users love to use.
+                            </motion.p>
+
+                            <motion.div
+                                variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+                                className="pt-8 flex justify-center lg:justify-start"
+                            >
+                                <a 
+                                    href="https://res.cloudinary.com/dhnczdpqj/image/upload/fl_attachment/v1775554738/resume-anshu_page-0001_te3dyn.jpg" 
+                                    download="Anshu_Shee_Resume.jpg"
+                                    className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-black text-sm uppercase tracking-widest rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-[0_15px_40px_rgba(255,255,255,0.15)] group magnetic"
+                                >
+                                    <Download size={18} className="transition-transform group-hover:translate-y-1" />
+                                    Download Resume
+                                </a>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 </div>
 
