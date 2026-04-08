@@ -64,6 +64,21 @@ const Contributors = () => {
                             />
                         </motion.div>
 
+                        {/* Streak Stats Card */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all flex items-center justify-center"
+                        >
+                            <img 
+                                src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=dark&background=00000000&hide_border=true&ring=f97316&fire=f97316&currStreakNum=ffffff&sideNums=ffffff&sideLabels=cccccc&dates=cccccc`}
+                                alt="GitHub Streak"
+                                className="w-full max-w-[450px] transition-all duration-500"
+                            />
+                        </motion.div>
+
                         {/* Profile Info Card */}
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
