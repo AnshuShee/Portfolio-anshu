@@ -36,13 +36,13 @@ const Contributors = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] flex items-center justify-center"
+                        className="p-2 md:p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] flex items-center justify-center overflow-hidden"
                     >
-                        <div className="w-full">
+                        <div className="w-full flex justify-center py-2">
                             <img 
                                 src={`https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&icon_color=ffffff&text_bold=false&count_private=true`}
                                 alt="GitHub Stats"
-                                className="w-full max-w-[600px] transition-all duration-500 mx-auto"
+                                className="w-full max-w-[700px] scale-105 md:scale-110 transition-all duration-500 mx-auto"
                             />
                         </div>
                     </motion.div>
@@ -54,12 +54,12 @@ const Contributors = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all flex items-center justify-center"
+                            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all flex items-center justify-center overflow-hidden"
                         >
                             <img 
                                 src={`https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&count_private=true`}
                                 alt="Top Languages"
-                                className="w-full max-w-[450px] transition-all duration-500"
+                                className="w-full max-w-[550px] scale-105 md:scale-110 transition-all duration-500"
                             />
                         </motion.div>
 
