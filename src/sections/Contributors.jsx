@@ -42,7 +42,7 @@ const Contributors = () => {
                             <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-tighter" style={{ fontFamily: '"Anton", sans-serif' }}>My GitHub Statistics</h3>
                             <div className="w-full flex justify-center">
                                 <img 
-                                    src={`https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&icon_color=ffffff&text_bold=false&count_private=true&hide_title=true`}
+                                    src={`https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&icon_color=ffffff&text_bold=false&count_private=true&hide_title=true&font_size=14`}
                                     alt="GitHub Stats"
                                     className="w-full max-w-[550px] transition-all duration-500 mx-auto"
                                 />
@@ -75,7 +75,7 @@ const Contributors = () => {
                             className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all flex items-center justify-center"
                         >
                             <img 
-                                src={`https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&count_private=true`}
+                                src={`https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&count_private=true&font_size=14`}
                                 alt="Top Languages"
                                 className="w-full max-w-[450px] transition-all duration-500"
                             />
