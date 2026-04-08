@@ -40,7 +40,7 @@ const Contributors = () => {
                     >
                         <div className="flex flex-col items-center">
                             <img 
-                                src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&icon_color=ffffff&text_bold=false&count_private=true`}
+                                src={`https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&icon_color=ffffff&text_bold=false&count_private=true`}
                                 alt="GitHub Stats"
                                 className="w-full max-w-md transition-all duration-500"
                             />
@@ -57,7 +57,7 @@ const Contributors = () => {
                             className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all"
                         >
                             <img 
-                                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&count_private=true`}
+                                src={`https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&count_private=true`}
                                 alt="Top Languages"
                                 className="w-full max-w-sm transition-all duration-500"
                             />
@@ -110,7 +110,7 @@ const Contributors = () => {
                     </div>
                     <div className="w-full flex justify-center py-4">
                         <img 
-                            src={`https://ghchart.rshah.org/39d353/${username}`} 
+                            src={`https://ghchart.rshah.org/f97316/${username}`} 
                             alt={`${username}'s GitHub Activity Graph`}
                             className="w-full max-w-4xl hover:scale-[1.01] transition-all duration-500" 
                         />
