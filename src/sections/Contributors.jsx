@@ -36,13 +36,13 @@ const Contributors = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)]"
+                        className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] flex items-center justify-center"
                     >
-                        <div className="flex flex-col items-center">
+                        <div className="w-full">
                             <img 
                                 src={`https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&icon_color=ffffff&text_bold=false&count_private=true`}
                                 alt="GitHub Stats"
-                                className="w-full max-w-md transition-all duration-500"
+                                className="w-full max-w-[600px] transition-all duration-500 mx-auto"
                             />
                         </div>
                     </motion.div>
@@ -54,12 +54,12 @@ const Contributors = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all"
+                            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all flex items-center justify-center"
                         >
                             <img 
                                 src={`https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=00000000&hide_border=true&title_color=ffffff&text_color=cccccc&count_private=true`}
                                 alt="Top Languages"
-                                className="w-full max-w-sm transition-all duration-500"
+                                className="w-full max-w-[450px] transition-all duration-500"
                             />
                         </motion.div>
 
