@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Anton", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0f172a;
-  /* Slate 900 */
+  color: #ffffff;
+  background-color: #000000;
+  /* Premium black background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,7 +23,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -43,3 +48,455 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+/* ═══════════════════════════════════════
+   HERO SECTION – Dark typographic layout
+   ═══════════════════════════════════════ */
+
+/* Giant name */
+.hero-giant-name {
+  font-family: "Anton", sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  /* Responsive sizing */
+  font-size: clamp(5rem, 20vw, 18rem);
+}
+
+/* "I DESIGN AND BUILD…" */
+.hero-tagline-upper {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.6rem, 1.2vw, 0.95rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  margin-top: 1.6rem;
+}
+
+/* "deliver real impact." */
+.hero-tagline-italic {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0.4rem;
+  font-size: clamp(1.6rem, 4vw, 3.2rem);
+}
+
+/* Say-hi pill with RGB glow */
+.hero-say-hi-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 18px;
+  border: none;
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  z-index: 1;
+  isolation: isolate;
+}
+
+/* Rotating RGB gradient border */
+.hero-say-hi-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from var(--rgb-angle, 0deg),
+    #ff0000, #ff7700, #ffff00, #00ff00, #0077ff, #8800ff, #ff00ff, #ff0000
+  );
+  z-index: -2;
+  animation: rgb-rotate 3s linear infinite;
+}
+
+/* Inner mask and surface circular glow */
+.hero-say-hi-btn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 9999px;
+  background: #0a0a0a;
+  background-image: conic-gradient(
+    from var(--rgb-angle),
+    rgba(255, 0, 0, 0.15),
+    rgba(255, 119, 0, 0.15),
+    rgba(255, 255, 0, 0.15),
+    rgba(0, 255, 0, 0.15),
+    rgba(0, 119, 255, 0.15),
+    rgba(136, 0, 255, 0.15),
+    rgba(255, 0, 255, 0.15),
+    rgba(255, 0, 0, 0.15)
+  );
+  z-index: -1;
+  animation: rgb-rotate 3s linear infinite;
+}
+
+@keyframes rgb-rotate {
+  to {
+    --rgb-angle: 360deg;
+  }
+}
+
+/* Register the custom property for animation */
+@property --rgb-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.hero-say-hi-btn:hover {
+  color: #fff;
+  box-shadow: 0 0 20px rgba(136, 0, 255, 0.3), 0 0 40px rgba(255, 0, 128, 0.15);
+}
+
+/* Bottom badges */
+.hero-bottom-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.hero-bottom-badge--right {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+.hero-bottom-icon {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.hero-bottom-label {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+.hero-bottom-sublabel {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════
+   FLOATING PILL NAVBAR (scrolled state)
+   ═══════════════════════════════════════ */
+
+@keyframes navSlideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.navbar-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: rgba(20, 20, 20, 0.92);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+/* Individual nav link inside the pill */
+.navbar-pill-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.navbar-pill-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Active state — white pill highlight */
+.navbar-pill-link--active {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #0a0a0a !important;
+  font-weight: 600;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* More button */
+.navbar-pill-more {
+  cursor: pointer;
+}
+
+/* Separator line */
+.navbar-pill-sep {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+/* Icon button (phone/theme) */
+.navbar-pill-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+.navbar-pill-icon:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Book a Call CTA */
+.navbar-pill-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.navbar-pill-cta:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.08);
+}
+
+/* More dropdown */
+.navbar-more-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  animation: dropdownFadeIn 0.2s ease;
+}
+
+.navbar-more-item {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.navbar-more-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+
+/* ═══════════════════════════════════════
+   EDUCATION SECTION – White Glowing Timeline
+   ═══════════════════════════════════════ */
+
+.edu-glow-line {
+  position: absolute;
+  left: 32px;           /* matches left-8 (2rem = 32px) */
+  top: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.7)
+  );
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 14px rgba(255, 255, 255, 0.35),
+    0 0 30px rgba(255, 255, 255, 0.15);
+  z-index: 5;
+  transform: translateX(-50%);
+}
+
+/* Glowing orb at the tip of the line */
+.edu-glow-orb {
+  position: absolute;
+  left: 32px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(255, 255, 255, 0.25);
+  animation: edu-orb-pulse 2s ease-in-out infinite;
+}
+
+@keyframes edu-orb-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(255, 255, 255, 0.9),
+      0 0 20px rgba(255, 255, 255, 0.5),
+      0 0 40px rgba(255, 255, 255, 0.25);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(255, 255, 255, 1),
+      0 0 28px rgba(255, 255, 255, 0.6),
+      0 0 50px rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+}
+
+/* Desktop: center the glow line */
+@media (min-width: 768px) {
+  .edu-glow-line {
+    left: 50%;
+  }
+
+  .edu-glow-orb {
+    left: 50%;
+  }
+}
+
+/* ═══════════════════════════════════════
+   3D STACK CAROUSEL (HACKATHONS SPOTLIGHT)
+   ═══════════════════════════════════════ */
+
+.stack-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 450px;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.stack-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-carousel-card {
+  position: absolute;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform-style: preserve-3d;
+  will-change: transform, opacity, width, height;
+  cursor: pointer;
+}
+
+.stack-carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+/* Hovering amplifies center slightly but the dynamic layout manages interactions via React */
+.stack-carousel-container:hover .stack-carousel-card[style*="zIndex: 3"] {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive Scaling */
+@media (max-width: 1024px) {
+  .stack-carousel-container {
+    transform: scale(0.9);
+    height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stack-carousel-container {
+    transform: scale(0.7);
+    height: 350px;
+  }
+}
