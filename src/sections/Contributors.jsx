@@ -110,7 +110,7 @@ const Contributors = () => {
                     </div>
                     <div className="w-full flex justify-center py-4">
                         <img 
-                            src={`https://ghchart.rshah.org/f97316/${username}`} 
+                            src={`https://ghchart.rshah.org/40c463/${username}`} 
                             alt={`${username}'s GitHub Activity Graph`}
                             className="w-full max-w-4xl hover:scale-[1.01] transition-all duration-500" 
                         />
