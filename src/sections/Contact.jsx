@@ -11,7 +11,6 @@ const Contact = () => {
         e.preventDefault();
         setStatus('sending');
 
-        // Replace these with your actual Service ID, Template ID, and Public Key from EmailJS
         emailjs.sendForm('service_ekoyjfy', 'template_xdnvpks', form.current, 'TsW3mOS-yxRPQZcqd')
             .then((result) => {
                 setStatus('success');
@@ -25,139 +24,163 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-24 bg-gradient-to-b from-slate-900 to-black text-white">
-            <div className="max-w-4xl lg:max-w-5xl mx-auto px-6">
+        <section id="contact" className="py-24 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className="text-center mb-16"
+                    className="text-center mb-20"
                 >
-                    <h3 className="text-blue-500 font-semibold tracking-wider uppercase mb-2">Get In Touch</h3>
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8">Let's work together.</h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">Get In Touch</p>
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-8 uppercase" style={{ fontFamily: '"Anton", sans-serif' }}>Let's work together.</h2>
+                    <p className="text-white/70 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                         I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                     </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-12 items-start">
+                <div className="grid lg:grid-cols-2 gap-16 items-start">
                     {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="space-y-8"
+                        className="space-y-12"
                     >
-                        <h3 className="text-2xl font-bold">Contact Information</h3>
+                        <div>
+                            <h3 className="text-3xl font-black text-white mb-8 uppercase tracking-tight" style={{ fontFamily: '"Anton", sans-serif' }}>Contact details</h3>
+                            
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-5 group">
+                                    <div className="p-3.5 bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl shadow-sm text-white/90 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                                        <Mail size={24} />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs font-bold text-white/50 uppercase tracking-wider">Email me at</span>
+                                        <a href="mailto:anshu.shee.cg@gmail.com" className="text-xl font-bold text-white hover:text-white/80 transition-colors">anshu.shee.cg@gmail.com</a>
+                                    </div>
+                                </div>
 
-                        <div className="flex items-center gap-4 text-slate-300">
-                            <div className="p-2 bg-slate-900 rounded-lg shadow-sm border border-slate-800">
-                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjJlbSIgaGVpZ2h0PSIxLjJlbSIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxnIGZpbGw9Im5vbmUiPjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSIjZjRmMmVkIiByeD0iNjAiLz48cGF0aCBmaWxsPSIjNDI4NWY0IiBkPSJNNDEuNjM2IDIwMy4wMzloMzEuODE4di03Ny4yNzNMMjggOTEuNjc2djk3LjcyN2MwIDcuNTQ1IDYuMTE0IDEzLjYzNiAxMy42MzYgMTMuNjM2Ii8+PHBhdGggZmlsbD0iIzM0YTg1MyIgZD0iTTE4Mi41NDUgMjAzLjAzOWgzMS44MTljNy41NDUgMCAxMy42MzYtNi4xMTQgMTMuNjM2LTEzLjYzNlY5MS42NzVsLTQ1LjQ1NSAzNC4wOTEiLz48cGF0aCBmaWxsPSIjZmJiYzA0IiBkPSJNMTgyLjU0NSA2Ni42NzV2NTkuMDkxTDIyOCA5MS42NzZWNzMuNDkyYzAtMTYuODYzLTE5LjI1LTI2LjQ3Ny0zMi43MjctMTYuMzYzIi8+PHBhdGggZmlsbD0iI2VhNDMzNSIgZD0iTTczLjQ1NSAxMjUuNzY2di01OS4wOUwxMjggMTA3LjU4M2w1NC41NDUtNDAuOTA5djU5LjA5MUwxMjggMTY2LjY3NSIvPjxwYXRoIGZpbGw9IiNjNTIyMWYiIGQ9Ik0yOCA3My40OTN2MTguMTgybDQ1LjQ1NCAzNC4wOTF2LTU5LjA5TDYwLjcyNyA1Ny4xM0M0Ny4yMjcgNDcuMDE2IDI4IDU2LjYzIDI4IDczLjQ5MyIvPjwvZz48L3N2Zz4=" alt="Gmail" className="w-6 h-6 object-cover" />
+                                <div className="flex items-center gap-5 group">
+                                    <div className="p-3.5 bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl shadow-sm text-white/90 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                                        <MapPin size={24} />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs font-bold text-white/50 uppercase tracking-wider">Location</span>
+                                        <span className="text-xl font-bold text-white transition-colors">Available globally (Remote)</span>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="mailto:anshu.shee.cg@gmail.com" className="hover:text-white transition-colors">anshu.shee.cg@gmail.com</a>
                         </div>
 
-                        <div className="flex items-center gap-4 text-slate-300">
-                            <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400">
-                                <MapPin size={24} />
+                        <div>
+                            <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider" style={{ fontFamily: '"Anton", sans-serif' }}>Connect with me</h3>
+                            <div className="flex gap-4">
+                                <a
+                                    href="https://github.com/AnshuShee"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-4 bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl shadow-sm hover:bg-orange-500 hover:text-white transition-all group"
+                                >
+                                    <Github size={24} className="group-hover:scale-110 transition-transform" />
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/anshu-shee-3119183a0/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-4 bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl shadow-sm hover:bg-orange-500 hover:text-white transition-all group"
+                                >
+                                    <Linkedin size={24} className="group-hover:scale-110 transition-transform" />
+                                </a>
+                                <a
+                                    href="mailto:anshu.shee.cg@gmail.com"
+                                    className="p-4 bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl shadow-sm hover:bg-orange-500 hover:text-white transition-all group"
+                                >
+                                    <Mail size={24} className="group-hover:scale-110 transition-transform" />
+                                </a>
                             </div>
-                            <span>Available for Remote Work</span>
-                        </div>
-
-                        <div className="flex gap-4 pt-4">
-                            <a
-                                href="https://github.com/AnshuShee"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center group"
-                            >
-                                <Github size={24} className="group-hover:scale-110 transition-transform" />
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/in/anshu-shee-3119183a0/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center group"
-                            >
-                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjJlbSIgaGVpZ2h0PSIxLjJlbSIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxnIGZpbGw9Im5vbmUiPjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSIjMGE2NmMyIiByeD0iNjAiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTg0LjcxNSAyMTcuNjg1aDI5LjI3YTQgNCAwIDAgMCA0LTMuOTk5bC4wMTUtNjEuODQyYzAtMzIuMzIzLTYuOTY1LTU3LjE2OC00NC43MzgtNTcuMTY4Yy0xNC4zNTktLjUzNC0yNy45IDYuODY4LTM1LjIwNyAxOS4yMjhhLjMyLjMyIDAgMCAxLS41OTUtLjE2MVYxMDEuNjZhNCA0IDAgMCAwLTQtNGgtMjcuNzc3YTQgNCAwIDAgMCA0IDR2MTEyLjAyYTQgNCAwIDAgMCA0IDRoMjkuMjY4YTQgNCAwIDAgMCA0LTR2LTU1LjM3M2MwLTE1LjY1NyAyLjk3LTMwLjgyIDIyLjM4MS0zMC44MmMxOS4xMzUgMCAxOS4zODMgMTcuOTE2IDE5LjM4MyAzMS44MzR2NTQuMzY0YTQgNCAwIDAgMCA0IDRNMzggNTkuNjI4YzAgMTEuODY0IDkuNzY3IDIxLjYyNiAyMS42MzIgMjEuNjI2YzExLjg2Mi0uMDAxIDIxLjYyMy05Ljc2OSAyMS42MjMtMjEuNjMxQzgxLjI1MyA0Ny43NjEgNzEuNDkxIDM4IDU5LjYyOCAzOEM0Ny43NjIgMzggMzggNDcuNzYzIDM4IDU5LjYyN202Ljk1OSAxNTguMDU4aDI5LjMwN2E0IDQgMCAwIDAgNC00VjEwMS42NmE0IDQgMCAwIDAtNC00SDQ0Ljk1OWE0IDQgMCAwIDAtNCA0djExMi4wMjVhNCA0IDAgMCAwIDQgNCIvPjwvZz48L3N2Zz4=" alt="LinkedIn" className="w-6 h-6 object-cover group-hover:scale-110 transition-transform" />
-                            </a>
-                            <a
-                                href="mailto:anshu.shee.cg@gmail.com"
-                                className="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center group"
-                            >
-                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjJlbSIgaGVpZ2h0PSIxLjJlbSIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxnIGZpbGw9Im5vbmUiPjxyZWN0IHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiBmaWxsPSIjZjRmMmVkIiByeD0iNjAiLz48cGF0aCBmaWxsPSIjNDI4NWY0IiBkPSJNNDEuNjM2IDIwMy4wMzloMzEuODE4di03Ny4yNzNMMjggOTEuNjc2djk3LjcyN2MwIDcuNTQ1IDYuMTE0IDEzLjYzNiAxMy42MzYgMTMuNjM2Ii8+PHBhdGggZmlsbD0iIzM0YTg1MyIgZD0iTTE4Mi41NDUgMjAzLjAzOWgzMS44MTljNy41NDUgMCAxMy42MzYtNi4xMTQgMTMuNjM2LTEzLjYzNlY5MS42NzVsLTQ1LjQ1NSAzNC4wOTEiLz48cGF0aCBmaWxsPSIjZmJiYzA0IiBkPSJNMTgyLjU0NSA2Ni42NzV2NTkuMDkxTDIyOCA5MS42NzZWNzMuNDkyYzAtMTYuODYzLTE5LjI1LTI2LjQ3Ny0zMi43MjctMTYuMzYzIi8+PHBhdGggZmlsbD0iI2VhNDMzNSIgZD0iTTczLjQ1NSAxMjUuNzY2di01OS4wOUwxMjggMTA3LjU4M2w1NC41NDUtNDAuOTA5djU5LjA5MUwxMjggMTY2LjY3NSIvPjxwYXRoIGZpbGw9IiNjNTIyMWYiIGQ9Ik0yOCA3My40OTN2MTguMTgybDQ1LjQ1NCAzNC4wOTF2LTU5LjA5TDYwLjcyNyA1Ny4xM0M0Ny4yMjcgNDcuMDE2IDI4IDU2LjYzIDI4IDczLjQ5MyIvPjwvZz48L3N2Zz4=" alt="Gmail" className="w-6 h-6 object-cover group-hover:scale-110 transition-transform" />
-                            </a>
-                            <a
-                                href="#"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center group"
-                            >
-                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjcxZW0iIGhlaWdodD0iMS4yZW0iIHZpZXdCb3g9IjAgMCAyNTYgMTgwIj48cGF0aCBmaWxsPSIjZjAwIiBkPSJNMjUwLjM0NiAyOC4wNzVBMzIuMTggMzIuMTggMCAwIDAgMjI3LjY5IDUuNDE4QzIwNy44MjQgMCAxMjcuODcgMCAxMjcuODcgMFM0Ny45MTIuMTY0IDI4LjA0NiA1LjU4MkEzMi4xOCAzMi4xOCAwIDAgMCA1LjM5IDI4LjI0Yy02LjAwOSAzNS4yOTgtOC4zNCA4OS4wODQuMTY1IDEyMi45N2EzMi4xOCAzMi4xOCAwIDAgMCAyMi42NTYgMjIuNjU3YzE5Ljg2NiA1LjQxOCA5OS44MjIgNS40MTggOTkuODIyIDUuNDE4czc5Ljk1NSAwIDk5LjgyLTUuNDE4YTMyLjE4IDMyLjE4IDAgMCAwIDIyLjY1Ny0yMi42NTdjNi4zMzgtMzUuMzQ4IDguMjkxLTg5LjEtLjE2NC0xMjMuMTM0IiBzdHJva2Utd2lkdGg9IjQuNSIgc3Ryb2tlPSIjZjAwIi8+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTEwMi40MjEgMTI4LjA2bDY2LjMyOC0zOC40MThsLTY2LjMyOC0zOC40MTh6IiBzdHJva2Utd2lkdGg9IjQuNSIgc3Ryb2tlPSIjZmZmIi8+PC9zdmc+" alt="YouTube" className="w-auto h-6 object-contain group-hover:scale-110 transition-transform" />
-                            </a>
                         </div>
                     </motion.div>
 
                     {/* Form */}
-                    <motion.form
-                        ref={form}
-                        onSubmit={sendEmail}
+                    <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="space-y-6 bg-slate-900/50 p-8 rounded-2xl border border-white/10"
+                        className="p-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2.5rem] shadow-[0_4px_30px_rgba(255,255,255,0.05)]"
                     >
-                        <div>
-                            <label className="block text-sm font-medium text-slate-400 mb-2">Name</label>
-                            <input
-                                type="text"
-                                name="user_name"
-                                required
-                                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
-                                placeholder="John Doe"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-slate-400 mb-2">Email</label>
-                            <input
-                                type="email"
-                                name="user_email"
-                                required
-                                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"
-                                placeholder="john@example.com"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-slate-400 mb-2">Message</label>
-                            <textarea
-                                name="message"
-                                required
-                                rows="4"
-                                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                                placeholder="Your message here..."
-                            ></textarea>
-                        </div>
-
-                        <button
-                            type="submit"
-                            disabled={status === 'sending'}
-                            className="w-full py-4 bg-blue-600 text-white rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-blue-700 disabled:bg-blue-600/50 disabled:cursor-not-allowed transition-all"
+                        <form
+                            ref={form}
+                            onSubmit={sendEmail}
+                            className="space-y-8"
                         >
-                            {status === 'sending' ? (
-                                'Sending...'
-                            ) : status === 'success' ? (
-                                'Message Sent!'
-                            ) : status === 'error' ? (
-                                'Failed to Send'
-                            ) : (
-                                <>Send Message <Send size={20} /></>
-                            )}
-                        </button>
-                    </motion.form>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="space-y-3">
+                                    <label className="block text-xs font-bold text-white/50 uppercase tracking-widest pl-1">Your Name</label>
+                                    <input
+                                        type="text"
+                                        name="user_name"
+                                        required
+                                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 focus:bg-white/10 transition-all font-light text-white placeholder-white/30"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                                <div className="space-y-3">
+                                    <label className="block text-xs font-bold text-white/50 uppercase tracking-widest pl-1">Email Address</label>
+                                    <input
+                                        type="email"
+                                        name="user_email"
+                                        required
+                                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 focus:bg-white/10 transition-all font-light text-white placeholder-white/30"
+                                        placeholder="john@example.com"
+                                    />
+                                </div>
+                            </div>
+                            <div className="space-y-3">
+                                <label className="block text-xs font-bold text-white/50 uppercase tracking-widest pl-1">Topic / Project Title</label>
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 focus:bg-white/10 transition-all font-light text-white placeholder-white/30"
+                                    placeholder="Brief title of your project"
+                                />
+                            </div>
+                            <div className="space-y-3">
+                                <label className="block text-xs font-bold text-white/50 uppercase tracking-widest pl-1">Message</label>
+                                <textarea
+                                    name="message"
+                                    required
+                                    rows="5"
+                                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 focus:bg-white/10 transition-all font-light text-white placeholder-white/30 resize-none"
+                                    placeholder="Tell me about your project..."
+                                ></textarea>
+                            </div>
+
+                            <button
+                                type="submit"
+                                disabled={status === 'sending'}
+                                className="w-full py-5 bg-orange-600 text-white rounded-2xl font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-orange-500 disabled:bg-white/10 disabled:text-white/50 disabled:cursor-not-allowed transition-all shadow-[0_0_20px_rgba(249,115,22,0.3)]"
+                                style={{ fontFamily: '"Anton", sans-serif' }}
+                            >
+                                {status === 'sending' ? (
+                                    <span className="flex items-center gap-2">
+                                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                        Sending...
+                                    </span>
+                                ) : status === 'success' ? (
+                                    'Message Sent!'
+                                ) : status === 'error' ? (
+                                    'Failed to Send'
+                                ) : (
+                                    <>Send Message <Send size={20} /></>
+                                )}
+                            </button>
+                        </form>
+                    </motion.div>
                 </div>
 
             </div>
