@@ -32,7 +32,8 @@ const Projects = () => {
             tags: ["React", "Framer Motion", "Tailwind CSS"],
             github: "https://github.com/AnshuShee/MacBook-M4-Pro-Landing-Page",
             demo: "https://mac-m4-anshu-shee.netlify.app/",
-            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775813161/Gemini_Generated_Image_5mvg5c5mvg5c5mvg_qzp6y5.png",
+            youtube: "https://youtu.be/C1AmmybvOPk?si=G6zE390LgiyAZHvo",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775815226/Mac_thumbnail_mg7ghx.jpg",
             bgClass: "bg-gradient-to-br from-zinc-900 to-[#000] border-zinc-500/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
         },
         {
@@ -47,7 +48,7 @@ const Projects = () => {
             github: "https://github.com/AnshuShee",
             demo: "https://get-your-guide-by-anshushee.netlify.app/", 
             youtube: "https://youtu.be/D5k05kKDQbY?si=oV2rWqSXYiQRGOzy",
-            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775713009/Screenshot_2026-04-09_110611_jsuzsf.png",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775815908/Cloning_GetYourGuide__A_digital_transformation_1_qearxw.png",
             bgClass: "bg-gradient-to-br from-blue-900/40 to-[#111] border-blue-500/20"
         }
     ];
@@ -175,7 +176,7 @@ const Projects = () => {
                                         <img 
                                             src={project.image} 
                                             alt={project.title}
-                                            className="w-full h-auto max-h-[500px] object-cover object-top transform group-hover:scale-[1.02] transition-transform duration-700"
+                                            className="w-full aspect-video object-cover object-top transform group-hover:scale-[1.02] transition-transform duration-700"
                                         />
                                         {project.demo !== "#" && (
                                             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-pointer" onClick={() => setSelectedProject(project)}>
