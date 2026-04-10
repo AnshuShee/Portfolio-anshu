@@ -29,12 +29,12 @@ const Loader = () => {
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h1 
-                        className="text-6xl md:text-8xl font-black text-white mb-8"
-                        style={{ fontFamily: '"Playfair Display", serif', fontStyle: 'italic' }}
-                    >
-                        Anshu.
-                    </h1>
+                    <img
+                        src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png"
+                        alt="Anshu Shee Logo"
+                        className="h-32 md:h-44 w-auto mx-auto mb-8"
+                        style={{ filter: 'brightness(1.1)' }}
+                    />
                 </motion.div>
 
                 {/* Loading Spinner */}

@@ -20,20 +20,25 @@ const Navbar = () => {
     // Track active section
     useEffect(() => {
         const sections = ['home', 'about', 'education', 'skills', 'projects', 'hackathons', 'certificates', 'contributors', 'contact'];
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        setActiveSection('#' + entry.target.id);
-                    }
-                });
-            },
-            { threshold: 0.3 }
-        );
+        
+        const observerOptions = {
+            rootMargin: '-15% 0px -80% 0px', // Focus on the top part of the screen
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveSection('#' + entry.target.id);
+                }
+            });
+        }, observerOptions);
+
         sections.forEach(id => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
         });
+
         return () => observer.disconnect();
     }, []);
 
@@ -92,12 +97,12 @@ const Navbar = () => {
                     {/* Logo + Tagline */}
                     <div className="flex items-center gap-3">
                         <a href="#home" className="hover:opacity-80 transition-opacity flex items-center">
-                            <span
-                                className="text-2xl font-bold text-white"
-                                style={{ fontFamily: '"Playfair Display", serif', fontStyle: 'italic' }}
-                            >
-                                Anshu.
-                            </span>
+                            <img
+                                src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png"
+                                alt="Anshu Shee Logo"
+                                className="h-14 w-auto"
+                                style={{ filter: 'brightness(1.1)' }}
+                            />
                         </a>
                         <span className="hidden sm:block w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                         <div className="hidden sm:flex flex-col leading-none">
@@ -169,8 +174,8 @@ const Navbar = () => {
                         }}
                     >
                         <div className="navbar-pill">
-                            {/* Primary links */}
-                            {primaryLinks.map((link) => (
+                            {/* All links */}
+                            {allLinks.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
@@ -179,51 +184,6 @@ const Navbar = () => {
                                     {link.name}
                                 </a>
                             ))}
-
-                            {/* More dropdown */}
-                            <div ref={moreRef} style={{ position: 'relative' }}>
-                                <button
-                                    onClick={() => setMoreOpen(!moreOpen)}
-                                    className="navbar-pill-link navbar-pill-more"
-                                >
-                                    More <ChevronDown size={13} style={{ marginLeft: 2, transition: 'transform 0.2s', transform: moreOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
-                                </button>
-                                <AnimatePresence>
-                                    {moreOpen && (
-                                        <motion.div 
-                                            initial={{ opacity: 0, y: -10, x: '-50%' }}
-                                            animate={{ opacity: 1, y: 0, x: '-50%' }}
-                                            exit={{ opacity: 0, y: -10, x: '-50%' }}
-                                            transition={{ duration: 0.15 }}
-                                            className="navbar-more-dropdown"
-                                        >
-                                            {moreLinks.map((link) => (
-                                                <a
-                                                    key={link.name}
-                                                    href={link.href}
-                                                    className="navbar-more-item"
-                                                    onClick={() => setMoreOpen(false)}
-                                                >
-                                                    {link.name}
-                                                </a>
-                                            ))}
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-
-                            {/* Separator */}
-                            <div className="navbar-pill-sep"></div>
-
-                            {/* Theme icon placeholder */}
-                            <a href="#contact" className="navbar-pill-icon" title="Contact">
-                                <Phone size={15} />
-                            </a>
-
-                            {/* Book a Call / Contact CTA */}
-                            <a href="#contact" className="navbar-pill-cta" style={{ fontSize: '0.8rem', padding: '8px 20px', marginLeft: '6px' }}>
-                                Book a Call
-                            </a>
                         </div>
                     </motion.nav>
                 )}
