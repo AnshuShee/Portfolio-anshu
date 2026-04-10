@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ExternalLink, Github, Folder, X, Maximize2 } from 'lucide-react';
+import { ExternalLink, Github, Folder, X, Maximize2, Youtube } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 const Projects = () => {
@@ -17,7 +17,8 @@ const Projects = () => {
             tags: ["React", "CSS", "JavaScript", "Node.js"],
             github: "https://github.com/AnshuShee/Myntra-Cloned-Website",
             demo: "https://anshushee-project.netlify.app/",
-            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1773722259/Screenshot_2026-03-17_014708_sca2ny.png",
+            youtube: "https://youtu.be/OxxYQk876w8?si=hP2809pOd8ArperA",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775812599/maxresdefault_obuy37.webp",
             bgClass: "bg-gradient-to-br from-red-900/40 to-[#111] border-red-500/20"
         },
         {
@@ -31,22 +32,23 @@ const Projects = () => {
             tags: ["React", "Framer Motion", "Tailwind CSS"],
             github: "https://github.com/AnshuShee/MacBook-M4-Pro-Landing-Page",
             demo: "https://mac-m4-anshu-shee.netlify.app/",
-            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775497409/Screenshot_2026-04-06_230459_qmag6y.png",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775813161/Gemini_Generated_Image_5mvg5c5mvg5c5mvg_qzp6y5.png",
             bgClass: "bg-gradient-to-br from-zinc-900 to-[#000] border-zinc-500/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
         },
         {
-            title: "FleetMetrics System",
-            description: "Designed for logistics and transportation companies to efficiently manage vehicles, drivers, trips, expenses, and operational analytics.",
+            title: "GetYourGuide Clone",
+            description: "A fully responsive travel experience booking platform inspired by GetYourGuide. Discover and explore tours, attractions, and activities worldwide.",
             features: [
-                "Live dashboard for tracking active fleet metrics and expenses",
-                "Comprehensive driver and vehicle scheduling system",
-                "Automated maintenance alerts and diagnostic reporting views"
+                "Interactive UI matching the real GetYourGuide platform",
+                "Browse diverse travel experiences and guided tours",
+                "Fully responsive, modern layout optimized for seamless browsing"
             ],
-            tags: ["Next.js", "React", "Tailwind CSS", "Node.js"],
-            github: "#",
-            demo: "#", 
-            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1773722881/Screenshot_2026-03-10_013632_qeahuc.png",
-            bgClass: "bg-gradient-to-br from-emerald-900/40 to-[#111] border-emerald-500/20"
+            tags: ["React", "CSS", "JavaScript", "Tailwind CSS"],
+            github: "https://github.com/AnshuShee",
+            demo: "https://get-your-guide-by-anshushee.netlify.app/", 
+            youtube: "https://youtu.be/D5k05kKDQbY?si=oV2rWqSXYiQRGOzy",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775713009/Screenshot_2026-04-09_110611_jsuzsf.png",
+            bgClass: "bg-gradient-to-br from-blue-900/40 to-[#111] border-blue-500/20"
         }
     ];
 
@@ -59,7 +61,7 @@ const Projects = () => {
     const timelineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <section id="projects" className="py-24 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+        <section id="projects" className="py-12 md:py-16 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -123,8 +125,34 @@ const Projects = () => {
                                         ))}
                                     </div>
 
-                                    <div className="flex gap-4">
-                                        <a href={project.github !== "#" ? project.github : undefined} target="_blank" rel="noopener noreferrer" className={`p-3 bg-white/5 border border-white/10 rounded-xl transition-all ${project.github !== "#" ? 'text-white/70 hover:text-white hover:border-white/30 cursor-pointer' : 'text-white/20 cursor-not-allowed'}`}><Github size={20} /></a>
+                                    <div className="flex flex-wrap items-center gap-4">
+                                        <a href={project.github !== "#" ? project.github : undefined} target="_blank" rel="noopener noreferrer" className={`p-3 bg-white/5 border border-white/10 rounded-xl transition-all ${project.github !== "#" ? 'text-white/70 hover:text-white hover:border-white/30 cursor-pointer group' : 'text-white/20 cursor-not-allowed'}`}>
+                                            <Github size={20} className="block group-hover:hidden transition-transform" />
+                                            <svg 
+                                                xmlns="http://www.w3.org/2000/svg" 
+                                                width="20" 
+                                                height="20" 
+                                                viewBox="0 0 256 256"
+                                                className="hidden group-hover:block transition-transform group-hover:scale-110"
+                                            >
+                                                <g fill="none"><rect width="256" height="256" fill="#f4f2ed" rx="60"/><path fill="#161614" d="M128.001 30C72.779 30 28 74.77 28 130.001c0 44.183 28.653 81.667 68.387 94.89c4.997.926 6.832-2.169 6.832-4.81c0-2.385-.093-10.262-.136-18.618c-27.82 6.049-33.69-11.799-33.69-11.799c-4.55-11.559-11.104-14.632-11.104-14.632c-9.073-6.207.684-6.079.684-6.079c10.042.705 15.33 10.305 15.33 10.305c8.919 15.288 23.394 10.868 29.1 8.313c.898-6.464 3.489-10.875 6.349-13.372c-22.211-2.529-45.56-11.104-45.56-49.421c0-10.918 3.906-19.839 10.303-26.842c-1.039-2.519-4.462-12.69.968-26.464c0 0 8.398-2.687 27.508 10.25c7.977-2.215 16.531-3.326 25.03-3.364c8.498.038 17.06 1.149 25.051 3.365c19.087-12.939 27.473-10.25 27.473-10.25c5.443 13.773 2.019 23.945.98 26.463c6.412 7.003 10.292 15.924 10.292 26.842c0 38.409-23.394 46.866-45.662 49.341c3.587 3.104 6.783 9.189 6.783 18.519c0 13.38-.116 24.149-.116 27.443c0 2.661 1.8 5.779 6.869 4.797C199.383 211.64 228 174.169 228 130.001C228 74.771 183.227 30 128.001 30M65.454 172.453c-.22.497-1.002.646-1.714.305c-.726-.326-1.133-1.004-.898-1.502c.215-.512.999-.654 1.722-.311c.727.326 1.141 1.01.89 1.508m4.919 4.389c-.477.443-1.41.237-2.042-.462c-.654-.697-.777-1.629-.293-2.078c.491-.442 1.396-.235 2.051.462c.654.706.782 1.631.284 2.078m3.374 5.616c-.613.426-1.615.027-2.234-.863c-.613-.889-.613-1.955.013-2.383c.621-.427 1.608-.043 2.236.84c.611.904.611 1.971-.015 2.406m5.707 6.504c-.548.604-1.715.442-2.57-.383c-.874-.806-1.118-1.95-.568-2.555c.555-.606 1.729-.435 2.59.383c.868.804 1.133 1.957.548 2.555m7.376 2.195c-.242.784-1.366 1.14-2.499.807c-1.13-.343-1.871-1.26-1.642-2.052c.235-.788 1.364-1.159 2.505-.803c1.13.341 1.871 1.252 1.636 2.048m8.394.932c.028.824-.932 1.508-2.121 1.523c-1.196.027-2.163-.641-2.176-1.452c0-.833.939-1.51 2.134-1.53c1.19-.023 2.163.639 2.163 1.459m8.246-.316c.143.804-.683 1.631-1.864 1.851c-1.161.212-2.236-.285-2.383-1.083c-.144-.825.697-1.651 1.856-1.865c1.183-.205 2.241.279 2.391 1.097"/></g>
+                                            </svg>
+                                        </a>
+                                        {project.youtube && (
+                                            <a href={project.youtube} target="_blank" rel="noopener noreferrer" className={`p-3 bg-white/5 border border-white/10 rounded-xl transition-all text-white/70 hover:text-[#FF0000] hover:border-[#FF0000]/30 cursor-pointer group`} title="Watch on YouTube">
+                                                <Youtube size={20} className="block group-hover:hidden transition-transform" />
+                                                <svg 
+                                                    xmlns="http://www.w3.org/2000/svg" 
+                                                    width="20" 
+                                                    height="20" 
+                                                    viewBox="0 0 256 180" 
+                                                    className="hidden group-hover:block transition-transform group-hover:scale-110"
+                                                >
+                                                    <path fill="#f00" d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134"/>
+                                                    <path fill="#fff" d="m102.421 128.06l66.328-38.418l-66.328-38.418z"/>
+                                                </svg>
+                                            </a>
+                                        )}
                                         {project.demo !== "#" && (
                                             <button onClick={() => setSelectedProject(project)} className="px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-xl hover:bg-orange-600 hover:border-transparent transition-colors">
                                                 View Live Demo
@@ -141,7 +169,7 @@ const Projects = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.7 }}
                                     viewport={{ once: true, margin: "-100px" }}
-                                    className={`w-full p-4 sm:p-8 md:p-12 rounded-[2rem] border ${project.bgClass} shadow-2xl relative group overflow-hidden`}
+                                    className="w-full relative group"
                                 >
                                     <div className="relative w-full rounded-xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                                         <img 
