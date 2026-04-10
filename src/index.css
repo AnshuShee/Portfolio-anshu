@@ -109,51 +109,43 @@ h1 {
   transition: all 0.3s ease;
   z-index: 1;
   isolation: isolate;
+  overflow: hidden;
 }
 
-/* Rotating RGB gradient border */
+/* Rotating RGB gradient border trail (Classic rotation for maximum compatibility) */
 .hero-say-hi-btn::before {
   content: "";
   position: absolute;
-  inset: -2px;
-  border-radius: 9999px;
+  top: -200%;
+  left: -200%;
+  width: 500%;
+  height: 500%;
   background: conic-gradient(
-    from var(--rgb-angle, 0deg),
-    #ff0000, #ff7700, #ffff00, #00ff00, #0077ff, #8800ff, #ff00ff, #ff0000
+    transparent 70%,
+    #ff8a00 85%,
+    #ff00d6 95%,
+    #00ccff 100%
   );
   z-index: -2;
-  animation: rgb-rotate 3s linear infinite;
+  animation: rotate-full 2s linear infinite;
 }
 
-/* Inner mask and surface circular glow */
+@keyframes rotate-full {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Inner mask to create the thin border effect */
 .hero-say-hi-btn::after {
   content: "";
   position: absolute;
   inset: 1px;
   border-radius: 9999px;
-  background: #0a0a0a;
-  background-image: conic-gradient(
-    from var(--rgb-angle),
-    rgba(255, 0, 0, 0.15),
-    rgba(255, 119, 0, 0.15),
-    rgba(255, 255, 0, 0.15),
-    rgba(0, 255, 0, 0.15),
-    rgba(0, 119, 255, 0.15),
-    rgba(136, 0, 255, 0.15),
-    rgba(255, 0, 255, 0.15),
-    rgba(255, 0, 0, 0.15)
-  );
+  background: #000000;
   z-index: -1;
-  animation: rgb-rotate 3s linear infinite;
 }
 
-@keyframes rgb-rotate {
-  to {
-    --rgb-angle: 360deg;
-  }
-}
-
-/* Register the custom property for animation */
+/* Register the custom property is no longer needed but kept for other uses if any */
 @property --rgb-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -226,6 +218,13 @@ h1 {
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.35),
     0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  max-width: 95vw;
+  overflow-x: auto;
+  -ms-overflow-style: none; /* hide scrollbar for IE/Edge */
+  scrollbar-width: none; /* hide scrollbar for Firefox */
+}
+.navbar-pill::-webkit-scrollbar {
+  display: none; /* hide scrollbar for webkit */
 }
 
 /* Individual nav link inside the pill */
@@ -499,4 +498,205 @@ h1 {
     transform: scale(0.7);
     height: 350px;
   }
-}
+}
+
+/* ═══════════════════════════════════════
+   SKILLS — "The Magic Behind" layout
+   ═══════════════════════════════════════ */
+
+/* ── Section ── */
+.sk-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ── Content wrapper ── */
+.sk-content {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .sk-content {
+    padding: 3rem 3rem 6rem;
+  }
+}
+
+/* ── Sculpture image ── */
+.sk-sculpture-wrap {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin-bottom: -1.5rem;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .sk-sculpture-wrap {
+    width: 300px;
+    height: 300px;
+    margin-bottom: -2rem;
+  }
+}
+
+.sk-sculpture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0.85) contrast(1.1);
+}
+
+/* ── Sculpture image ── */
+.sk-sculpture-wrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 1rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .sk-sculpture-wrap {
+    width: 380px;
+    height: 380px;
+    margin-bottom: 2rem;
+  }
+}
+
+.sk-sculpture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: brightness(1.1) contrast(1.1);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* ── Heading block ── */
+.sk-heading-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Label ── */
+.sk-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Title ── */
+.sk-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0;
+  text-align: center;
+}
+
+/* Italic gradient accent on "Behind" */
+.sk-title-accent {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  display: inline-block;
+  background: linear-gradient(
+    to right,
+    #ff2d95,
+    #ff61d2,
+    #fe8c00
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 0.05em;
+  filter: drop-shadow(0 0 15px rgba(255, 45, 149, 0.4));
+}
+
+/* ── Skill rows ── */
+.sk-rows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sk-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* ── Skill pill ── */
+.sk-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.sk-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+.sk-pill-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 300ms ease;
+}
+
+.sk-pill:hover .sk-pill-icon {
+  transform: rotate(12deg) scale(1.1);
+}
+
+.sk-pill-text {
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
