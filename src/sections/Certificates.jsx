@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Award, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import udemyCert from '../assets/udemy-cert.jpg';
 import outskillCert from '../assets/outskill-cert.jpg';
 import wscubeCert from '../assets/wscube-cert.jpg';
@@ -8,8 +8,30 @@ import awsCert from '../assets/aws-cert.jpg';
 import forgeCert from '../assets/forge-cert.jpg';
 
 const Certificates = () => {
-    const scrollRef = React.useRef(null);
+    const scrollRef = useRef(null);
+    
     const certificates = [
+        {
+            name: "Claude Code in Action",
+            issuer: "Anthropic",
+            date: "2026",
+            link: "#",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775709633/certificate-b3a4pd6wpuxv-1775709467_page-0001_htadhv.jpg"
+        },
+        {
+            name: "AWS - Application Migration Service",
+            issuer: "AWS",
+            date: "2025",
+            link: "#",
+            image: awsCert
+        },
+        {
+            name: "Software Development Job Simulation",
+            issuer: "Forage",
+            date: "2025",
+            link: "",
+            image: forgeCert
+        },
         {
             name: "HTML and CSS for Beginners",
             issuer: "Udemy",
@@ -30,20 +52,6 @@ const Certificates = () => {
             date: "Dec 24, 2025",
             link: "#",
             image: wscubeCert
-        },
-        {
-            name: "AWS - Application Migration Service",
-            issuer: "AWS",
-            date: "2025",
-            link: "#",
-            image: awsCert
-        },
-        {
-            name: "Software Development Job Simulation",
-            issuer: "Forage",
-            date: "2025",
-            link: "",
-            image: forgeCert
         }
     ];
 
@@ -59,7 +67,7 @@ const Certificates = () => {
     };
 
     return (
-        <section id="certificates" className="py-24 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+        <section id="certificates" className="py-12 md:py-16 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                     <motion.div
@@ -104,41 +112,64 @@ const Certificates = () => {
                             href={cert.link}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{
-                                y: -8,
-                                transition: { duration: 0.3 }
-                            }}
-                            transition={{ duration: 0.6, delay: index * 0.15 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            className={`group p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/30 transition-all hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] block overflow-hidden snap-start ${certificates.length > 3 ? 'min-w-[300px] md:min-w-[380px]' : 'w-full'}`}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            whileHover={{ y: -10 }}
+                            className={`group relative bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20 flex flex-col h-full snap-start block ${certificates.length > 3 ? 'min-w-[320px] md:min-w-[400px]' : 'w-full'}`}
+                            style={{ boxShadow: `0 0 40px -20px ${cert.glow || 'rgba(99, 102, 241, 0.3)'}` }}
                         >
-                            <div className="relative w-full h-48 mb-6 overflow-hidden rounded-xl bg-black border border-white/10">
+                            {/* Image Header */}
+                            <div className="relative w-full h-48 overflow-hidden bg-white/5 p-2 shrink-0">
                                 {cert.image ? (
-                                    <img
-                                        src={cert.image}
-                                        alt={cert.name}
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                    <img 
+                                        src={cert.image} 
+                                        alt={cert.name} 
+                                        className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" 
                                     />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-slate-400">
+                                    <div className="w-full h-full flex items-center justify-center text-slate-400 bg-black/50">
                                         <Award size={48} />
                                     </div>
                                 )}
-                                <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-white/5 transition-colors duration-300"></div>
                             </div>
 
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="p-2.5 bg-white/10 rounded-lg text-white/90 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                                    <Award size={20} />
+                            {/* Card Body */}
+                            <div className="p-8 flex-1 flex flex-col">
+                                {/* Icon & Date */}
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className={`p-3 rounded-xl bg-white/5 border border-white/10`}>
+                                        <Award size={20} className="text-amber-400" />
+                                    </div>
+                                    <div className="flex flex-col items-end">
+                                        <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded bg-white/5 border border-white/10 text-amber-500`}>
+                                            {cert.date}
+                                        </span>
+                                    </div>
                                 </div>
-                                <ExternalLink size={20} className="text-white/50 group-hover:text-white transition-colors" />
+
+                                {/* Content */}
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-white/90 transition-colors">
+                                    {cert.name}
+                                </h3>
+                                
+                                <p className="text-white/50 text-xs leading-relaxed mb-8 flex-1">
+                                    Issued by {cert.issuer}
+                                </p>
+
+                                {/* Footer */}
+                                <div className="flex items-center justify-between border-t border-white/5 pt-6 mt-auto">
+                                    <div className="flex items-center gap-2"></div>
+                                    <motion.button 
+                                        whileHover={{ x: 4 }}
+                                        className="text-white/30 hover:text-white transition-colors"
+                                    >
+                                        <ExternalLink size={16} />
+                                    </motion.button>
+                                </div>
                             </div>
 
-                            <h3 className="text-xl font-bold text-white mb-1 line-clamp-2">{cert.name}</h3>
-                            <p className="text-white/70 font-light text-sm mb-4">{cert.issuer}</p>
-                            <div className="flex items-center gap-2">
-                                <span className="text-white/50 text-xs font-semibold uppercase tracking-wider">{cert.date}</span>
-                            </div>
+                            {/* Background Glow Element */}
+                            <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-50" />
                         </motion.a>
                     ))}
                 </div>
