@@ -31,7 +31,7 @@ const Education = () => {
     const glowHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <section id="education" className="py-24 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+        <section id="education" className="py-12 md:py-16 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* Section Header */}
                 <motion.div

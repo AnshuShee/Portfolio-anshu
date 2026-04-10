@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const About = () => {
 
     return (
-        <section id="about" className="py-24 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+        <section id="about" className="py-12 md:py-16 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
                     {/* Left: Image */}
