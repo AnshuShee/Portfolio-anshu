@@ -7,41 +7,38 @@ import Loader from './components/Loader';
 import CustomCursor from './components/CustomCursor';
 import BackToTop from './components/BackToTop';
 import ChatBot from './components/ChatBot';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import Education from './sections/Education';
-import Skills from './sections/Skills';
-import Projects from './sections/Projects';
-import Hackathons from './sections/Hackathons';
-import Certificates from './sections/Certificates';
-import Contributors from './sections/Contributors';
-import Contact from './sections/Contact';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden font-sans selection:bg-orange-500 selection:text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
-      <CustomCursor />
-      <AnimatePresence mode="wait">
-        <Loader />
-      </AnimatePresence>
-      <ScrollProgress />
-      <BackToTop />
-      <ChatBot />
-      <Navbar />
-      <main className="relative z-10">
-        <Hero />
-        <About />
-        <Education />
-        <Skills />
-        <Projects />
-        <Hackathons />
-        <Certificates />
-        <Contributors />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen overflow-x-hidden font-sans selection:bg-orange-500 selection:text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+        <CustomCursor />
+        <AnimatePresence mode="wait">
+          <Loader />
+        </AnimatePresence>
+        <ScrollProgress />
+        <BackToTop />
+        <ChatBot />
+        <Navbar />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
