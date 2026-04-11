@@ -1,15 +1,15 @@
 import React from 'react';
 import PageTransition from '../components/PageTransition';
-import Projects from '../sections/Projects';
+import Certificates from '../sections/Certificates';
 
-const ProjectsPage = () => {
+const CertificatesPage = () => {
     return (
         <PageTransition>
             <main className="pt-20">
-                <Projects />
+                <Certificates />
             </main>
         </PageTransition>
     );
 };
 
-export default ProjectsPage;
+export default CertificatesPage;

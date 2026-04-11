@@ -1,15 +1,15 @@
 import React from 'react';
 import PageTransition from '../components/PageTransition';
-import Projects from '../sections/Projects';
+import Contributors from '../sections/Contributors';
 
-const ProjectsPage = () => {
+const OpenSourcePage = () => {
     return (
         <PageTransition>
             <main className="pt-20">
-                <Projects />
+                <Contributors />
             </main>
         </PageTransition>
     );
 };
 
-export default ProjectsPage;
+export default OpenSourcePage;

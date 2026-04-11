@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -7,13 +9,38 @@ import Loader from './components/Loader';
 import CustomCursor from './components/CustomCursor';
 import BackToTop from './components/BackToTop';
 import ChatBot from './components/ChatBot';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import NotFound from './pages/NotFound';
+import SkillsPage from './pages/SkillsPage';
+import CertificatesPage from './pages/CertificatesPage';
+import HackathonsPage from './pages/HackathonsPage';
+import OpenSourcePage from './pages/OpenSourcePage';
+
+
+// Inner component that has access to useLocation (must be inside <Router>)
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/certificates" element={<CertificatesPage />} />
+        <Route path="/hackathons" element={<HackathonsPage />} />
+        <Route path="/opensource" element={<OpenSourcePage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   return (
@@ -27,14 +54,8 @@ function App() {
         <BackToTop />
         <ChatBot />
         <Navbar />
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+
+        <AnimatedRoutes />
 
         <Footer />
       </div>

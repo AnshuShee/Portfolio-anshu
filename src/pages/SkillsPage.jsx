@@ -1,15 +1,15 @@
 import React from 'react';
 import PageTransition from '../components/PageTransition';
-import Projects from '../sections/Projects';
+import Skills from '../sections/Skills';
 
-const ProjectsPage = () => {
+const SkillsPage = () => {
     return (
         <PageTransition>
             <main className="pt-20">
-                <Projects />
+                <Skills />
             </main>
         </PageTransition>
     );
 };
 
-export default ProjectsPage;
+export default SkillsPage;

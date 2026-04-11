@@ -1,11 +1,14 @@
 import React from 'react';
+import PageTransition from '../components/PageTransition';
 import Contact from '../sections/Contact';
 
 const ContactPage = () => {
     return (
-        <main className="pt-20">
-            <Contact />
-        </main>
+        <PageTransition>
+            <main className="pt-20">
+                <Contact />
+            </main>
+        </PageTransition>
     );
 };
 
