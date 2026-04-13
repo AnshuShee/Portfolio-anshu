@@ -45,7 +45,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen overflow-x-hidden font-sans selection:bg-orange-500 selection:text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
+      <div className="min-h-screen font-sans selection:bg-orange-500 selection:text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
         <CustomCursor />
         <AnimatePresence mode="wait">
           <Loader />

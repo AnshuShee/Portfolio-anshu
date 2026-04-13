@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTransition from '../components/PageTransition';
 import Hero from '../sections/Hero';
+import Marquee from '../components/Marquee';
 import About from '../sections/About';
 import Experience from '../sections/Experience';
 import Education from '../sections/Education';
@@ -11,6 +12,7 @@ const Home = () => {
     <PageTransition>
       <main className="relative z-10">
         <Hero />
+        <Marquee />
         <div id="about">
           <About />
         </div>
