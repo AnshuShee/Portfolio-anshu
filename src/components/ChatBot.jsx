@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
-const genAI = new GoogleGenerativeAI(apiKey);
+const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY || '';
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+const MODEL = 'llama-3.1-8b-instant';
 
 const systemPrompt = `You are a helpful, friendly, and concise AI assistant for Anshu Shee's portfolio website. 
 
@@ -35,12 +35,11 @@ Guidelines:
 const ChatBot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
-        { type: 'bot', text: "Hi! I'm Anshu's AI assistant. Ask me anything about his work!" }
+        { role: 'assistant', text: "Hi! I'm Anshu's AI assistant. Ask me anything about his work!" }
     ]);
     const [inputText, setInputText] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
-    const [chatSession, setChatSession] = useState(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -50,58 +49,57 @@ const ChatBot = () => {
         scrollToBottom();
     }, [messages, isOpen]);
 
-    useEffect(() => {
-        try {
-            if (apiKey) {
-                const model = genAI.getGenerativeModel({ 
-                    model: "gemini-1.5-flash",
-                    systemInstruction: systemPrompt 
-                });
-                const session = model.startChat({
-                    history: [],
-                });
-                setChatSession(session);
-            }
-        } catch (error) {
-            console.error("Failed to initialize Gemini AI:", error);
-        }
-    }, []);
-
     const handleSend = async (e) => {
         e.preventDefault();
         const userText = inputText.trim();
         if (!userText || isLoading) return;
 
-        const userMessage = { type: 'user', text: userText };
-        setMessages(prev => [...prev, userMessage]);
+        const newMessages = [...messages, { role: 'user', text: userText }];
+        setMessages(newMessages);
         setInputText('');
         setIsLoading(true);
 
         try {
-            const cleanKey = apiKey.trim();
-            if (!cleanKey) throw new Error("API Key missing");
+            if (!GROQ_API_KEY) throw new Error("API Key missing");
 
-            let currentSession = chatSession;
-            if (!currentSession) {
-                const genAIInstance = new GoogleGenerativeAI(cleanKey);
-                const model = genAIInstance.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
-                currentSession = model.startChat({
-                    history: messages.map(m => ({
-                        role: m.type === 'user' ? 'user' : 'model',
-                        parts: [{ text: m.text }],
-                    })).slice(0, -1),
-                });
-                setChatSession(currentSession);
+            // Build the conversation history for the API
+            const apiMessages = [
+                { role: 'system', content: systemPrompt },
+                ...newMessages.map(m => ({
+                    role: m.role === 'assistant' ? 'assistant' : 'user',
+                    content: m.text,
+                })),
+            ];
+
+            const response = await fetch(GROQ_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${GROQ_API_KEY}`,
+                },
+                body: JSON.stringify({
+                    model: MODEL,
+                    messages: apiMessages,
+                    temperature: 0.7,
+                    max_tokens: 512,
+                }),
+            });
+
+            if (!response.ok) {
+                const err = await response.json();
+                throw new Error(err?.error?.message || 'Groq API error');
             }
-            
-            const result = await currentSession.sendMessage(
-                `System Context: ${systemPrompt}\n\nUser Question: ${userText}`
-            );
-            const responseText = result.response.text();
-            setMessages(prev => [...prev, { type: 'bot', text: responseText }]);
+
+            const data = await response.json();
+            const responseText = data.choices?.[0]?.message?.content || "Sorry, I couldn't generate a response.";
+
+            setMessages(prev => [...prev, { role: 'assistant', text: responseText }]);
         } catch (error) {
             console.error("Chat error:", error);
-            setMessages(prev => [...prev, { type: 'bot', text: "Sorry, I encountered an error. Please try again later or contact Anshu directly." }]);
+            setMessages(prev => [...prev, {
+                role: 'assistant',
+                text: "Sorry, I encountered an error. Please try again later or contact Anshu directly."
+            }]);
         } finally {
             setIsLoading(false);
         }
@@ -141,10 +139,10 @@ const ChatBot = () => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     key={index}
-                                    className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                                    className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div
-                                        className={`max-w-[85%] p-3.5 rounded-2xl text-sm font-light ${msg.type === 'user'
+                                        className={`max-w-[85%] p-3.5 rounded-2xl text-sm font-light ${msg.role === 'user'
                                                 ? 'bg-orange-600 text-white rounded-br-none shadow-md shadow-orange-900/20'
                                                 : 'bg-white/10 text-white/90 rounded-bl-none border border-white/10 shadow-sm'
                                             }`}

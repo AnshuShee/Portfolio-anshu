@@ -6,7 +6,7 @@ const Marquee = () => {
     const items = [...Array(10)];
 
     return (
-        <div className="relative w-full overflow-hidden bg-[#E63946] py-3 flex items-center z-20">
+        <div className="relative w-full overflow-hidden bg-[#FF0000] py-3 flex items-center z-20">
             {/* The wrapper w-max allows the contents to naturally stretch as wide as they need to be to not overlap. */}
             <div className="flex w-max animate-marquee">
                 {/* 20 repetitions provide plenty of width for any screen size */}
