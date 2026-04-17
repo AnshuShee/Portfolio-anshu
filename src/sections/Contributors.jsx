@@ -19,7 +19,7 @@ const Contributors = () => {
                 >
                     <div className="flex-1">
                         <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">Open Source</p>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4" style={{ fontFamily: '"Anton", sans-serif' }}>GitHub Activities</h2>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4" style={{ fontFamily: '"Anton", sans-serif' }}>Development Activity</h2>
                         <p className="text-white/70 max-w-2xl text-lg font-light">
                             An active contributor to open-source, building projects and sharing knowledge with the community.
                         </p>
@@ -76,6 +76,24 @@ const Contributors = () => {
                             alt="GitHub Streak"
                             className="w-full max-w-[450px] transition-all duration-500"
                         />
+                    </motion.div>
+
+                    {/* LeetCode Stats Card */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 md:p-6 hover:bg-white/10 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all flex flex-col items-center justify-center h-full"
+                    >
+                        <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-tighter" style={{ fontFamily: '"Anton", sans-serif' }}>LeetCode Profile</h3>
+                        <a href="https://leetcode.com/u/anshushee/" target="_blank" rel="noreferrer" className="w-full flex justify-center">
+                            <img 
+                                src="https://leetcard.jacoblin.cool/anshushee?theme=dark&font=Inter"
+                                alt="LeetCode Stats"
+                                className="w-full max-w-[450px] transition-all duration-500"
+                            />
+                        </a>
                     </motion.div>
 
                     {/* Profile Info Card */}
