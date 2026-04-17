@@ -2,7 +2,7 @@ import React from 'react';
 import { Github, ExternalLink, Laptop, Trophy, Globe, Brain, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const ExperienceCard = ({ index, title, type, duration, description, techStack, githubLink, liveLink }) => {
+const ExperienceCard = ({ index, title, type, duration, description, techStack, githubLink, liveLink, leetcodeLink }) => {
     
     // Determine icon and color based on type
     const getTypeConfig = (type) => {
@@ -67,6 +67,14 @@ const ExperienceCard = ({ index, title, type, duration, description, techStack, 
                     <a href={liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-orange-400 hover:text-orange-300 transition-colors text-sm font-medium">
                         <ExternalLink size={18} />
                         Live Demo
+                    </a>
+                )}
+                {leetcodeLink && (
+                    <a href={leetcodeLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#FFA116] hover:text-[#FFB347] transition-colors text-sm font-medium">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-4.377 4.517a1.424 1.424 0 0 0 0 2.013 1.424 1.424 0 0 0 2.013 0l4.377-4.517A1.424 1.424 0 0 0 13.483 0zm-4.377 6.944a1.424 1.424 0 0 0-2.013 0L2.717 11.46a1.424 1.424 0 0 0 0 2.013l4.377 4.517a1.424 1.424 0 0 0 2.013 0l4.377-4.517a1.424 1.424 0 0 0 0-2.013l-4.377-4.517zm5.338 5.531a1.424 1.424 0 0 0 0 2.013l4.377 4.517a1.424 1.424 0 0 0 2.013 0l4.377-4.517a1.424 1.424 0 0 0 0-2.013l-4.377-4.517z"/>
+                        </svg>
+                        LeetCode
                     </a>
                 )}
             </div>

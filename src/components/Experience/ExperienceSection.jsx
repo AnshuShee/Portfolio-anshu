@@ -54,7 +54,8 @@ const ExperienceSection = () => {
             },
             techStack: ["System Design", "DSA", "AWS", "Docker", "PostgreSQL"],
             githubLink: "",
-            liveLink: ""
+            liveLink: "",
+            leetcodeLink: "https://leetcode.com/u/anshushee/"
         }
     ];
 
