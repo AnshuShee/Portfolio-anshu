@@ -13,12 +13,12 @@ const Education = () => {
             description: "Completed higher secondary education with a strong foundation in science and mathematics.",
         },
         {
-            degree: "Bachelor of Technology",
+            degree: "Bachelor of Engineering",
             field: "Computer Engineering",
             institution: "Swaminarayan University",
             duration: "2025 - 2029",
             icon: <GraduationCap size={24} />,
-            description: "Pursuing B.Tech in Computer Engineering with focus on software development, data structures, algorithms, and modern web technologies.",
+            description: "Pursuing B.E in Computer Engineering with focus on software development, data structures, algorithms, and modern web technologies.",
         },
     ];
 
