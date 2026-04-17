@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
+import Loader from './components/Loader';
 import CustomCursor from './components/CustomCursor';
 import BackToTop from './components/BackToTop';
 import ChatBot from './components/ChatBot';
@@ -46,11 +47,18 @@ function App() {
     <Router>
       <div className="min-h-screen font-sans selection:bg-orange-500 selection:text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
         <CustomCursor />
+        {/* Loader sits on top — GSAP will push it off-screen while revealing #main-content */}
+        <Loader />
         <ScrollProgress />
         <BackToTop />
         <ChatBot />
 
-        <div id="main-content">
+        {/*
+          #main-content: initially pushed 100% off-screen (below).
+          GSAP Loader animates this to yPercent: 0 simultaneously with loader exit.
+          overflow: hidden prevents scroll during transition.
+        */}
+        <div id="main-content" style={{ willChange: 'transform', overflowX: 'hidden' }}>
           <Navbar />
           <AnimatedRoutes />
           <Footer />
