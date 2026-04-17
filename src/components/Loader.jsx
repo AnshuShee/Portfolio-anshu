@@ -53,8 +53,12 @@ const Loader = () => {
                 ease: 'cubic.inOut',
             }, 0) // Same start position = one unified push motion
 
-            // After push completes, remove loader from DOM flow
-            .set(loader, { display: 'none' });
+            // After push completes: remove loader, scroll hero into view
+            .set(loader, { display: 'none' })
+            .call(() => {
+                // Ensure the page starts at the top so the hero section is visible
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            });
 
         return () => {
             tl.kill();
@@ -104,15 +108,16 @@ const Loader = () => {
                     pointerEvents: 'none',
                 }} />
 
-                <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-                    {/* Logo */}
+                <div style={{ textAlign: 'center', position: 'relative', zIndex: 1, width: '100%' }}>
+                    {/* Logo — display:block + margin:auto ensures true horizontal centering */}
                     <img
                         src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png"
                         alt="Anshu Shee Logo"
                         style={{
+                            display: 'block',
                             height: '130px',
                             width: 'auto',
-                            marginBottom: '24px',
+                            margin: '0 auto 24px',
                             filter: 'brightness(1.1) drop-shadow(0 0 15px rgba(249,115,22,0.3))',
                             animation: 'logo-enter 0.8s ease-out forwards',
                         }}
