@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import {
     SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiFramer, SiNodedotjs,
     SiExpress, SiPostgresql, SiMongodb, SiGit, SiGithub, SiVercel, SiNetlify,
-    SiRender, SiDocker, SiLinux
+    SiRender, SiDocker, SiLinux, SiC, SiCplusplus
 } from 'react-icons/si';
 import { FaAws } from 'react-icons/fa';
 import SteelFlower from '../components/SteelFlower';
@@ -11,6 +11,8 @@ import SteelFlower from '../components/SteelFlower';
 /* ─── Skill data with icons ─── */
 const SKILLS = [
     [
+        { name: 'C', icon: SiC, color: '#A8B9CC' },
+        { name: 'C++', icon: SiCplusplus, color: '#00599C' },
         { name: 'ReactJS', icon: SiReact, color: '#61DAFB' },
         { name: 'NextJS', icon: SiNextdotjs, color: '#ffffff' },
         { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
