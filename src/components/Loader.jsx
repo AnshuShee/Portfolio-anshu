@@ -37,7 +37,13 @@ const Loader = () => {
         document.body.style.overflow = 'hidden';
 
         // Ensure page is at top before animation starts, not after
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
         window.scrollTo(0, 0);
+        
+        // Also scroll to top on next tick to be absolutely sure React router hasn't moved it
+        setTimeout(() => window.scrollTo(0, 0), 10);
 
         // --- PUSH TRANSITION TIMELINE ---
         const tl = gsap.timeline({
