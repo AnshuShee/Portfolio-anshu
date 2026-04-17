@@ -1,114 +1,210 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 const Loader = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    // Ref for the full-screen loader overlay
+    const loaderRef = useRef(null);
+    // Ref for the parallax inner content (moves at 0.5x speed)
+    const parallaxRef = useRef(null);
 
     useEffect(() => {
-        // Hide loader after 2.5 seconds to full finish the animation
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2500);
+        const loader = loaderRef.current;
+        const parallax = parallaxRef.current;
+        if (!loader) return;
 
-        return () => clearTimeout(timer);
+        // The main app content wrapper (everything BELOW the loader)
+        // App.jsx wraps routes in #main-content
+        const mainContent = document.getElementById('main-content');
+
+        // --- INITIAL STATE ---
+        // Loader is on top (y: 0), main content starts off-screen below
+        gsap.set(loader, { yPercent: 0 });
+        gsap.set(parallax, { yPercent: 0 });
+        if (mainContent) {
+            gsap.set(mainContent, { yPercent: 100 });
+        }
+
+        // --- PUSH TRANSITION TIMELINE ---
+        // Fires after 2.5s (matches the loading experience duration)
+        const tl = gsap.timeline({ delay: 2.5 });
+
+        tl
+            // Simultaneously animate both panels in one motion:
+            // Loader slides UP to -100% (exits screen) at normal speed
+            .to(loader, {
+                yPercent: -100,
+                duration: 1.0,
+                ease: 'cubic.inOut', // Cubic ease-in-out
+            }, 0) // Start at position 0 in timeline
+
+            // Parallax layer inside loader: only moves at 0.5x speed
+            // So it travels -50% while the loader shell travels -100%
+            // This creates a depth/parallax effect during the push
+            .to(parallax, {
+                yPercent: -50,
+                duration: 1.0,
+                ease: 'cubic.inOut',
+            }, 0) // Same start position = simultaneous
+
+            // Main content slides UP from 100% → 0% simultaneously
+            .to(mainContent || {}, {
+                yPercent: 0,
+                duration: 1.0,
+                ease: 'cubic.inOut',
+            }, 0) // Same start position = one unified push motion
+
+            // After push completes, remove loader from DOM flow
+            .set(loader, { display: 'none' });
+
+        return () => {
+            tl.kill();
+        };
     }, []);
-
-    if (!isLoading) return null;
 
     const welcomeText = "Welcome to my Portfolio".split("");
 
     return (
-        <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
-            className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#000000] overflow-hidden"
+        /* LOADER: Fixed full-screen overlay, highest z-index */
+        <div
+            ref={loaderRef}
+            style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 200,
+                backgroundColor: '#000000',
+                overflow: 'hidden',
+                willChange: 'transform',
+            }}
         >
-            {/* Background animated glow */}
-            <motion.div 
-                className="absolute w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-orange-500/10 rounded-full blur-[100px]"
-                animate={{ 
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.6, 0.3]
+            {/*
+             * PARALLAX LAYER: Inner content that moves at 0.5x speed.
+             * While the loader shell moves -100vh, this content only moves -50vh,
+             * creating a parallax depth effect during the push transition.
+             */}
+            <div
+                ref={parallaxRef}
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    willChange: 'transform',
                 }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            />
+            >
+                {/* Background animated glow */}
+                <div style={{
+                    position: 'absolute',
+                    width: '500px',
+                    height: '500px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)',
+                    animation: 'glow-pulse 2.5s ease-in-out infinite',
+                    pointerEvents: 'none',
+                }} />
 
-            <div className="text-center relative z-10 flex flex-col items-center">
-                {/* Animated Logo */}
-                <motion.div
-                    initial={{ scale: 0.5, opacity: 0, filter: 'blur(10px)' }}
-                    animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                >
+                <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+                    {/* Logo */}
                     <img
                         src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png"
                         alt="Anshu Shee Logo"
-                        className="h-28 md:h-36 w-auto mx-auto mb-6 drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]"
-                        style={{ filter: 'brightness(1.1)' }}
-                    />
-                </motion.div>
-
-                {/* Staggered Text Animation: Welcome to my Portfolio */}
-                <div className="mb-8 min-h-[5rem] flex items-center justify-center">
-                    <motion.div 
-                        initial="hidden"
-                        animate="visible"
-                        variants={{
-                            visible: { 
-                                filter: ["hue-rotate(0deg)", "hue-rotate(360deg)", "hue-rotate(0deg)"],
-                                transition: { 
-                                    staggerChildren: 0.04,
-                                    filter: { duration: 2, repeat: Infinity, ease: "linear" }
-                                } 
-                            },
-                            hidden: {}
+                        style={{
+                            height: '130px',
+                            width: 'auto',
+                            marginBottom: '24px',
+                            filter: 'brightness(1.1) drop-shadow(0 0 15px rgba(249,115,22,0.3))',
+                            animation: 'logo-enter 0.8s ease-out forwards',
                         }}
-                        className="flex space-x-1"
-                    >
-                        {welcomeText.map((char, index) => (
-                            <motion.span
-                                key={index}
-                                variants={{
-                                    hidden: { y: 20, opacity: 0, scale: 0.8 },
-                                    visible: { 
-                                        y: 0, 
-                                        opacity: 1, 
-                                        scale: 1,
-                                        transition: { type: "spring", damping: 10, stiffness: 200 } 
-                                    }
-                                }}
-                                className={`text-lg md:text-2xl lg:text-3xl font-extrabold tracking-widest text-white ${char === ' ' ? 'w-2 md:w-3 border-none' : ''} uppercase`}
+                    />
+
+                    {/* "Welcome to my Portfolio" — staggered letter animation via CSS */}
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        flexWrap: 'wrap',
+                        gap: '2px',
+                        marginBottom: '32px',
+                        minHeight: '48px',
+                    }}>
+                        {welcomeText.map((char, i) => (
+                            <span
+                                key={i}
                                 style={{
-                                    display: 'inline-block'
+                                    display: 'inline-block',
+                                    color: '#ffffff',
+                                    fontSize: 'clamp(16px, 2.5vw, 28px)',
+                                    fontWeight: 800,
+                                    letterSpacing: '0.18em',
+                                    textTransform: 'uppercase',
+                                    opacity: 0,
+                                    transform: 'translateY(20px)',
+                                    animation: `letter-pop 0.5s ease forwards`,
+                                    animationDelay: `${i * 0.04}s`,
+                                    width: char === ' ' ? '10px' : 'auto',
                                 }}
                             >
                                 {char}
-                            </motion.span>
+                            </span>
                         ))}
-                    </motion.div>
-                </div>
+                    </div>
 
-                {/* Modern Progress Line */}
-                <div className="w-48 md:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden mb-4 rounded-full">
-                    <motion.div
-                        initial={{ width: "0%" }}
-                        animate={{ width: "100%" }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                        className="h-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]"
-                    />
-                </div>
+                    {/* Progress bar */}
+                    <div style={{
+                        width: '256px',
+                        height: '2px',
+                        background: 'rgba(255,255,255,0.1)',
+                        borderRadius: '999px',
+                        overflow: 'hidden',
+                        margin: '0 auto 16px',
+                    }}>
+                        <div style={{
+                            height: '100%',
+                            width: '100%',
+                            background: 'linear-gradient(to right, #f97316, #ec4899, #a855f7)',
+                            boxShadow: '0 0 10px rgba(249,115,22,0.8)',
+                            transformOrigin: 'left',
+                            animation: 'progress-fill 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                        }} />
+                    </div>
 
-                {/* Loading Text Pulse */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: [0.3, 1, 0.3] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-[0.4em]"
-                >
-                    Loading Experience
-                </motion.p>
+                    {/* Loading label */}
+                    <p style={{
+                        color: 'rgba(255,255,255,0.35)',
+                        fontSize: '11px',
+                        fontWeight: 700,
+                        letterSpacing: '0.4em',
+                        textTransform: 'uppercase',
+                        animation: 'pulse-opacity 1.5s ease-in-out infinite',
+                    }}>
+                        Loading Experience
+                    </p>
+                </div>
             </div>
-        </motion.div>
+
+            {/* CSS keyframes injected as a style tag */}
+            <style>{`
+                @keyframes glow-pulse {
+                    0%, 100% { opacity: 0.3; transform: scale(1); }
+                    50%       { opacity: 0.6; transform: scale(1.2); }
+                }
+                @keyframes logo-enter {
+                    from { opacity: 0; transform: scale(0.7) blur(10px); }
+                    to   { opacity: 1; transform: scale(1) blur(0px); }
+                }
+                @keyframes letter-pop {
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes progress-fill {
+                    from { transform: scaleX(0); }
+                    to   { transform: scaleX(1); }
+                }
+                @keyframes pulse-opacity {
+                    0%, 100% { opacity: 0.3; }
+                    50%      { opacity: 1; }
+                }
+            `}</style>
+        </div>
     );
 };
 

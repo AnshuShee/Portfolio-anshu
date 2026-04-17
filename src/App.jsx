@@ -47,17 +47,22 @@ function App() {
     <Router>
       <div className="min-h-screen font-sans selection:bg-orange-500 selection:text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
         <CustomCursor />
-        <AnimatePresence mode="wait">
-          <Loader />
-        </AnimatePresence>
+        {/* Loader sits on top — GSAP will push it off-screen while revealing #main-content */}
+        <Loader />
         <ScrollProgress />
         <BackToTop />
         <ChatBot />
-        <Navbar />
 
-        <AnimatedRoutes />
-
-        <Footer />
+        {/*
+          #main-content: initially pushed 100% off-screen (below).
+          GSAP Loader animates this to yPercent: 0 simultaneously with loader exit.
+          overflow: hidden prevents scroll during transition.
+        */}
+        <div id="main-content" style={{ willChange: 'transform', overflowX: 'hidden' }}>
+          <Navbar />
+          <AnimatedRoutes />
+          <Footer />
+        </div>
       </div>
     </Router>
   );
