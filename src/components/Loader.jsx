@@ -36,13 +36,15 @@ const Loader = () => {
         const originalOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
 
+        // Ensure page is at top before animation starts, not after
+        window.scrollTo(0, 0);
+
         // --- PUSH TRANSITION TIMELINE ---
         const tl = gsap.timeline({
             delay: 2.5,
             // onStart/onComplete for scroll lock management
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
-                window.scrollTo({ top: 0, behavior: 'instant' });
             },
         });
 
@@ -71,6 +73,7 @@ const Loader = () => {
                 duration: 1.35,
                 ease: 'expo.inOut',
                 force3D: true,
+                clearProps: 'all', // Critical: removes transforms so scrolling isn't laggy and fixed elements work
             }, 0)
 
             // Hide loader after animation (no display flicker)
