@@ -22,12 +22,12 @@ const ExperienceSection = () => {
             type: "Hackathon",
             duration: "2026",
             description: {
-                what: "Built: VeerSetu: Tactical Asset Management System",
+                what: "VeerSetu - Tactical Asset Management System",
                 problem: "VeerSetu is a high-fidelity Indian Army Command and Control interface designed for real-time asset tracking, inventory management, and mission-critical audit logging. It features a robust role-based access control (RBAC) system, blockchain-inspired data integrity, and a premium military-grade UI.",
                 impact: "This project implements strict Row Level Security (RLS). Only authorized officers can view classified mission data or sensitive equipment logs."
             },
             techStack: ["React", "Supabase", "PostgreSQL", "Postman", "RBAC", "RLS"],
-            githubLink: "https://github.com/anshu/craftathon-2026",
+            githubLink: "https://github.com/AnshuShee/Veer-Setu",
             liveLink: ""
         },
         {
@@ -40,7 +40,7 @@ const ExperienceSection = () => {
                 impact: "Successfully merged 10+ Pull Requests, enhancing cross-browser compatibility and streamlining the developer experience for thousands globally."
             },
             techStack: ["React", "TypeScript", "Git", "Jest"],
-            githubLink: "https://github.com/anshu",
+            githubLink: "https://github.com/AnshuShee",
             liveLink: ""
         },
         {
