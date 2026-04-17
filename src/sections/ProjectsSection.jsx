@@ -10,13 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS_DATA = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'Myntra Clone',
     category: 'Web',
-    shortDesc: 'A full-stack e-commerce solution with real-time inventory.',
-    fullDesc: 'Built a scalable e-commerce platform handling thousands of concurrent users. Features include a real-time inventory system, Stripe payment integration, and an intuitive admin dashboard.',
-    techTags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    images: ['https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1000', 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000'],
-    github: '#',
+    shortDesc: 'A fully responsive clone of the Myntra e-commerce platform.',
+    fullDesc: 'Built a feature-rich UI clone of the popular e-commerce website Myntra. Features include a dynamic product catalog, interactive shopping bag functionality, and a highly authentic design replication using modern web technologies.',
+    techTags: ['HTML', 'CSS', 'JavaScript', 'React'],
+    images: ['https://res.cloudinary.com/dhnczdpqj/image/upload/v1775550017/Screenshot_2026-04-07_134808_kuhxfa.png'],
+    github: 'https://github.com/AnshuShee/Myntra-Cloned-Website',
     live: '#',
   },
   {
