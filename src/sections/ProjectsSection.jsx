@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaTimes, FaYoutube } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +18,7 @@ const PROJECTS_DATA = [
     images: ['https://res.cloudinary.com/dhnczdpqj/image/upload/v1775550017/Screenshot_2026-04-07_134808_kuhxfa.png'],
     github: 'https://github.com/AnshuShee/Myntra-Cloned-Website',
     live: '#',
+    youtube: '#',
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000'],
     github: '#',
     live: '#',
+    youtube: '#',
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1526506114622-c36130eb5a9a?q=80&w=1000'],
     github: '#',
     live: '#',
+    youtube: '#',
   },
   {
     id: 4,
@@ -51,6 +54,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000'],
     github: '#',
     live: '#',
+    youtube: '#',
   },
   {
     id: 5,
@@ -62,6 +66,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1000'],
     github: '#',
     live: '#',
+    youtube: '#',
   },
   {
     id: 6,
@@ -73,6 +78,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000'],
     github: '#',
     live: '#',
+    youtube: '#',
   },
 ];
 
@@ -276,6 +282,13 @@ const ProjectCard = ({ project, onClick }) => {
                   <FaExternalLinkAlt size={18} />
                 </a>
               </MagneticButton>
+              {project.youtube && project.youtube !== '#' && (
+                <MagneticButton>
+                  <a href={project.youtube} target="_blank" rel="noreferrer" className="text-white/50 hover:text-red-500 transition-colors block p-2 -m-2">
+                    <FaYoutube size={20} />
+                  </a>
+                </MagneticButton>
+              )}
             </div>
             <MagneticButton onClick={() => onClick(project)} className="cursor-pointer">
               <span className="text-sm font-bold text-indigo-400 hover:text-indigo-300 uppercase tracking-wider flex items-center gap-2 group/btn">
@@ -381,6 +394,11 @@ const ProjectModal = ({ project, onClose }) => {
               <a href={project.github} target="_blank" rel="noreferrer" className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-colors">
                 GitHub <FaGithub />
               </a>
+              {project.youtube && project.youtube !== '#' && (
+                <a href={project.youtube} target="_blank" rel="noreferrer" className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-4 bg-red-600/10 border border-red-500/20 text-red-500 font-bold rounded-xl hover:bg-red-600/20 transition-colors">
+                  Watch Video <FaYoutube />
+                </a>
+              )}
             </div>
           </div>
         </div>
