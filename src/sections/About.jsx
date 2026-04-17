@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -72,12 +72,28 @@ const About = () => {
                                 className="pt-8 flex justify-center lg:justify-start"
                             >
                                 <a 
-                                    href="https://res.cloudinary.com/dhnczdpqj/image/upload/fl_attachment/v1775554738/resume-anshu_page-0001_te3dyn.jpg" 
-                                    download="Anshu_Shee_Resume.jpg"
+                                    href="https://drive.google.com/file/d/1tIN2Eg9MaP_1svhk3wWtslhlqmt2CxuL/view?usp=sharing" 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-black text-sm uppercase tracking-widest rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-[0_15px_40px_rgba(255,255,255,0.15)] group magnetic"
                                 >
-                                    <Download size={18} className="transition-transform group-hover:translate-y-1" />
-                                    Download Resume
+                                    <svg 
+                                        xmlns="http://www.w3.org/2000/svg" 
+                                        width="18" 
+                                        height="18" 
+                                        viewBox="0 0 16 16"
+                                        className="transition-transform group-hover:scale-110"
+                                    >
+                                        <path 
+                                            fill="none" 
+                                            stroke="currentColor" 
+                                            strokeLinecap="round" 
+                                            d="M14.5 4.2V15a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V1A.5.5 0 0 1 2 .5h8.85a.5.5 0 0 1 .36.15l3.15 3.2a.5.5 0 0 1 .14.35zm-10 8.3h7m-7-2h7m-1-10V4a.5.5 0 0 0 .5.5h3.5" 
+                                            strokeWidth="1"
+                                        />
+                                        <rect width="8" height="2" x="4" y="7" fill="currentColor" rx=".5" ry=".5"/>
+                                    </svg>
+                                    View Resume
                                 </a>
                             </motion.div>
                         </div>
