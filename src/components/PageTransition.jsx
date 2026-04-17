@@ -4,25 +4,25 @@ import { motion } from 'framer-motion';
 const pageVariants = {
     initial: {
         opacity: 0,
-        y: 18,
-        filter: 'blur(4px)',
+        y: 100,
+        filter: 'blur(10px)',
     },
     animate: {
         opacity: 1,
         y: 0,
         filter: 'blur(0px)',
         transition: {
-            duration: 0.45,
+            duration: 0.8,
             ease: [0.22, 1, 0.36, 1], // Apple-style cubic-bezier
-            staggerChildren: 0.08,
+            staggerChildren: 0.1,
         },
     },
     exit: {
         opacity: 0,
-        y: -10,
-        filter: 'blur(4px)',
+        y: -50,
+        filter: 'blur(10px)',
         transition: {
-            duration: 0.3,
+            duration: 0.5,
             ease: [0.22, 1, 0.36, 1],
         },
     },
