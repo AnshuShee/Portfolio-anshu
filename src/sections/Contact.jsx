@@ -79,7 +79,6 @@ const Contact = () => {
                         <div>
                             <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-wider" style={{ fontFamily: '"Anton", sans-serif' }}>Connect with me</h3>
                             <div className="flex flex-wrap gap-4">
-                                </a>
                                 <a
                                     href="https://github.com/AnshuShee"
                                     target="_blank"
