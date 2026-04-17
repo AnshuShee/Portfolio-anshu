@@ -21,16 +21,17 @@ const Hero = () => {
                 className="relative z-10 flex justify-center pt-28 md:pt-32"
             >
                 <a
-                    href="https://x.com/AnshuShee"
+                    href="https://twitter.com/AnshuShee007"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hero-say-hi-btn magnetic"
                 >
                     Say hi on{' '}
                     <svg
-                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                         width="14"
                         height="14"
+                        viewBox="0 0 24 24"
                         fill="currentColor"
                         style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: 4, marginRight: 2 }}
                     >
