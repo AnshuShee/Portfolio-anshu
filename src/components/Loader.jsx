@@ -12,56 +12,73 @@ const Loader = () => {
         const parallax = parallaxRef.current;
         if (!loader) return;
 
-        // The main app content wrapper (everything BELOW the loader)
-        // App.jsx wraps routes in #main-content
         const mainContent = document.getElementById('main-content');
 
-        // --- INITIAL STATE ---
-        // Loader is on top (y: 0), main content starts off-screen below
-        gsap.set(loader, { yPercent: 0 });
-        gsap.set(parallax, { yPercent: 0 });
+        // --- FORCE GPU COMPOSITING ---
+        // translateZ(0) promotes elements to their own compositor layer,
+        // ensuring the animation runs entirely on the GPU with zero layout work.
+        gsap.set(loader, {
+            yPercent: 0,
+            z: 0,                        // forces GPU layer
+            backfaceVisibility: 'hidden', // prevents flicker
+        });
+        gsap.set(parallax, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
         if (mainContent) {
-            gsap.set(mainContent, { yPercent: 100 });
+            gsap.set(mainContent, {
+                yPercent: 100,
+                z: 0,
+                backfaceVisibility: 'hidden',
+            });
         }
 
+        // --- LOCK BODY SCROLL during transition ---
+        // Prevents any scroll events from causing jank during the push
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+
         // --- PUSH TRANSITION TIMELINE ---
-        // Fires after 2.5s (matches the loading experience duration)
-        const tl = gsap.timeline({ delay: 2.5 });
+        const tl = gsap.timeline({
+            delay: 2.5,
+            // onStart/onComplete for scroll lock management
+            onComplete: () => {
+                document.body.style.overflow = originalOverflow;
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            },
+        });
 
         tl
-            // Simultaneously animate both panels in one motion:
-            // Loader slides UP to -100% (exits screen) at normal speed
+            // Loader shell: exits upward at full speed
             .to(loader, {
                 yPercent: -100,
-                duration: 1.0,
-                ease: 'cubic.inOut', // Cubic ease-in-out
-            }, 0) // Start at position 0 in timeline
+                duration: 1.35,
+                // expo.inOut: nearly imperceptible start → smooth acceleration
+                // → silky deceleration. The gold standard for push transitions.
+                ease: 'expo.inOut',
+                force3D: true,   // explicitly keep on GPU throughout animation
+            }, 0)
 
-            // Parallax layer inside loader: only moves at 0.5x speed
-            // So it travels -50% while the loader shell travels -100%
-            // This creates a depth/parallax effect during the push
+            // Parallax inner layer: moves at 0.5x = depth illusion
             .to(parallax, {
                 yPercent: -50,
-                duration: 1.0,
-                ease: 'cubic.inOut',
-            }, 0) // Same start position = simultaneous
+                duration: 1.35,
+                ease: 'expo.inOut',
+                force3D: true,
+            }, 0)
 
-            // Main content slides UP from 100% → 0% simultaneously
+            // Main content: slides up from below simultaneously
             .to(mainContent || {}, {
                 yPercent: 0,
-                duration: 1.0,
-                ease: 'cubic.inOut',
-            }, 0) // Same start position = one unified push motion
+                duration: 1.35,
+                ease: 'expo.inOut',
+                force3D: true,
+            }, 0)
 
-            // After push completes: remove loader, scroll hero into view
-            .set(loader, { display: 'none' })
-            .call(() => {
-                // Ensure the page starts at the top so the hero section is visible
-                window.scrollTo({ top: 0, behavior: 'instant' });
-            });
+            // Hide loader after animation (no display flicker)
+            .set(loader, { display: 'none' });
 
         return () => {
             tl.kill();
+            document.body.style.overflow = originalOverflow;
         };
     }, []);
 
