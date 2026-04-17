@@ -18,7 +18,7 @@ const PROJECTS_DATA = [
     images: ['https://res.cloudinary.com/dhnczdpqj/image/upload/v1775550017/Screenshot_2026-04-07_134808_kuhxfa.png'],
     github: 'https://github.com/AnshuShee/Myntra-Cloned-Website',
     live: '#',
-    youtube: '#',
+    youtube: 'https://youtube.com',
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000'],
     github: '#',
     live: '#',
-    youtube: '#',
+    youtube: 'https://youtube.com',
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1526506114622-c36130eb5a9a?q=80&w=1000'],
     github: '#',
     live: '#',
-    youtube: '#',
+    youtube: 'https://youtube.com',
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000'],
     github: '#',
     live: '#',
-    youtube: '#',
+    youtube: 'https://youtube.com',
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1000'],
     github: '#',
     live: '#',
-    youtube: '#',
+    youtube: 'https://youtube.com',
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const PROJECTS_DATA = [
     images: ['https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000'],
     github: '#',
     live: '#',
-    youtube: '#',
+    youtube: 'https://youtube.com',
   },
 ];
 
@@ -387,7 +387,7 @@ const ProjectModal = ({ project, onClose }) => {
               {project.fullDesc}
             </p>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a href={project.live} target="_blank" rel="noreferrer" className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-colors">
                 Live Demo <FaExternalLinkAlt />
               </a>
