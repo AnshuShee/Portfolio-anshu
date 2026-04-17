@@ -60,7 +60,7 @@ const ExperienceCard = ({ index, title, type, duration, description, techStack, 
                 {githubLink && (
                     <a href={githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm font-medium">
                         <Github size={18} />
-                        Code
+                        GitHub
                     </a>
                 )}
                 {liveLink && (
