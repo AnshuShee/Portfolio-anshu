@@ -1,12 +1,14 @@
 import React from 'react';
 import PageTransition from '../components/PageTransition';
-import Projects from '../sections/Projects';
+import ProjectsSection from '../sections/ProjectsSection';
+import UIUXSection from '../sections/UIUXSection';
 
 const ProjectsPage = () => {
     return (
         <PageTransition>
-            <main className="pt-20">
-                <Projects />
+            <main className="bg-[#030303] min-h-screen">
+                <ProjectsSection />
+                <UIUXSection />
             </main>
         </PageTransition>
     );
