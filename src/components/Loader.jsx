@@ -1,5 +1,8 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Loader = () => {
     // Ref for the full-screen loader overlay
@@ -36,7 +39,11 @@ const Loader = () => {
                 window.scrollTo(0, 0);
                 gsap.set(loader, { display: 'none' });
                 // Reset transform so normal scrolling is completely unaffected
-                if (mainContent) gsap.set(mainContent, { clearProps: 'all' });
+                if (mainContent) {
+                    gsap.set(mainContent, { clearProps: 'all' });
+                    // Refresh ScrollTrigger so sections don't jump (like the About section)
+                    ScrollTrigger.refresh();
+                }
             },
         });
 
