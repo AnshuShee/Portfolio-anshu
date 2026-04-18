@@ -38,28 +38,6 @@ const Hackathons = () => {
             color: "from-indigo-500 to-purple-600",
             glow: "rgba(99, 102, 241, 0.3)",
             image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1773723412/Anshu_Shee_page-0001_ta46xo.jpg"
-        },
-        {
-            title: "IISc Bangalore Hackathon",
-            award: "Participation",
-            project: "Innovation Challenge",
-            date: "2026",
-            team: "Anshu Shee",
-            description: "Participated in the hackathon event organized by IISc Bangalore, showcasing strong technical and problem-solving skills.",
-            color: "from-purple-500 to-pink-600",
-            glow: "rgba(217, 70, 239, 0.3)",
-            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504811/IISc_Bangalore_page-0001_lsea4p.jpg"
-        },
-        {
-            title: "IIT Kota Hackathon",
-            award: "Participation",
-            project: "Tech Sprint",
-            date: "2026",
-            team: "Anshu Shee",
-            description: "Engaged in intensive problem-solving and rapid prototyping during the IIT Kota hackathon event.",
-            color: "from-orange-500 to-red-600",
-            glow: "rgba(239, 68, 68, 0.3)",
-            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504778/IIT-Kota_page-0001_s9ylyy.jpg"
         }
     ];
 
