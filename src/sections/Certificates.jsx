@@ -116,30 +116,6 @@ const certificates = [
       link: '#',
       image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104910_ph6koa.png"
   },
-  { 
-      id: '10', 
-      issuer: 'IISc Bangalore', 
-      title: 'Hackathon Participation', 
-      date: '2026', 
-      tag: 'Hackathon', 
-      tagColor: 'green', 
-      skills: ['Innovation', 'Problem Solving', 'Teamwork'], 
-      desc: 'Participated in the hackathon event organized by IISc Bangalore, showcasing strong technical and problem-solving skills.',
-      link: '#',
-      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504811/IISc_Bangalore_page-0001_lsea4p.jpg"
-  },
-  { 
-      id: '11', 
-      issuer: 'IIT Kota', 
-      title: 'Hackathon Participation', 
-      date: '2026', 
-      tag: 'Hackathon', 
-      tagColor: 'amber', 
-      skills: ['Rapid Prototyping', 'Tech Sprint', 'Coding'], 
-      desc: 'Engaged in intensive problem-solving and rapid prototyping during the IIT Kota hackathon event.',
-      link: '#',
-      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504778/IIT-Kota_page-0001_s9ylyy.jpg"
-  },
 ];
 
 const colorMap = {
