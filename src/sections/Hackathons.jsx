@@ -38,6 +38,28 @@ const Hackathons = () => {
             color: "from-indigo-500 to-purple-600",
             glow: "rgba(99, 102, 241, 0.3)",
             image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1773723412/Anshu_Shee_page-0001_ta46xo.jpg"
+        },
+        {
+            title: "IISc Bangalore Hackathon",
+            award: "Participation",
+            project: "Innovation Challenge",
+            date: "2026",
+            team: "Anshu Shee",
+            description: "Participated in the hackathon event organized by IISc Bangalore, showcasing strong technical and problem-solving skills.",
+            color: "from-purple-500 to-pink-600",
+            glow: "rgba(217, 70, 239, 0.3)",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504811/IISc_Bangalore_page-0001_lsea4p.jpg"
+        },
+        {
+            title: "IIT Kota Hackathon",
+            award: "Participation",
+            project: "Tech Sprint",
+            date: "2026",
+            team: "Anshu Shee",
+            description: "Engaged in intensive problem-solving and rapid prototyping during the IIT Kota hackathon event.",
+            color: "from-orange-500 to-red-600",
+            glow: "rgba(239, 68, 68, 0.3)",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504778/IIT-Kota_page-0001_s9ylyy.jpg"
         }
     ];
 
@@ -66,33 +88,9 @@ const Hackathons = () => {
                         <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 uppercase drop-shadow-[0_0_10px_rgba(245,158,11,0.5)] mb-4">Competitive Coding & Innovation</p>
                         <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white" style={{ fontFamily: '"Anton", sans-serif' }}>HACKATHON CHRONICLES</h2>
                     </motion.div>
-
-                    {/* Scroll Controls (only if > 3 items) */}
-                    {hackathons.length > 3 && (
-                        <div className="hidden md:flex items-center gap-4 mt-8 md:mt-0">
-                            <button 
-                                onClick={() => scroll('left')}
-                                className="p-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30 text-white/50 hover:text-white transition-all active:scale-95 group"
-                            >
-                                <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
-                            </button>
-                            <button 
-                                onClick={() => scroll('right')}
-                                className="p-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30 text-white/50 hover:text-white transition-all active:scale-95 group"
-                            >
-                                <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
-                        </div>
-                    )}
                 </div>
 
-                <div 
-                    ref={scrollRef}
-                    className={`
-                    ${hackathons.length > 3 
-                        ? 'flex overflow-x-auto pb-12 gap-8 scroll-smooth snap-x snap-mandatory no-scrollbar pr-12' 
-                        : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'}
-                `}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {hackathons.map((hack, index) => (
                         <motion.div
                             key={index}
@@ -101,7 +99,7 @@ const Hackathons = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -10 }}
-                            className={`group relative bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20 flex flex-col h-full snap-start ${hackathons.length > 3 ? 'min-w-[320px] md:min-w-[400px]' : 'w-full'}`}
+                            className="group relative bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/20 flex flex-col h-full w-full"
                             style={{ boxShadow: `0 0 40px -20px ${hack.glow}` }}
                         >
                             {/* Image Header */}

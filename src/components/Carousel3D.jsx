@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Carousel3D = ({
     images = [],
-    interval = 2500,
+    interval = 1500,
     autoPlay = true,
 }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -84,7 +84,7 @@ const Carousel3D = ({
                             className="stack-carousel-card"
                             style={{
                                 ...styles,
-                                transition: 'all 0.7s cubic-bezier(0.4, 0.0, 0.2, 1)',
+                                transition: 'all 0.45s cubic-bezier(0.4, 0.0, 0.2, 1)',
                             }}
                             onClick={() => setActiveIndex(i)}
                         >

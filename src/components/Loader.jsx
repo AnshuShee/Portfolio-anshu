@@ -1,5 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Loader = () => {
     // Ref for the full-screen loader overlay
@@ -7,87 +10,50 @@ const Loader = () => {
     // Ref for the parallax inner content (moves at 0.5x speed)
     const parallaxRef = useRef(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const loader = loaderRef.current;
         const parallax = parallaxRef.current;
         if (!loader) return;
 
-        const mainContent = document.getElementById('main-content');
-
-        // --- FORCE GPU COMPOSITING ---
-        // translateZ(0) promotes elements to their own compositor layer,
-        // ensuring the animation runs entirely on the GPU with zero layout work.
-        gsap.set(loader, {
-            yPercent: 0,
-            z: 0,                        // forces GPU layer
-            backfaceVisibility: 'hidden', // prevents flicker
-        });
+        // --- GPU COMPOSITING ---
+        gsap.set(loader, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
         gsap.set(parallax, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
-        if (mainContent) {
-            gsap.set(mainContent, {
-                yPercent: 100,
-                z: 0,
-                backfaceVisibility: 'hidden',
-            });
-        }
 
-        // --- LOCK BODY SCROLL during transition ---
-        // Prevents any scroll events from causing jank during the push
+        // Lock scroll during the curtain animation
         const originalOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
 
-        // Ensure page is at top before animation starts, not after
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
+        // Snap to top instantly before the curtain rises
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
         window.scrollTo(0, 0);
-        
-        // Also scroll to top on next tick to be absolutely sure React router hasn't moved it
-        setTimeout(() => window.scrollTo(0, 0), 10);
 
-        // --- PUSH TRANSITION TIMELINE ---
+        // --- REVEAL TIMELINE ---
         const tl = gsap.timeline({
-            delay: 1.6, // Synchronized with progress bar finish
+            delay: 1.4,
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
-                // Ensure main content is fully visible and scrollable
-                if (mainContent) {
-                    gsap.set(mainContent, { 
-                        clearProps: "y,yPercent,z,backfaceVisibility" 
-                    });
-                }
+                // Force scroll to top again after overflow is restored
+                setTimeout(() => window.scrollTo(0, 0), 10);
+                gsap.set(loader, { display: 'none' });
+                ScrollTrigger.refresh();
             },
         });
 
         tl
-            // Loader shell: exits upward at full speed
+            // Loader curtain slides up — expo.inOut gives it that satisfying "weight"
             .to(loader, {
                 yPercent: -100,
-                duration: 1.35,
+                duration: 1.1,
                 ease: 'expo.inOut',
                 force3D: true,
             }, 0)
-
-            // Parallax inner layer: moves at 0.5x = depth illusion
+            // Parallax inner: moves at 0.5x for depth
             .to(parallax, {
                 yPercent: -50,
-                duration: 1.35,
+                duration: 1.1,
                 ease: 'expo.inOut',
                 force3D: true,
-            }, 0)
-
-            // Main content: slides up from below and fades in simultaneously
-            .to(mainContent || {}, {
-                yPercent: 0,
-                opacity: 1,
-                visibility: 'visible',
-                duration: 1.35,
-                ease: 'expo.inOut',
-                force3D: true,
-            }, 0)
-
-            // Hide loader after animation (no display flicker)
-            .set(loader, { display: 'none' });
+            }, 0);
 
         return () => {
             tl.kill();
@@ -143,6 +109,8 @@ const Loader = () => {
                     <img
                         src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png"
                         alt="Anshu Shee Logo"
+                        loading="eager"
+                        fetchpriority="high"
                         style={{
                             display: 'block',
                             height: '130px',

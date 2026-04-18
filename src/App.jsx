@@ -70,12 +70,6 @@ function App() {
         */}
         <div 
           id="main-content" 
-          style={{ 
-            opacity: 0, 
-            visibility: 'hidden', 
-            willChange: 'transform, opacity', 
-            overflowX: 'hidden' 
-          }}
         >
           <Navbar />
           <AnimatedRoutes />
