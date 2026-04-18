@@ -80,6 +80,42 @@ const certificates = [
       link: '#',
       image: wscubeCert
   },
+  { 
+      id: '07', 
+      issuer: 'Google', 
+      title: 'Introduction to Large Language Models', 
+      date: '2026', 
+      tag: 'AI', 
+      tagColor: 'purple', 
+      skills: ['LLMs', 'Generative AI', 'Machine Learning'], 
+      desc: 'Completed an introductory course on Large Language Models, covering their underlying architecture and practical applications.',
+      link: '#',
+      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104841_ubhjxt.png"
+  },
+  { 
+      id: '08', 
+      issuer: 'Google', 
+      title: 'Introduction to Generative AI', 
+      date: '2026', 
+      tag: 'AI', 
+      tagColor: 'purple', 
+      skills: ['Generative AI', 'Deep Learning', 'Neural Networks'], 
+      desc: 'Explored the foundational concepts of Generative AI, learning how to create and deploy generative models.',
+      link: '#',
+      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104941_j11ayn.png"
+  },
+  { 
+      id: '09', 
+      issuer: 'Google', 
+      title: 'Introduction to Responsible AI', 
+      date: '2026', 
+      tag: 'Ethics', 
+      tagColor: 'blue', 
+      skills: ['Responsible AI', 'AI Ethics', 'Fairness'], 
+      desc: 'Learned the core principles of Responsible AI, focusing on ethics, bias mitigation, and creating fair AI systems.',
+      link: '#',
+      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104910_ph6koa.png"
+  },
 ];
 
 const colorMap = {
@@ -133,7 +169,7 @@ const CertificatesSection = () => {
                     className="text-center mb-16"
                 >
                     <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">
-                        06 Credentials Earned
+                        Credentials Earned
                     </p>
                     <h2 
                         className="text-4xl md:text-5xl lg:text-6xl font-black text-white" 
@@ -153,29 +189,40 @@ const CertificatesSection = () => {
                             <div 
                                 key={cert.id}
                                 onClick={() => handleCardClick(cert.id)}
-                                className={`relative flex flex-col p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
+                                className={`group relative flex flex-col p-6 rounded-2xl cursor-pointer transition-all duration-300 overflow-hidden ${
                                     isActive ? 'bg-[rgba(255,255,255,0.04)]' : 'bg-transparent hover:bg-[rgba(255,255,255,0.04)]'
                                 }`}
                                 style={{
                                     border: '1px solid rgba(255,255,255,0.08)',
                                 }}
                             >
+                                {/* Hover Image Overlay Reveal */}
+                                <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-[#0a0a0a]/95 backdrop-blur-sm p-4 scale-95 group-hover:scale-100 pointer-events-none">
+                                    {cert.image && (
+                                        <img 
+                                            src={cert.image} 
+                                            alt={cert.title}
+                                            className="w-full h-full object-contain rounded-lg drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
+                                        />
+                                    )}
+                                </div>
+
                                 {/* Accent Drop Line at very top */}
                                 <div 
-                                    className={`absolute top-0 left-6 right-6 h-[2px] transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                                    className={`absolute top-0 left-6 right-6 h-[2px] transition-opacity duration-300 z-10 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                                     style={{ backgroundColor: colors.accent }}
                                 />
 
                                 {/* Top Row - Index Number */}
                                 <div 
-                                    className="text-white/40 font-bold tracking-widest text-sm mb-8"
+                                    className="text-white/40 font-bold tracking-widest text-sm mb-8 relative z-10 transition-opacity duration-300 group-hover:opacity-0"
                                     style={{ fontFamily: '"Inter", sans-serif' }}
                                 >
                                     {cert.id}
                                 </div>
 
                                 {/* Middle Row - Issuer & Title */}
-                                <div className="min-h-[80px] mb-8">
+                                <div className="min-h-[80px] mb-8 relative z-10 transition-opacity duration-300 group-hover:opacity-0">
                                     <span className="text-white/50 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] block mb-2">
                                         {cert.issuer}
                                     </span>
@@ -188,7 +235,7 @@ const CertificatesSection = () => {
                                 </div>
 
                                 {/* Bottom Row - Date & Tag */}
-                                <div className="mt-auto flex items-center justify-between">
+                                <div className="mt-auto flex items-center justify-between relative z-10 transition-opacity duration-300 group-hover:opacity-0">
                                     <span className="text-white/50 text-xs font-bold tracking-[0.1em] uppercase">
                                         {cert.date}
                                     </span>
@@ -306,12 +353,12 @@ const CertificatesSection = () => {
                     style={{ fontFamily: '"Inter", sans-serif' }}
                 >
                     <div className="flex items-center gap-4">
-                        <span className="text-white font-black text-sm">06</span>
+                        <span className="text-white font-black text-sm">09</span>
                         <span>Total Certificates</span>
                         <span className="hidden md:inline">·</span>
                     </div>
                     <div className="flex items-center gap-4">
-                        <span className="text-white font-black text-sm">04</span>
+                        <span className="text-white font-black text-sm">07</span>
                         <span>Issuers</span>
                         <span className="hidden md:inline">·</span>
                     </div>

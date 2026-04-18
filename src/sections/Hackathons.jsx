@@ -55,13 +55,13 @@ const Hackathons = () => {
     return (
         <section id="hackathons" className="py-12 md:py-16 border-b border-white/10" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
             <div className="max-w-7xl mx-auto px-6 md:px-12">
-                <div className="flex flex-col md:flex-row justify-between items-center mb-20">
+                <div className="flex flex-col items-center text-center mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="text-center md:text-left"
+                        className="w-full text-center"
                     >
                         <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 uppercase drop-shadow-[0_0_10px_rgba(245,158,11,0.5)] mb-4">Competitive Coding & Innovation</p>
                         <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white" style={{ fontFamily: '"Anton", sans-serif' }}>HACKATHON CHRONICLES</h2>
