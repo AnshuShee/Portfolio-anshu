@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const Loader = () => {
@@ -7,7 +7,7 @@ const Loader = () => {
     // Ref for the parallax inner content (moves at 0.5x speed)
     const parallaxRef = useRef(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const loader = loaderRef.current;
         const parallax = parallaxRef.current;
         if (!loader) return;
@@ -15,45 +15,32 @@ const Loader = () => {
         const mainContent = document.getElementById('main-content');
 
         // --- FORCE GPU COMPOSITING ---
-        // translateZ(0) promotes elements to their own compositor layer,
-        // ensuring the animation runs entirely on the GPU with zero layout work.
         gsap.set(loader, {
             yPercent: 0,
-            z: 0,                        // forces GPU layer
-            backfaceVisibility: 'hidden', // prevents flicker
+            z: 0,
+            backfaceVisibility: 'hidden',
         });
         gsap.set(parallax, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
-        if (mainContent) {
-            gsap.set(mainContent, {
-                yPercent: 100,
-                z: 0,
-                backfaceVisibility: 'hidden',
-            });
-        }
-
+        
         // --- LOCK BODY SCROLL during transition ---
-        // Prevents any scroll events from causing jank during the push
         const originalOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
 
-        // Ensure page is at top before animation starts, not after
+        // Ensure page is at top
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         window.scrollTo(0, 0);
         
-        // Also scroll to top on next tick to be absolutely sure React router hasn't moved it
-        setTimeout(() => window.scrollTo(0, 0), 10);
-
         // --- PUSH TRANSITION TIMELINE ---
         const tl = gsap.timeline({
-            delay: 1.6, // Synchronized with progress bar finish
+            delay: 1.4, // Slightly faster than before for better UX on reloads
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
                 // Ensure main content is fully visible and scrollable
                 if (mainContent) {
                     gsap.set(mainContent, { 
-                        clearProps: "y,yPercent,z,backfaceVisibility" 
+                        clearProps: "all" 
                     });
                 }
             },
@@ -143,6 +130,8 @@ const Loader = () => {
                     <img
                         src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png"
                         alt="Anshu Shee Logo"
+                        loading="eager"
+                        fetchpriority="high"
                         style={{
                             display: 'block',
                             height: '130px',

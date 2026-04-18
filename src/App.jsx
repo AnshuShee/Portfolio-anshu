@@ -73,6 +73,7 @@ function App() {
           style={{ 
             opacity: 0, 
             visibility: 'hidden', 
+            transform: 'translateY(100%)',
             willChange: 'transform, opacity', 
             overflowX: 'hidden' 
           }}
