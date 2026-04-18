@@ -21,6 +21,15 @@ import HackathonsPage from './pages/HackathonsPage';
 import OpenSourcePage from './pages/OpenSourcePage';
 
 
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 // Inner component that has access to useLocation (must be inside <Router>)
 function AnimatedRoutes() {
   const location = useLocation();
@@ -45,6 +54,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen font-sans selection:bg-orange-500 selection:text-white" style={{ backgroundColor: '#000000', color: '#ffffff' }}>
         <CustomCursor />
         {/* Loader sits on top — GSAP will push it off-screen while revealing #main-content */}
@@ -58,7 +68,15 @@ function App() {
           GSAP Loader animates this to yPercent: 0 simultaneously with loader exit.
           overflow: hidden prevents scroll during transition.
         */}
-        <div id="main-content" style={{ willChange: 'transform', overflowX: 'hidden' }}>
+        <div 
+          id="main-content" 
+          style={{ 
+            opacity: 0, 
+            visibility: 'hidden', 
+            willChange: 'transform, opacity', 
+            overflowX: 'hidden' 
+          }}
+        >
           <Navbar />
           <AnimatedRoutes />
           <Footer />

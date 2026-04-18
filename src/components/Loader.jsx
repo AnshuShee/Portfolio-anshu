@@ -47,10 +47,15 @@ const Loader = () => {
 
         // --- PUSH TRANSITION TIMELINE ---
         const tl = gsap.timeline({
-            delay: 2.5,
-            // onStart/onComplete for scroll lock management
+            delay: 1.6, // Synchronized with progress bar finish
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
+                // Ensure main content is fully visible and scrollable
+                if (mainContent) {
+                    gsap.set(mainContent, { 
+                        clearProps: "y,yPercent,z,backfaceVisibility" 
+                    });
+                }
             },
         });
 
@@ -59,10 +64,8 @@ const Loader = () => {
             .to(loader, {
                 yPercent: -100,
                 duration: 1.35,
-                // expo.inOut: nearly imperceptible start → smooth acceleration
-                // → silky deceleration. The gold standard for push transitions.
                 ease: 'expo.inOut',
-                force3D: true,   // explicitly keep on GPU throughout animation
+                force3D: true,
             }, 0)
 
             // Parallax inner layer: moves at 0.5x = depth illusion
@@ -73,13 +76,14 @@ const Loader = () => {
                 force3D: true,
             }, 0)
 
-            // Main content: slides up from below simultaneously
+            // Main content: slides up from below and fades in simultaneously
             .to(mainContent || {}, {
                 yPercent: 0,
+                opacity: 1,
+                visibility: 'visible',
                 duration: 1.35,
                 ease: 'expo.inOut',
                 force3D: true,
-                clearProps: 'all', // Critical: removes transforms so scrolling isn't laggy and fixed elements work
             }, 0)
 
             // Hide loader after animation (no display flicker)
@@ -195,7 +199,7 @@ const Loader = () => {
                             background: 'linear-gradient(to right, #f97316, #ec4899, #a855f7)',
                             boxShadow: '0 0 10px rgba(249,115,22,0.8)',
                             transformOrigin: 'left',
-                            animation: 'progress-fill 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                            animation: 'progress-fill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards',
                         }} />
                     </div>
 
