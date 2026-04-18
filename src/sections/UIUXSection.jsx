@@ -8,30 +8,37 @@ gsap.registerPlugin(ScrollTrigger);
 
 const UIUX_DATA = [
   {
-    id: 1,
-    title: 'Modern Dashboard System',
-    shortDesc: 'A comprehensive design system for enterprise-level financial dashboards.',
-    fullDesc: 'Created a modular and scalable design system in Figma for financial data visualization. Focused on accessibility, high contrast, and intuitive navigation patterns.',
-    techTags: ['Figma', 'Prototyping', 'Design Systems'],
-    images: ['https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=1000'],
+    id: 4,
+    title: 'Online Education Platform Design',
+    shortDesc: 'A modern, interactive UI/UX design for an online education platform.',
+    fullDesc: 'Designed a comprehensive and engaging user interface for an online learning platform. The design emphasizes clear navigation, immersive course discovery, and a streamlined learning experience to maximize student engagement and accessibility.',
+    techTags: ['Figma', 'UI Design', 'UX Research', 'Prototyping'],
+    images: [
+      'https://res.cloudinary.com/dhnczdpqj/image/upload/v1776490417/Screenshot_2026-04-18_110253_qiheek.png',
+      'https://res.cloudinary.com/dhnczdpqj/image/upload/v1776490417/Screenshot_2026-04-18_110204_v2w4sr.png'
+    ],
     figmaLink: 'https://www.figma.com',
   },
   {
-    id: 2,
-    title: 'Minimalist E-Commerce App',
-    shortDesc: 'A sleek, mobile-first shopping experience with smooth micro-interactions.',
-    fullDesc: 'Designed a high-fidelity mobile app prototype focusing on minimal aesthetics and seamless checkout flows. Optimized for one-handed usage and visual clarity.',
-    techTags: ['Figma', 'UI Design', 'Micro-interactions'],
-    images: ['https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1000'],
+    id: 5,
+    title: 'UI/UX Mobile App Design',
+    shortDesc: 'A sleek and modern interface design with intuitive user flows.',
+    fullDesc: 'Designed a high-fidelity interface prototype focusing on clean aesthetics, intuitive navigation, and modern design principles. The interface prioritizes user engagement and seamless interactions.',
+    techTags: ['Figma', 'UI Design', 'Prototyping'],
+    images: [
+      'https://res.cloudinary.com/dhnczdpqj/image/upload/v1776491413/Screenshot_2026-04-18_111450_idnutg.png'
+    ],
     figmaLink: 'https://www.figma.com',
   },
   {
-    id: 3,
-    title: 'SaaS Landing Page',
-    shortDesc: 'Conversion-focused landing page design for a tech startup.',
-    fullDesc: 'Crafted a vibrant and engaging landing page design with custom 3D assets and a strong emphasis on typographic hierarchy and CTAs.',
-    techTags: ['Figma', 'Web Design', '3D Assets'],
-    images: ['https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000'],
+    id: 6,
+    title: 'Travel App UI/UX Design',
+    shortDesc: 'A captivating and user-centric design for a travel booking application.',
+    fullDesc: 'Designed a comprehensive UI/UX flow for a travel application. The design focuses on immersive imagery, easy discovery of destinations, and a seamless booking experience, providing users with a premium travel planning interface.',
+    techTags: ['Figma', 'UI Design', 'Wireframing'],
+    images: [
+      'https://res.cloudinary.com/dhnczdpqj/image/upload/v1776491943/figma-travel_p0wjuw.jpg'
+    ],
     figmaLink: 'https://www.figma.com',
   },
 ];
@@ -71,10 +78,10 @@ const UIUXSection = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div ref={headerRef} className="mb-16 text-center">
-          <span className="inline-block px-4 py-1.5 bg-pink-500/10 border border-pink-500/20 rounded-full text-pink-400 text-sm font-semibold tracking-widest uppercase mb-6">
+          <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">
             Creative Vision
-          </span>
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight" style={{ fontFamily: '"Anton", sans-serif' }}>
+          </p>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight uppercase" style={{ fontFamily: '"Anton", sans-serif' }}>
             UI/UX Design
           </h2>
           <p className="max-w-2xl mx-auto text-white/50 text-lg font-light leading-relaxed">
@@ -94,7 +101,7 @@ const UIUXSection = () => {
                 <img 
                   src={design.images[0]} 
                   alt={design.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent opacity-80" />
                 
@@ -149,8 +156,8 @@ const DesignModal = ({ design, onClose }) => {
           <FaTimes />
         </button>
 
-        <div className="w-full md:w-3/5 bg-black h-[300px] md:h-auto overflow-hidden">
-          <img src={design.images[0]} alt={design.title} className="w-full h-full object-cover" />
+        <div className="w-full md:w-3/5 bg-black h-[300px] md:h-auto overflow-y-auto custom-scrollbar relative">
+          <img src={design.images[0]} alt={design.title} className="w-full h-auto block" />
         </div>
 
         <div className="w-full md:w-2/5 p-8 md:p-12 overflow-y-auto custom-scrollbar">

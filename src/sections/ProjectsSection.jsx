@@ -21,64 +21,28 @@ const PROJECTS_DATA = [
     youtube: 'https://youtube.com',
   },
   {
-    id: 2,
-    title: 'AI Content Generator',
-    category: 'AI',
-    shortDesc: 'An AI-powered tool for generating marketing copy.',
-    fullDesc: 'Leveraged OpenAI API to create a SaaS application that generates high-converting marketing copy. Includes user authentication, subscription management, and prompt engineering tools.',
-    techTags: ['React', 'Python', 'OpenAI API', 'AWS'],
-    images: ['https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000'],
-    github: '#',
-    live: '#',
-    youtube: 'https://youtube.com',
-  },
-  {
-    id: 3,
-    title: 'Fitness Tracker App',
-    category: 'App',
-    shortDesc: 'A cross-platform mobile app for tracking workouts.',
-    fullDesc: 'Built a mobile application for fitness enthusiasts to log workouts, track progress, and share achievements. Integrated device sensors for step counting and GPS tracking.',
-    techTags: ['React Native', 'Redux', 'Node.js', 'Firebase'],
-    images: ['https://images.unsplash.com/photo-1526506114622-c36130eb5a9a?q=80&w=1000'],
-    github: '#',
-    live: '#',
-    youtube: 'https://youtube.com',
-  },
-  {
-    id: 4,
-    title: 'Financial Dashboard',
+    id: 7,
+    title: 'Clone of Get your guide',
     category: 'Web',
-    shortDesc: 'A data visualization dashboard for financial analytics.',
-    fullDesc: 'Developed a comprehensive financial dashboard featuring complex data visualizations. Integrated multiple third-party financial APIs to provide real-time market data and portfolio analysis.',
-    techTags: ['Vue.js', 'D3.js', 'Express', 'Tailwind'],
-    images: ['https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000'],
-    github: '#',
+    shortDesc: 'A comprehensive travel platform clone for booking tours and activities.',
+    fullDesc: 'Developed a high-fidelity clone of GetYourGuide, a leading travel booking platform. The project focuses on a seamless user interface, dynamic search capabilities, and a detailed activity discovery experience, mimicking the premium feel of the original site.',
+    techTags: ['HTML', 'CSS', 'JavaScript', 'React'],
+    images: ['https://res.cloudinary.com/dhnczdpqj/image/upload/v1775713009/Screenshot_2026-04-09_110611_jsuzsf.png'],
+    github: 'https://github.com/AnshuShee/Website-Clone-Assignment',
     live: '#',
-    youtube: 'https://youtube.com',
+    youtube: '#',
   },
   {
-    id: 5,
-    title: 'Smart Home Hub',
-    category: 'App',
-    shortDesc: 'IoT application to control smart home devices.',
-    fullDesc: 'A centralized mobile hub for controlling various IoT devices. Features include custom routines, voice control integration, and energy consumption monitoring.',
-    techTags: ['Flutter', 'Dart', 'GraphQL', 'AWS IoT'],
-    images: ['https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1000'],
-    github: '#',
+    id: 8,
+    title: 'Rappi Clone',
+    category: 'Web',
+    shortDesc: 'A premium clone of the Rappi food and grocery delivery platform.',
+    fullDesc: 'Developed a high-performance, responsive clone of the Rappi delivery platform. The project features a modern, intuitive UI for browsing restaurants and groceries, showcasing advanced frontend skills in replicating complex e-commerce flows and layouts.',
+    techTags: ['HTML', 'CSS', 'JavaScript', 'React'],
+    images: ['https://res.cloudinary.com/dhnczdpqj/image/upload/v1776486433/Screenshot_2026-04-18_095519_ddjpua.png'],
+    github: 'https://github.com/AnshuShee/Rappi-Clone',
     live: '#',
-    youtube: 'https://youtube.com',
-  },
-  {
-    id: 6,
-    title: 'Code Review AI',
-    category: 'AI',
-    shortDesc: 'Automated code review system powered by machine learning.',
-    fullDesc: 'An automated pipeline tool that reviews pull requests, detects vulnerabilities, and suggests optimizations using custom-trained LLMs.',
-    techTags: ['Python', 'TensorFlow', 'GitHub Actions', 'Docker'],
-    images: ['https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000'],
-    github: '#',
-    live: '#',
-    youtube: 'https://youtube.com',
+    youtube: '#',
   },
 ];
 
@@ -477,10 +441,10 @@ const ProjectsSection = () => {
         
         {/* Header & Filters */}
         <div ref={headerRef} className="mb-16 text-center">
-          <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-6 shadow-lg shadow-indigo-500/10">
+          <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 uppercase drop-shadow-[0_0_10px_rgba(99,102,241,0.5)] mb-4">
             Selected Works
-          </span>
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-10 tracking-tight" style={{ fontFamily: '"Anton", sans-serif' }}>
+          </p>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-10 tracking-tight uppercase" style={{ fontFamily: '"Anton", sans-serif' }}>
             Featured Projects
           </h2>
           
