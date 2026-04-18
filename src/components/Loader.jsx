@@ -13,8 +13,12 @@ const Loader = () => {
         if (!loader) return;
 
         // --- GPU COMPOSITING ---
+        const mainContent = document.getElementById('main-content');
         gsap.set(loader, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
         gsap.set(parallax, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
+        if (mainContent) {
+            gsap.set(mainContent, { y: '100vh', z: 0, backfaceVisibility: 'hidden' });
+        }
 
         // Lock scroll during the curtain animation
         const originalOverflow = document.body.style.overflow;
@@ -24,15 +28,15 @@ const Loader = () => {
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
         window.scrollTo(0, 0);
 
-        // --- CURTAIN REVEAL TIMELINE ---
-        // Hero sits BEHIND the loader at full opacity.
-        // The loader slides upward like a curtain → smooth reveal.
+        // --- REVEAL TIMELINE ---
         const tl = gsap.timeline({
             delay: 1.4,
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
                 window.scrollTo(0, 0);
                 gsap.set(loader, { display: 'none' });
+                // Reset transform so normal scrolling is completely unaffected
+                if (mainContent) gsap.set(mainContent, { clearProps: 'all' });
             },
         });
 
@@ -52,9 +56,19 @@ const Loader = () => {
                 force3D: true,
             }, 0);
 
+        if (mainContent) {
+            tl.to(mainContent, {
+                y: '0vh',
+                duration: 1.1,
+                ease: 'expo.inOut',
+                force3D: true,
+            }, 0);
+        }
+
         return () => {
             tl.kill();
             document.body.style.overflow = originalOverflow;
+            if (mainContent) gsap.set(mainContent, { clearProps: 'all' });
         };
     }, []);
 
