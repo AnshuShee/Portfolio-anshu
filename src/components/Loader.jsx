@@ -34,9 +34,11 @@ const Loader = () => {
         
         // --- PUSH TRANSITION TIMELINE ---
         const tl = gsap.timeline({
-            delay: 1.4, // Slightly faster than before for better UX on reloads
+            delay: 1.4, 
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
+                // Force scroll to top after transition finishes
+                window.scrollTo(0, 0);
                 // Ensure main content is fully visible and scrollable
                 if (mainContent) {
                     gsap.set(mainContent, { 
