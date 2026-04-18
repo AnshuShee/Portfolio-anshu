@@ -63,26 +63,41 @@ const Education = () => {
                     />
 
                     <div className="space-y-12">
-                        {educationData.map((edu, index) => (
+                        {educationData.map((edu, index) => {
+                            const isLeft = index % 2 === 0;
+                            return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, delay: index * 0.1 }}
-                                viewport={{ once: true, margin: "-100px" }}
+                                initial={{ 
+                                    opacity: 0, 
+                                    x: isLeft ? -80 : 80  // left cards come from left, right from right
+                                }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ 
+                                    duration: 0.8, 
+                                    delay: index * 0.15,
+                                    ease: [0.25, 0.46, 0.45, 0.94]  // custom easeOutQuart
+                                }}
+                                viewport={{ once: true, margin: "-80px" }}
                                 className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${
-                                    index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                                    isLeft ? 'md:flex-row-reverse' : ''
                                 }`}
                             >
-                                {/* Timeline Dot */}
-                                <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 mt-6 md:mt-0 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 border-4 border-[#000000] shadow-[0_0_10px_rgba(249,115,22,0.5)] text-white">
+                                {/* Timeline Dot — pops in with spring */}
+                                <motion.div
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    transition={{ type: 'spring', stiffness: 300, damping: 18, delay: index * 0.15 + 0.3 }}
+                                    viewport={{ once: true }}
+                                    className="absolute left-8 md:left-1/2 transform -translate-x-1/2 mt-6 md:mt-0 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-orange-500 border-4 border-[#000000] shadow-[0_0_10px_rgba(249,115,22,0.5)] text-white"
+                                >
                                     <div className="scale-75">{edu.icon}</div>
-                                </div>
+                                </motion.div>
 
                                 {/* Content Box */}
-                                <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12 md:text-right'}`}>
+                                <div className={`ml-16 md:ml-0 md:w-1/2 ${isLeft ? 'md:pl-12' : 'md:pr-12 md:text-right'}`}>
                                     <div className="p-6 md:p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 hover:shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all">
-                                        <div className={`flex flex-wrap items-center gap-3 mb-3 ${index % 2 === 0 ? '' : 'md:justify-end'}`}>
+                                        <div className={`flex flex-wrap items-center gap-3 mb-3 ${isLeft ? '' : 'md:justify-end'}`}>
                                             <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-sm font-semibold text-white/80 shadow-sm">
                                                 <Calendar size={14} />
                                                 {edu.duration}
@@ -95,7 +110,7 @@ const Education = () => {
                                             <p className="text-lg font-medium text-white/70 mb-3">{edu.field}</p>
                                         )}
 
-                                        <div className={`flex items-center gap-1.5 mb-4 text-white/60 ${index % 2 === 0 ? '' : 'md:justify-end'}`}>
+                                        <div className={`flex items-center gap-1.5 mb-4 text-white/60 ${isLeft ? '' : 'md:justify-end'}`}>
                                             <MapPin size={16} />
                                             <span className="font-medium text-sm uppercase tracking-wide">{edu.institution}</span>
                                         </div>
@@ -104,7 +119,8 @@ const Education = () => {
                                     </div>
                                 </div>
                             </motion.div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </div>
