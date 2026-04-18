@@ -44,6 +44,18 @@ const PROJECTS_DATA = [
     live: '#',
     youtube: '#',
   },
+  {
+    id: 9,
+    title: 'MacBook Pro M4 Clone',
+    category: 'Web',
+    shortDesc: 'A sleek, high-performance landing page clone for the MacBook Pro M4.',
+    fullDesc: 'Developed a visually stunning, responsive landing page inspired by Apple\'s MacBook Pro M4 showcase. Features advanced CSS animations, smooth scrolling, and a premium dark mode aesthetic to highlight the product\'s cutting-edge design and capabilities.',
+    techTags: ['HTML', 'CSS', 'JavaScript', 'React', 'GSAP'],
+    images: ['https://res.cloudinary.com/dhnczdpqj/image/upload/v1775497409/Screenshot_2026-04-06_230459_qmag6y.png'],
+    github: '#',
+    live: '#',
+    youtube: '#',
+  },
 ];
 
 // --- Magnetic Button Component ---
