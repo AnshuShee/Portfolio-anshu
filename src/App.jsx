@@ -71,9 +71,6 @@ function App() {
         <div 
           id="main-content" 
           style={{ 
-            opacity: 0, 
-            visibility: 'hidden',
-            willChange: 'opacity', 
             overflowX: 'hidden' 
           }}
         >

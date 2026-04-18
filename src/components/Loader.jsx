@@ -12,80 +12,45 @@ const Loader = () => {
         const parallax = parallaxRef.current;
         if (!loader) return;
 
-        const mainContent = document.getElementById('main-content');
-
-        // --- FORCE GPU COMPOSITING ---
-        gsap.set(loader, {
-            yPercent: 0,
-            z: 0,
-            backfaceVisibility: 'hidden',
-        });
+        // --- GPU COMPOSITING ---
+        gsap.set(loader, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
         gsap.set(parallax, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
 
-        // Explicitly set mainContent start state so GSAP knows where to animate FROM
-        if (mainContent) {
-            gsap.set(mainContent, {
-                yPercent: 0,   // no vertical offset — we rely on CSS transform already set
-                opacity: 0,
-                visibility: 'hidden',
-                z: 0,
-                backfaceVisibility: 'hidden',
-            });
-        }
-        
-        // --- LOCK BODY SCROLL during transition ---
+        // Lock scroll during the curtain animation
         const originalOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
 
-        // Ensure page is at top
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
+        // Snap to top instantly before the curtain rises
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
         window.scrollTo(0, 0);
-        
-        // --- PUSH TRANSITION TIMELINE ---
+
+        // --- CURTAIN REVEAL TIMELINE ---
+        // Hero sits BEHIND the loader at full opacity.
+        // The loader slides upward like a curtain → smooth reveal.
         const tl = gsap.timeline({
             delay: 1.4,
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
                 window.scrollTo(0, 0);
-                // Only clear the props we animated — avoids layout recalculation snap
-                if (mainContent) {
-                    gsap.set(mainContent, {
-                        clearProps: 'opacity,visibility,transform,backfaceVisibility',
-                    });
-                }
+                gsap.set(loader, { display: 'none' });
             },
         });
 
         tl
-            // Loader shell: exits upward at full speed
+            // Loader curtain slides up — expo.inOut gives it that satisfying "weight"
             .to(loader, {
                 yPercent: -100,
-                duration: 1.2,
+                duration: 1.1,
                 ease: 'expo.inOut',
                 force3D: true,
             }, 0)
-
-            // Parallax inner layer: moves at 0.5x = depth illusion
+            // Parallax inner: moves at 0.5x for depth
             .to(parallax, {
                 yPercent: -50,
-                duration: 1.2,
+                duration: 1.1,
                 ease: 'expo.inOut',
                 force3D: true,
-            }, 0)
-
-            // Main content: fades in and becomes visible simultaneously
-            .to(mainContent || {}, {
-                opacity: 1,
-                visibility: 'visible',
-                duration: 0.6,
-                ease: 'power2.out',
-                force3D: true,
-            }, 0.6)  // starts halfway through so it fills in as the loader clears
-
-            // Hide loader after animation (no display flicker)
-            .set(loader, { display: 'none' });
+            }, 0);
 
         return () => {
             tl.kill();
