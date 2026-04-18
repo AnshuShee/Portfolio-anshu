@@ -21,6 +21,17 @@ const Loader = () => {
             backfaceVisibility: 'hidden',
         });
         gsap.set(parallax, { yPercent: 0, z: 0, backfaceVisibility: 'hidden' });
+
+        // Explicitly set mainContent start state so GSAP knows where to animate FROM
+        if (mainContent) {
+            gsap.set(mainContent, {
+                yPercent: 0,   // no vertical offset — we rely on CSS transform already set
+                opacity: 0,
+                visibility: 'hidden',
+                z: 0,
+                backfaceVisibility: 'hidden',
+            });
+        }
         
         // --- LOCK BODY SCROLL during transition ---
         const originalOverflow = document.body.style.overflow;
@@ -34,15 +45,14 @@ const Loader = () => {
         
         // --- PUSH TRANSITION TIMELINE ---
         const tl = gsap.timeline({
-            delay: 1.4, 
+            delay: 1.4,
             onComplete: () => {
                 document.body.style.overflow = originalOverflow;
-                // Force scroll to top after transition finishes
                 window.scrollTo(0, 0);
-                // Ensure main content is fully visible and scrollable
+                // Only clear the props we animated — avoids layout recalculation snap
                 if (mainContent) {
-                    gsap.set(mainContent, { 
-                        clearProps: "all" 
+                    gsap.set(mainContent, {
+                        clearProps: 'opacity,visibility,transform,backfaceVisibility',
                     });
                 }
             },
@@ -52,7 +62,7 @@ const Loader = () => {
             // Loader shell: exits upward at full speed
             .to(loader, {
                 yPercent: -100,
-                duration: 1.35,
+                duration: 1.2,
                 ease: 'expo.inOut',
                 force3D: true,
             }, 0)
@@ -60,20 +70,19 @@ const Loader = () => {
             // Parallax inner layer: moves at 0.5x = depth illusion
             .to(parallax, {
                 yPercent: -50,
-                duration: 1.35,
+                duration: 1.2,
                 ease: 'expo.inOut',
                 force3D: true,
             }, 0)
 
-            // Main content: slides up from below and fades in simultaneously
+            // Main content: fades in and becomes visible simultaneously
             .to(mainContent || {}, {
-                yPercent: 0,
                 opacity: 1,
                 visibility: 'visible',
-                duration: 1.35,
-                ease: 'expo.inOut',
+                duration: 0.6,
+                ease: 'power2.out',
                 force3D: true,
-            }, 0)
+            }, 0.6)  // starts halfway through so it fills in as the loader clears
 
             // Hide loader after animation (no display flicker)
             .set(loader, { display: 'none' });

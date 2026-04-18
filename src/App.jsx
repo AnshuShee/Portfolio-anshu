@@ -72,9 +72,8 @@ function App() {
           id="main-content" 
           style={{ 
             opacity: 0, 
-            visibility: 'hidden', 
-            transform: 'translateY(100%)',
-            willChange: 'transform, opacity', 
+            visibility: 'hidden',
+            willChange: 'opacity', 
             overflowX: 'hidden' 
           }}
         >
