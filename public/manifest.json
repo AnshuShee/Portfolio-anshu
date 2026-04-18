@@ -5,19 +5,31 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#ff0000",
+  "theme_color": "#000000",
   "icons": [
+    {
+      "src": "https://res.cloudinary.com/dhnczdpqj/image/upload/w_192,h_192,c_fill,f_auto,q_auto/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "https://res.cloudinary.com/dhnczdpqj/image/upload/w_192,h_192,c_pad,b_black/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://res.cloudinary.com/dhnczdpqj/image/upload/w_512,h_512,c_fill,f_auto,q_auto/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "https://res.cloudinary.com/dhnczdpqj/image/upload/w_512,h_512,c_pad,b_black/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ]
 }
