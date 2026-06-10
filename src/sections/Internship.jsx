@@ -93,7 +93,7 @@ const Internship = () => {
 
                             {/* Company header */}
                             <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/8">
-                                <div className="flex items-center gap-5">
+                                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-5">
                                     {/* Company Icon */}
                                     <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/30 to-orange-600/10 border border-orange-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(255,138,0,0.2)] overflow-hidden">
                                         <img src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1781085924/DecodeLabs-Image_navwxx.jpg" alt="DecodeLabs Logo" className="w-full h-full object-cover" />

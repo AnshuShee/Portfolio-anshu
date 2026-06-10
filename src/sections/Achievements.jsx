@@ -68,9 +68,9 @@ const Achievements = () => {
                             {/* Header Info */}
                             <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-10">
                                 
-                                <div className="flex gap-6 items-start">
+                                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
                                     {/* Big Icon */}
-                                    <div className="hidden sm:flex flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-teal-400/10 border border-purple-500/30 items-center justify-center shadow-[0_0_20px_rgba(155,81,224,0.3)] overflow-hidden">
+                                    <div className="flex flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-teal-400/10 border border-purple-500/30 items-center justify-center shadow-[0_0_20px_rgba(155,81,224,0.3)] overflow-hidden">
                                         <img src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1781087699/1751827772627_mlssb8.jpg" alt="GSSoC Logo" className="w-full h-full object-cover" />
                                     </div>
                                     
