@@ -93,42 +93,7 @@ const Hero = () => {
                     deliver real <span className="hero-tagline-accent">impact.</span>
                 </motion.p>
 
-                {/* Feature Pills */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 1.0 }}
-                    className="hero-feature-pills"
-                >
-                    <div className="hero-feature-pill">
-                        <div className="hero-feature-pill-icon"><Code size={16} /></div>
-                        <div className="hero-feature-pill-text">
-                            <span className="hero-feature-pill-title">Full Stack</span>
-                            <span className="hero-feature-pill-sub">Developer</span>
-                        </div>
-                    </div>
-                    <div className="hero-feature-pill">
-                        <div className="hero-feature-pill-icon"><Zap size={16} /></div>
-                        <div className="hero-feature-pill-text">
-                            <span className="hero-feature-pill-title">Problem</span>
-                            <span className="hero-feature-pill-sub">Solver</span>
-                        </div>
-                    </div>
-                    <div className="hero-feature-pill">
-                        <div className="hero-feature-pill-icon"><Rocket size={16} /></div>
-                        <div className="hero-feature-pill-text">
-                            <span className="hero-feature-pill-title">Building</span>
-                            <span className="hero-feature-pill-sub">Scalable Apps</span>
-                        </div>
-                    </div>
-                    <div className="hero-feature-pill" style={{ borderRight: 'none', paddingRight: '16px' }}>
-                        <div className="hero-feature-pill-icon"><Target size={16} /></div>
-                        <div className="hero-feature-pill-text">
-                            <span className="hero-feature-pill-title">Detail</span>
-                            <span className="hero-feature-pill-sub">Oriented</span>
-                        </div>
-                    </div>
-                </motion.div>
+
             </div>
 
             {/* Bottom info strip */}
