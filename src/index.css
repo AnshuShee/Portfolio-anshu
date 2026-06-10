@@ -31,6 +31,15 @@ html {
   cursor: none !important;
 }
 
+/* Show default cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+}
+
+
+
 body {
   margin: 0;
   min-width: 320px;
@@ -38,12 +47,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Show default cursor on touch devices */
-@media (hover: none) and (pointer: coarse) {
-  * {
-    cursor: auto !important;
-  }
-}
+
 
 h1 {
   font-size: 3.2em;

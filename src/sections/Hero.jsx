@@ -65,6 +65,31 @@ const Hero = () => {
             {/* Main Center Content */}
             <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8 mt-20">
                 
+                {/* Say Hi Pill */}
+                <motion.a
+                    href="https://x.com/anshu_shee"
+                    target="_blank"
+                    rel="noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="group relative inline-flex items-center gap-2.5 px-5 py-2 mb-8 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,0,0,0.5)] overflow-hidden"
+                >
+                    {/* Rotating Gradient Background */}
+                    <div className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] opacity-80" style={{
+                        background: 'conic-gradient(from 0deg, transparent 0 320deg, #00e5ff 320deg, #ff007b 340deg, #ff8a00 360deg)'
+                    }}></div>
+                    
+                    {/* Inner Black Pill to mask the center of the gradient */}
+                    <div className="absolute inset-[1px] rounded-full bg-[#0a0a0a]"></div>
+                    
+                    <span className="text-[0.85rem] font-semibold text-white/90 group-hover:text-white transition-colors relative z-10 tracking-wide">Say hi on</span>
+                    <svg className="relative z-10 text-white" width="13" height="13" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="currentColor"/>
+                    </svg>
+                    <svg className="relative z-10 text-white/60 group-hover:text-white group-hover:translate-x-0.5 transition-all" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </motion.a>
+
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}

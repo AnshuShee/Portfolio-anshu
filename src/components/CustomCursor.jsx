@@ -2,11 +2,9 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 const CustomCursor = () => {
-    // Ultimate smoothness with balanced springs
-    // Higher damping = less 'wobble', more 'fluid'
-    const springConfig = { damping: 30, stiffness: 300, mass: 0.5 };
-    const mouseX = useSpring(0, springConfig);
-    const mouseY = useSpring(0, springConfig);
+    // Use motion values directly instead of spring for zero lag
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
     const [isPointer, setIsPointer] = useState(false);
     const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -56,43 +54,7 @@ const CustomCursor = () => {
 
     return (
         <div className={`fixed inset-0 z-[999999] pointer-events-none transition-opacity duration-300 ${isHidden ? 'opacity-0' : 'opacity-100'}`}>
-            {/* Chromatic Aberration / Glitch Layers */}
-            
-            {/* RED LAYER */}
-            <motion.div
-                className="fixed top-0 left-0 origin-top-left"
-                style={{
-                    x: mouseX,
-                    y: mouseY,
-                    translateX: isPointer ? -5 : -1.5,
-                    translateY: 0,
-                    scale: isPointer ? 1.25 : 1,
-                    filter: 'blur(0.8px)',
-                    opacity: 0.7
-                }}
-            >
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                    <path d={pixelPath} fill="#FF2D55" style={{ shapeRendering: 'crispEdges' }} />
-                </svg>
-            </motion.div>
-
-            {/* BLUE LAYER */}
-            <motion.div
-                className="fixed top-0 left-0 origin-top-left"
-                style={{
-                    x: mouseX,
-                    y: mouseY,
-                    translateX: isPointer ? 4 : 1.5,
-                    translateY: 0,
-                    scale: isPointer ? 1.25 : 1,
-                    filter: 'blur(0.8px)',
-                    opacity: 0.7
-                }}
-            >
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                    <path d={pixelPath} fill="#007AFF" style={{ shapeRendering: 'crispEdges' }} />
-                </svg>
-            </motion.div>
+            {/* Clean White Cursor */}
 
             {/* MAIN WHITE LAYER */}
             <motion.div
