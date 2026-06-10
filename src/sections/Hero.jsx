@@ -129,21 +129,7 @@ const Hero = () => {
                     </div>
                 </motion.div>
 
-                {/* Social Links */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.3 }}
-                    className="hero-bottom-badge--right"
-                >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span className="hidden lg:inline" style={{ fontSize: '0.75rem', letterSpacing: '0.1em', color: '#fff', fontWeight: 600, marginRight: '8px' }}>LET'S CONNECT <span style={{ color: '#ff8a00' }}>●</span></span>
-                        <a href="https://github.com/AnshuShee" target="_blank" rel="noreferrer" className="hero-social-link"><FaGithub size={18} /></a>
-                        <a href="https://linkedin.com/in/anshu-shee" target="_blank" rel="noreferrer" className="hero-social-link"><FaLinkedin size={18} /></a>
-                        <a href="https://instagram.com/anshu_shee" target="_blank" rel="noreferrer" className="hero-social-link"><FaInstagram size={18} /></a>
-                        <button className="hero-chat-btn"><MessageSquare size={18} /></button>
-                    </div>
-                </motion.div>
+
             </div>
         </section>
     );
