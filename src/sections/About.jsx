@@ -40,7 +40,7 @@ const About = () => {
                     >
                         <motion.p 
                             variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
-                            className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)]"
+                            className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[#ff8a00] to-orange-600 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)]"
                         >
                             About Me
                         </motion.p>

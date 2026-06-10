@@ -8,7 +8,7 @@ const NotFound = () => {
             <motion.h1 
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-9xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500"
+                className="text-9xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-red-500"
                 style={{ fontFamily: '"Anton", sans-serif' }}
             >
                 404

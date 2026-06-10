@@ -73,12 +73,12 @@ const UIUXSection = () => {
   return (
     <section ref={sectionRef} id="uiux" className="relative py-24 bg-[#030303] overflow-hidden">
       {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div ref={headerRef} className="mb-16 text-center">
-          <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">
+          <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-[#ff8a00] via-orange-500 to-red-500 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4">
             Creative Vision
           </p>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight uppercase" style={{ fontFamily: '"Anton", sans-serif' }}>
@@ -109,7 +109,7 @@ const UIUXSection = () => {
                   <h3 className="text-2xl font-bold text-white mb-2">{design.title}</h3>
                   <div className="flex gap-2">
                     {design.techTags.map(tag => (
-                      <span key={tag} className="text-[10px] uppercase tracking-tighter font-bold text-pink-400 px-2 py-0.5 bg-pink-500/10 border border-pink-500/20 rounded">
+                      <span key={tag} className="text-[10px] uppercase tracking-tighter font-bold text-orange-400 px-2 py-0.5 bg-orange-500/10 border border-orange-500/20 rounded">
                         {tag}
                       </span>
                     ))}
@@ -161,7 +161,7 @@ const DesignModal = ({ design, onClose }) => {
         </div>
 
         <div className="w-full md:w-2/5 p-8 md:p-12 overflow-y-auto custom-scrollbar">
-          <div className="flex items-center gap-3 mb-6 text-pink-400">
+          <div className="flex items-center gap-3 mb-6 text-orange-400">
             <FaFigma size={24} />
             <span className="text-sm font-bold tracking-widest uppercase">UX Case Study</span>
           </div>
@@ -183,7 +183,7 @@ const DesignModal = ({ design, onClose }) => {
             href={design.figmaLink} 
             target="_blank" 
             rel="noreferrer"
-            className="group flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-pink-50 transition-all duration-300"
+            className="group flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-bold rounded-xl hover:bg-orange-50 transition-all duration-300"
           >
             Open Figma Prototype <FaExternalLinkAlt className="group-hover:translate-x-1 transition-transform" />
           </a>

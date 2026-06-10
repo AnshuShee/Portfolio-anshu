@@ -34,7 +34,7 @@ const Contact = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-20"
                 >
-                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">Get In Touch</p>
+                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[#ff8a00] to-orange-600 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4">Get In Touch</p>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white mb-8 uppercase" style={{ fontFamily: '"Anton", sans-serif' }}>Let's work together.</h2>
                     <p className="text-white/70 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                         I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!

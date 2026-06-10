@@ -1,106 +1,182 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Layers } from 'lucide-react';
+import { MapPin, Code, Zap, Rocket, Target, MessageSquare } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaInstagram, FaReact, FaNodeJs, FaJs } from 'react-icons/fa';
+import { SiMongodb, SiExpress, SiTailwindcss } from 'react-icons/si';
 
 const Hero = () => {
     return (
         <section
             id="home"
-            className="relative w-full overflow-hidden flex flex-col justify-between"
-            style={{
-                backgroundColor: '#000000',
-                minHeight: '100vh',
-                color: '#ffffff',
-            }}
+            className="hero-section-wrapper"
         >
-            {/* ── Say hi on X button ── */}
-            <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="relative z-10 flex justify-center pt-28 md:pt-32"
-            >
-                <a
-                    href="https://twitter.com/AnshuShee007"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hero-say-hi-btn magnetic"
-                >
-                    Say hi on{' '}
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        style={{ display: 'inline-block', verticalAlign: 'middle', marginLeft: 4, marginRight: 2 }}
-                    >
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                    <span style={{ marginLeft: 2 }}>›</span>
-                </a>
-            </motion.div>
+            {/* Background Planet */}
+            <div className="hero-planet-glow"></div>
+            <div className="hero-planet-core"></div>
+            <div className="hero-planet-ring"></div>
 
-            {/* ── Main hero content: giant name + tagline ── */}
-            <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8">
-                {/* Giant Name */}
-                <motion.h1
+            {/* Left Sidebar */}
+            <div className="hidden lg:flex hero-sidebar-left">
+                <div className="hero-sidebar-left-text">
+                    <div className="hero-sidebar-left-dot"></div>
+                    FULL STACK DEVELOPER
+                </div>
+                <div style={{ color: '#ff8a00', marginTop: '10px' }}>
+                    <Code size={20} />
+                </div>
+            </div>
+
+            {/* Right Sidebar (Skills) */}
+            <div className="hidden lg:flex hero-sidebar-right">
+                <div className="hero-sidebar-right-line"></div>
+                
+                <div className="hero-skill-item">
+                    <div className="hero-skill-icon-wrap"><FaReact size={24} /></div>
+                    <div className="hero-skill-dot"></div>
+                    <span className="hero-skill-label">React</span>
+                </div>
+                <div className="hero-skill-item">
+                    <div className="hero-skill-icon-wrap"><FaNodeJs size={24} /></div>
+                    <div className="hero-skill-dot"></div>
+                    <span className="hero-skill-label">Node.js</span>
+                </div>
+                <div className="hero-skill-item">
+                    <div className="hero-skill-icon-wrap"><SiMongodb size={24} /></div>
+                    <div className="hero-skill-dot"></div>
+                    <span className="hero-skill-label">MongoDB</span>
+                </div>
+                <div className="hero-skill-item">
+                    <div className="hero-skill-icon-wrap"><SiExpress size={24} /></div>
+                    <div className="hero-skill-dot"></div>
+                    <span className="hero-skill-label">Express.js</span>
+                </div>
+                <div className="hero-skill-item">
+                    <div className="hero-skill-icon-wrap"><SiTailwindcss size={24} /></div>
+                    <div className="hero-skill-dot"></div>
+                    <span className="hero-skill-label">Tailwind CSS</span>
+                </div>
+                <div className="hero-skill-item">
+                    <div className="hero-skill-icon-wrap"><FaJs size={24} /></div>
+                    <div className="hero-skill-dot"></div>
+                    <span className="hero-skill-label">JavaScript</span>
+                </div>
+            </div>
+
+            {/* Main Center Content */}
+            <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 md:px-8 mt-20">
+                
+                <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="hero-giant-name"
+                    className="relative"
                 >
-                    ANSHU
-                </motion.h1>
+                    <h1 className="hero-giant-name">ANSHU</h1>
+                    <span className="hero-cursive-name">Shee</span>
+                </motion.div>
 
-                {/* Tagline */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.6 }}
                     className="hero-tagline-upper"
                 >
-                    I&nbsp; D E S I G N&nbsp; A N D&nbsp; B U I L D&nbsp; P R O D U C T S&nbsp; T H A T
+                    I &nbsp;D E S I G N&nbsp; A N D&nbsp; B U I L D&nbsp; P R O D U C T S&nbsp; T H A T
                 </motion.p>
 
-                {/* Italic serif impact line */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.8 }}
                     className="hero-tagline-italic"
                 >
-                    deliver real impact.
+                    deliver real <span className="hero-tagline-accent">impact.</span>
                 </motion.p>
+
+                {/* Feature Pills */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 1.0 }}
+                    className="hero-feature-pills"
+                >
+                    <div className="hero-feature-pill">
+                        <div className="hero-feature-pill-icon"><Code size={16} /></div>
+                        <div className="hero-feature-pill-text">
+                            <span className="hero-feature-pill-title">Full Stack</span>
+                            <span className="hero-feature-pill-sub">Developer</span>
+                        </div>
+                    </div>
+                    <div className="hero-feature-pill">
+                        <div className="hero-feature-pill-icon"><Zap size={16} /></div>
+                        <div className="hero-feature-pill-text">
+                            <span className="hero-feature-pill-title">Problem</span>
+                            <span className="hero-feature-pill-sub">Solver</span>
+                        </div>
+                    </div>
+                    <div className="hero-feature-pill">
+                        <div className="hero-feature-pill-icon"><Rocket size={16} /></div>
+                        <div className="hero-feature-pill-text">
+                            <span className="hero-feature-pill-title">Building</span>
+                            <span className="hero-feature-pill-sub">Scalable Apps</span>
+                        </div>
+                    </div>
+                    <div className="hero-feature-pill" style={{ borderRight: 'none', paddingRight: '16px' }}>
+                        <div className="hero-feature-pill-icon"><Target size={16} /></div>
+                        <div className="hero-feature-pill-text">
+                            <span className="hero-feature-pill-title">Detail</span>
+                            <span className="hero-feature-pill-sub">Oriented</span>
+                        </div>
+                    </div>
+                </motion.div>
             </div>
 
-            {/* ── Bottom info strip ── */}
-            <div className="relative z-10 w-full flex justify-between items-end px-6 md:px-12 lg:px-20 pb-8 md:pb-12">
+            {/* Bottom info strip */}
+            <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-center md:items-end px-6 md:px-20 lg:px-32 pb-8 gap-6 md:gap-0 mt-8 md:mt-0">
+                
                 {/* Location */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.0 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
                     className="hero-bottom-badge"
                 >
-                    <MapPin size={22} className="hero-bottom-icon" style={{ color: '#4ade80' }} />
+                    <div className="hero-bottom-icon">
+                        <MapPin size={20} />
+                    </div>
                     <div>
                         <span className="hero-bottom-label">BASED IN GUJARAT,</span>
                         <span className="hero-bottom-sublabel">INDIA</span>
                     </div>
                 </motion.div>
 
-                {/* Role */}
+                {/* Scroll Down */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.5 }}
+                    className="flex flex-col items-center justify-center static md:absolute"
+                    style={{ left: '50%', transform: 'translateX(-50%)', bottom: '32px' }}
+                >
+                    <span style={{ fontSize: '0.65rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.5)', marginBottom: '8px' }}>SCROLL DOWN</span>
+                    <div style={{ width: '24px', height: '24px', border: '1px solid rgba(255,138,0,0.5)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ff8a00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                    </div>
+                </motion.div>
+
+                {/* Social Links */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.1 }}
-                    className="hero-bottom-badge hero-bottom-badge--right"
+                    transition={{ duration: 0.6, delay: 1.3 }}
+                    className="hero-bottom-badge--right"
                 >
-                    <Layers size={22} className="hero-bottom-icon" style={{ color: '#60a5fa' }} />
-                    <div>
-                        <span className="hero-bottom-label">FULL STACK DEV,</span>
-                        <span className="hero-bottom-sublabel">& DESIGNER</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span className="hidden lg:inline" style={{ fontSize: '0.75rem', letterSpacing: '0.1em', color: '#fff', fontWeight: 600, marginRight: '8px' }}>LET'S CONNECT <span style={{ color: '#ff8a00' }}>●</span></span>
+                        <a href="https://github.com/AnshuShee" target="_blank" rel="noreferrer" className="hero-social-link"><FaGithub size={18} /></a>
+                        <a href="https://linkedin.com/in/anshu-shee" target="_blank" rel="noreferrer" className="hero-social-link"><FaLinkedin size={18} /></a>
+                        <a href="https://instagram.com/anshu_shee" target="_blank" rel="noreferrer" className="hero-social-link"><FaInstagram size={18} /></a>
+                        <button className="hero-chat-btn"><MessageSquare size={18} /></button>
                     </div>
                 </motion.div>
             </div>

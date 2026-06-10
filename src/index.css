@@ -4,6 +4,7 @@
   --font-sans: "Inter", sans-serif;
   --font-display: "Anton", sans-serif;
   --font-serif: "Playfair Display", serif;
+  --font-script: "Great Vibes", cursive;
 }
 
 :root {
@@ -53,9 +54,61 @@ h1 {
    HERO SECTION – Dark typographic layout
    ═══════════════════════════════════════ */
 
+.hero-section-wrapper {
+  position: relative;
+  background-color: #000000;
+  min-height: 100vh;
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Planet Effect */
+.hero-planet-glow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,138,0,0.15) 0%, rgba(255,138,0,0.05) 40%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-40%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-planet-core {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 70% 30%, #3a1c00 0%, #000000 70%);
+  box-shadow: inset -20px -20px 60px rgba(255,138,0,0.5), 0 0 100px rgba(255,138,0,0.2);
+  transform: translate(-30%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-planet-ring {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,138,0,0.3);
+  transform: translate(-40%, -50%) rotateX(75deg) rotateY(15deg);
+  z-index: 0;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(255,138,0,0.2), inset 0 0 20px rgba(255,138,0,0.2);
+}
+
 /* Giant name */
 .hero-giant-name {
-  font-family: "Anton", sans-serif;
+  font-family: var(--font-display);
   font-weight: 900;
   text-transform: uppercase;
   color: #ffffff;
@@ -64,13 +117,31 @@ h1 {
   text-align: center;
   margin: 0;
   padding: 0;
-  /* Responsive sizing */
   font-size: clamp(5rem, 20vw, 18rem);
+  /* Textured look using CSS */
+  background: linear-gradient(to bottom, #ffffff 0%, #d1d5db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+  position: relative;
+  z-index: 2;
+}
+
+.hero-cursive-name {
+  position: absolute;
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 10vw, 8rem);
+  color: #ff8a00;
+  right: -5%;
+  bottom: 5%;
+  transform: rotate(-10deg);
+  text-shadow: 0 0 20px rgba(255,138,0,0.6), 0 0 40px rgba(255,138,0,0.3);
+  z-index: 3;
 }
 
 /* "I DESIGN AND BUILD…" */
 .hero-tagline-upper {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
   font-size: clamp(0.6rem, 1.2vw, 0.95rem);
   letter-spacing: 0.35em;
@@ -78,117 +149,272 @@ h1 {
   color: rgba(255, 255, 255, 0.55);
   text-align: center;
   margin-top: 1.6rem;
+  z-index: 2;
 }
 
 /* "deliver real impact." */
 .hero-tagline-italic {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
   color: #ffffff;
   text-align: center;
   margin-top: 0.4rem;
   font-size: clamp(1.6rem, 4vw, 3.2rem);
+  z-index: 2;
 }
 
-/* Say-hi pill with RGB glow */
+.hero-tagline-accent {
+  color: #ff8a00;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(255,138,0,0.5);
+  font-style: italic;
+}
+
+/* Feature Pills */
+.hero-feature-pills {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  z-index: 2;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(10,10,10,0.5);
+  backdrop-filter: blur(8px);
+}
+
+.hero-feature-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+}
+
+.hero-feature-pill:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.1);
+  padding-right: 24px;
+}
+
+.hero-feature-pill-icon {
+  color: #ff8a00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,138,0,0.5);
+}
+
+.hero-feature-pill-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-feature-pill-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.hero-feature-pill-sub {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ff8a00;
+}
+
+/* Sidebars */
+.hero-sidebar-left {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+  padding: 20px 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  background: rgba(10,10,10,0.5);
+  backdrop-filter: blur(8px);
+}
+
+.hero-sidebar-left-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-sidebar-left-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff8a00;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255,138,0,0.8);
+}
+
+.hero-sidebar-right {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 10;
+}
+
+.hero-sidebar-right-line {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-left: 1px dashed rgba(255,255,255,0.2);
+  z-index: -1;
+}
+
+.hero-skill-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  cursor: pointer;
+  flex-direction: row-reverse;
+}
+
+.hero-skill-icon-wrap {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero-skill-dot {
+  position: absolute;
+  right: -25px; /* adjust based on padding */
+  width: 6px;
+  height: 6px;
+  background-color: #ff8a00;
+  border-radius: 50%;
+}
+
+.hero-skill-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.8);
+  white-space: nowrap;
+}
+
+/* Say-hi pill */
 .hero-say-hi-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 7px 18px;
-  border: none;
+  gap: 8px;
+  padding: 8px 24px;
+  border: 1px solid #ff8a00;
   border-radius: 9999px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.82rem;
+  color: #ffffff;
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(6px);
+  background: transparent;
   transition: all 0.3s ease;
   z-index: 1;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-/* Rotating RGB gradient border trail (Classic rotation for maximum compatibility) */
-.hero-say-hi-btn::before {
-  content: "";
-  position: absolute;
-  top: -200%;
-  left: -200%;
-  width: 500%;
-  height: 500%;
-  background: conic-gradient(
-    transparent 70%,
-    #ff8a00 85%,
-    #ff00d6 95%,
-    #00ccff 100%
-  );
-  z-index: -2;
-  animation: rotate-full 2s linear infinite;
-}
-
-@keyframes rotate-full {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Inner mask to create the thin border effect */
-.hero-say-hi-btn::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: 9999px;
-  background: #000000;
-  z-index: -1;
-}
-
-/* Register the custom property is no longer needed but kept for other uses if any */
-@property --rgb-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
 }
 
 .hero-say-hi-btn:hover {
-  color: #fff;
-  box-shadow: 0 0 20px rgba(136, 0, 255, 0.3), 0 0 40px rgba(255, 0, 128, 0.15);
+  background: rgba(255, 138, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 138, 0, 0.3);
 }
 
 /* Bottom badges */
 .hero-bottom-badge {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  background: rgba(10,10,10,0.5);
+  backdrop-filter: blur(8px);
 }
 .hero-bottom-badge--right {
-  text-align: right;
-  flex-direction: row-reverse;
+  border: none;
+  background: transparent;
+  padding: 0;
+  gap: 16px;
 }
 .hero-bottom-icon {
-  margin-top: 2px;
   flex-shrink: 0;
+  color: #ff8a00;
+  background: rgba(255,138,0,0.1);
+  padding: 8px;
+  border-radius: 50%;
 }
 .hero-bottom-label {
   display: block;
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.95);
-}
-.hero-bottom-sublabel {
-  display: block;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  margin-top: 2px;
+  color: #ffffff;
+}
+.hero-bottom-sublabel {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff8a00;
+}
+
+.hero-social-link {
+  color: #ff8a00;
+  border: 1px solid rgba(255,138,0,0.3);
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.hero-social-link:hover {
+  background: rgba(255,138,0,0.1);
+}
+
+.hero-chat-btn {
+  background: #ffffff;
+  color: #000000;
+  padding: 12px;
+  border-radius: 12px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+.hero-chat-btn:hover {
+  background: #ff8a00;
+  color: #ffffff;
 }
 
 /* ═══════════════════════════════════════
@@ -622,15 +848,15 @@ h1 {
   display: inline-block;
   background: linear-gradient(
     to right,
-    #ff2d95,
-    #ff61d2,
-    #fe8c00
+    #ff8a00,
+    #ffa333,
+    #ff6100
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-left: 0.05em;
-  filter: drop-shadow(0 0 15px rgba(255, 45, 149, 0.4));
+  filter: drop-shadow(0 0 15px rgba(255, 138, 0, 0.4));
 }
 
 /* ── Skill rows ── */

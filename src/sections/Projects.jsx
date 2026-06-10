@@ -71,21 +71,21 @@ const Projects = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="flex flex-col items-center text-center mb-24"
                 >
-                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">Crafting Modern Experiences</p>
+                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[#ff8a00] to-orange-600 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4">Crafting Modern Experiences</p>
                     <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white" style={{ fontFamily: '"Anton", sans-serif' }}>VENTURE SHOWCASE</h2>
                 </motion.div>
 
-                <div className="relative pb-20" ref={containerRef}>
+                <div className="relative pb-20" ref={containerRef} style={{ position: 'relative' }}>
                     {/* Timeline Line */}
                     <div className="absolute left-[20px] lg:left-[35%] top-0 bottom-0 w-[2px] bg-white/10 hidden md:block">
                         <motion.div
                             style={{ height: timelineHeight }}
-                            className="absolute top-0 left-0 w-full bg-gradient-to-b from-purple-500 via-pink-500 to-orange-500"
+                            className="absolute top-0 left-0 w-full bg-gradient-to-b from-orange-400 via-[#ff8a00] to-orange-600"
                         />
                         {/* Avatar tracking the line */}
                         <motion.div 
                             style={{ top: timelineHeight }}
-                            className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-4 border-[#000000] bg-white overflow-hidden z-20 shadow-[0_0_15px_rgba(236,72,153,0.5)]"
+                            className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-4 border-[#000000] bg-white overflow-hidden z-20 shadow-[0_0_15px_rgba(255,138,0,0.5)]"
                         >
                             <img src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1773738246/3504a569-8920-401c-a6f6-7c7350973141_xfuttq.png" alt="Anshu" className="w-full h-full object-cover" />
                         </motion.div>
@@ -101,7 +101,7 @@ const Projects = () => {
                             <div className="lg:w-[35%] lg:pr-16 flex flex-col">
                                 <div className="sticky top-32">
                                     <div className="flex items-center gap-3 mb-6">
-                                        <div className="w-8 h-1 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full"></div>
+                                        <div className="w-8 h-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full"></div>
                                         <h3 className="text-3xl md:text-4xl font-bold text-white">{project.title}</h3>
                                     </div>
                                     
@@ -112,7 +112,7 @@ const Projects = () => {
                                     <ul className="space-y-4 mb-8">
                                         {project.features.map((feat, i) => (
                                             <li key={i} className="flex items-start gap-3 text-white/60 font-light text-sm md:text-base">
-                                                <div className="mt-1.5 w-1.5 h-1.5 bg-pink-500 rounded-full shadow-[0_0_5px_rgba(236,72,153,1)] shrink-0" />
+                                                <div className="mt-1.5 w-1.5 h-1.5 bg-orange-500 rounded-full shadow-[0_0_5px_rgba(255,138,0,1)] shrink-0" />
                                                 <span>{feat}</span>
                                             </li>
                                         ))}

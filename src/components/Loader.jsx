@@ -110,7 +110,7 @@ const Loader = () => {
                         src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775706890/Sleek__AS__logo_design-Photoroom_autazu.png"
                         alt="Anshu Shee Logo"
                         loading="eager"
-                        fetchpriority="high"
+                        fetchPriority="high"
                         style={{
                             display: 'block',
                             height: '130px',

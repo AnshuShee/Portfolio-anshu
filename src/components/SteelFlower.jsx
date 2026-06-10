@@ -21,7 +21,7 @@ const SteelFlower = () => {
     const smoothScale = useSpring(scale, { stiffness: 60, damping: 20 });
 
     return (
-        <div ref={containerRef} className="w-full flex justify-center items-center py-4 md:py-6 overflow-hidden relative">
+        <div ref={containerRef} className="w-full flex justify-center items-center py-4 md:py-6 overflow-hidden relative" style={{ position: 'relative' }}>
             {/* Background ambient glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-black blur-[120px] rounded-full pointer-events-none" />
             

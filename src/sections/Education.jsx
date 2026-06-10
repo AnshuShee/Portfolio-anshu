@@ -41,12 +41,12 @@ const Education = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-16"
                 >
-                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">My Journey</p>
+                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[#ff8a00] to-orange-600 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4">My Journey</p>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white" style={{ fontFamily: '"Anton", sans-serif' }}>Education</h2>
                 </motion.div>
 
                 {/* Timeline */}
-                <div className="relative max-w-4xl mx-auto" ref={timelineRef}>
+                <div className="relative max-w-4xl mx-auto" ref={timelineRef} style={{ position: 'relative' }}>
                     {/* Base dim line */}
                     <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-px h-full bg-white/10" />
 

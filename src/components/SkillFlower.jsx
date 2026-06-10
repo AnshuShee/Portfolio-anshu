@@ -156,7 +156,7 @@ const SkillFlower = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className="w-full h-full relative">
+        <div ref={containerRef} className="w-full h-full relative" style={{ position: 'relative' }}>
             <canvas 
                 ref={canvasRef} 
                 className="w-full h-full block touch-none"

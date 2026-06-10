@@ -124,8 +124,8 @@ const ParallaxBackground = () => {
 
   return (
     <div ref={bgRef} className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      <div className="parallax-shape-1 absolute top-[10%] left-[5%] w-72 md:w-[500px] h-72 md:h-[500px] bg-purple-600/10 rounded-full blur-[100px] md:blur-[150px]" />
-      <div className="parallax-shape-2 absolute top-[50%] right-[5%] w-80 md:w-[600px] h-80 md:h-[600px] bg-indigo-600/10 rounded-full blur-[120px] md:blur-[180px]" />
+      <div className="parallax-shape-1 absolute top-[10%] left-[5%] w-72 md:w-[500px] h-72 md:h-[500px] bg-orange-600/10 rounded-full blur-[100px] md:blur-[150px]" />
+      <div className="parallax-shape-2 absolute top-[50%] right-[5%] w-80 md:w-[600px] h-80 md:h-[600px] bg-[#ff8a00]/10 rounded-full blur-[120px] md:blur-[180px]" />
     </div>
   );
 };
@@ -148,7 +148,7 @@ const CursorGlow = () => {
   return (
     <div
       ref={glowRef}
-      className="fixed top-0 left-0 w-[400px] h-[400px] -ml-[200px] -mt-[200px] bg-indigo-500/10 rounded-full blur-[80px] pointer-events-none z-[-1]"
+      className="fixed top-0 left-0 w-[400px] h-[400px] -ml-[200px] -mt-[200px] bg-[#ff8a00]/10 rounded-full blur-[80px] pointer-events-none z-[-1]"
     />
   );
 };
@@ -207,7 +207,7 @@ const ProjectCard = ({ project, onClick }) => {
         className="w-full h-full bg-[#111111]/80 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden flex flex-col group relative will-change-transform shadow-2xl"
       >
         {/* Animated Gradient Border Layer */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/20 group-hover:via-purple-500/20 group-hover:to-pink-500/20 transition-all duration-700 rounded-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#ff8a00]/0 via-orange-500/0 to-red-500/0 group-hover:from-[#ff8a00]/20 group-hover:via-orange-500/20 group-hover:to-red-500/20 transition-all duration-700 rounded-3xl pointer-events-none" />
 
         {/* Image Wrapper */}
         <div className="relative w-full h-56 md:h-64 overflow-hidden cursor-pointer" onClick={() => onClick(project)}>
@@ -228,7 +228,7 @@ const ProjectCard = ({ project, onClick }) => {
 
         {/* Content */}
         <div className="p-6 md:p-8 flex flex-col flex-1 relative z-10">
-          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors duration-300">{project.title}</h3>
+          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors duration-300">{project.title}</h3>
           <p className="text-white/60 text-sm md:text-base mb-6 flex-1 font-light line-clamp-3 leading-relaxed">
             {project.shortDesc}
           </p>
@@ -267,7 +267,7 @@ const ProjectCard = ({ project, onClick }) => {
               )}
             </div>
             <MagneticButton onClick={() => onClick(project)} className="cursor-pointer">
-              <span className="text-sm font-bold text-indigo-400 hover:text-indigo-300 uppercase tracking-wider flex items-center gap-2 group/btn">
+              <span className="text-sm font-bold text-orange-400 hover:text-orange-300 uppercase tracking-wider flex items-center gap-2 group/btn">
                 View Details <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
               </span>
             </MagneticButton>
@@ -429,11 +429,11 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="projects" className="relative min-h-screen pt-32 pb-24 bg-[#030303] overflow-hidden">
+    <section ref={sectionRef} id="projects" className="relative min-h-screen pt-32 pb-24 bg-[#030303] overflow-hidden" style={{ position: 'relative' }}>
       
       {/* Scroll Progress Indicator */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 z-50 origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-orange-600 to-red-500 z-50 origin-left"
         style={{ scaleX }}
       />
 
@@ -453,7 +453,7 @@ const ProjectsSection = () => {
         
         {/* Header & Filters */}
         <div ref={headerRef} className="mb-16 text-center">
-          <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 uppercase drop-shadow-[0_0_10px_rgba(99,102,241,0.5)] mb-4">
+          <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-[#ff8a00] via-orange-500 to-red-500 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4">
             Selected Works
           </p>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-10 tracking-tight uppercase" style={{ fontFamily: '"Anton", sans-serif' }}>

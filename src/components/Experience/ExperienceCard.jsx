@@ -33,7 +33,7 @@ const ExperienceCard = ({ index, title, type, duration, description, techStack, 
             
             <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 mb-4">
                 <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-pink-500 transition-all">{title}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-orange-600 transition-all">{title}</h3>
                     <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border ${typeConfig.color}`}>
                         {typeConfig.icon}
                         {type}

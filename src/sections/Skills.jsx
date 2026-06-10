@@ -62,7 +62,7 @@ const Skills = () => {
                     viewport={{ once: true, margin: '-100px' }}
                     className="flex flex-col items-center text-center mb-10 md:mb-12"
                 >
-                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4 text-center">
+                    <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[#ff8a00] to-orange-600 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4 text-center">
                         MY SKILLSET
                     </p>
                     <h2 

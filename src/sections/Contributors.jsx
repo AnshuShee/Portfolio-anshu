@@ -18,7 +18,7 @@ const Contributors = () => {
                     className="flex flex-col md:flex-row justify-between items-end mb-16"
                 >
                     <div className="flex-1">
-                        <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 uppercase drop-shadow-[0_0_10px_rgba(236,72,153,0.5)] mb-4">Open Source</p>
+                        <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[#ff8a00] to-orange-600 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4">Open Source</p>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4" style={{ fontFamily: '"Anton", sans-serif' }}>GitHub Activities</h2>
                         <p className="text-white/70 max-w-2xl text-lg font-light">
                             An active contributor to open-source, building projects and sharing knowledge with the community.
