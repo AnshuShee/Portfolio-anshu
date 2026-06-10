@@ -122,7 +122,7 @@ const Hero = () => {
             </div>
 
             {/* Bottom info strip */}
-            <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-center md:items-end px-6 md:px-20 lg:px-32 pb-8 gap-6 md:gap-0 mt-8 md:mt-0">
+            <div className="relative z-10 w-full flex flex-col md:flex-row justify-between items-center md:items-end px-6 lg:px-12 pb-8 gap-6 md:gap-0 mt-8 md:mt-0">
                 
                 {/* Location */}
                 <motion.div

@@ -50,7 +50,7 @@ const Navbar = () => {
                             <span className="text-[0.65rem] font-bold tracking-[0.15em] uppercase text-white">
                                 CREATIVE ENGINEER
                             </span>
-                            <span className="text-[0.6rem] font-bold tracking-[0.15em] uppercase" style={{ color: '#00e599', marginTop: '4px' }}>
+                            <span className="text-[0.6rem] font-bold tracking-[0.15em] uppercase" style={{ color: '#ff8a00', marginTop: '4px' }}>
                                 BUILDING THE FUTURE
                             </span>
                         </div>
