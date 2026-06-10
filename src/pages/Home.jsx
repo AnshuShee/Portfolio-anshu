@@ -4,6 +4,8 @@ import Hero from '../sections/Hero';
 import Marquee from '../components/Marquee';
 import About from '../sections/About';
 import Experience from '../sections/Experience';
+import Internship from '../sections/Internship';
+import Achievements from '../sections/Achievements';
 import Education from '../sections/Education';
 import Contact from '../sections/Contact';
 
@@ -18,6 +20,8 @@ const Home = () => {
         </div>
         <div id="experience">
           <Experience />
+          <Internship />
+          <Achievements />
           <Education />
         </div>
         <div id="work-with-me">
