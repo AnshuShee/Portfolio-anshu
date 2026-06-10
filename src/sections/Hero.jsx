@@ -104,9 +104,9 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.6 }}
-                    className="hero-tagline-upper"
+                    className="hero-tagline-upper px-2"
                 >
-                    I &nbsp;D E S I G N&nbsp; A N D&nbsp; B U I L D&nbsp; P R O D U C T S&nbsp; T H A T
+                    I DESIGN AND BUILD PRODUCTS THAT
                 </motion.p>
 
                 <motion.p
@@ -145,8 +145,7 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1.5 }}
-                    className="flex flex-col items-center justify-center static md:absolute"
-                    style={{ left: '50%', transform: 'translateX(-50%)', bottom: '32px' }}
+                    className="flex flex-col items-center justify-center relative md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-8 mt-4 md:mt-0"
                 >
                     <span style={{ fontSize: '0.65rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.5)', marginBottom: '8px' }}>SCROLL DOWN</span>
                     <div style={{ width: '24px', height: '24px', border: '1px solid rgba(255,138,0,0.5)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
