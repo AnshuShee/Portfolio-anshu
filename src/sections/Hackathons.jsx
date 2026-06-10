@@ -51,15 +51,26 @@ const Hackathons = () => {
             image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504811/IISc_Bangalore_page-0001_lsea4p.jpg"
         },
         {
-            title: "IIT Kota Hackathon",
+            title: "IIIT KOTA Hackathon",
             award: "Participation",
             project: "Tech Sprint",
             date: "2026",
             team: "Anshu Shee",
-            description: "Engaged in intensive problem-solving and rapid prototyping during the IIT Kota hackathon event.",
+            description: "Engaged in intensive problem-solving and rapid prototyping during the IIIT KOTA hackathon event.",
             color: "from-orange-500 to-red-600",
             glow: "rgba(239, 68, 68, 0.3)",
             image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776504778/IIT-Kota_page-0001_s9ylyy.jpg"
+        },
+        {
+            title: "Odoo X Adani Hackathon",
+            award: "Participation",
+            project: "Innovation Challenge",
+            date: "2026",
+            team: "Anshu Shee",
+            description: "Participated in the Odoo X Adani Hackathon, demonstrating strong technical and problem-solving skills.",
+            color: "from-yellow-500 to-amber-600",
+            glow: "rgba(245, 158, 11, 0.3)",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1781086949/OdooXAdani_page-0001_hu5gcy.jpg"
         }
     ];
 
