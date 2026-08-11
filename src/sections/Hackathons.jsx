@@ -7,6 +7,39 @@ const Hackathons = () => {
     const scrollRef = React.useRef(null);
     const hackathons = [
         {
+            title: "Vikshit Bharat",
+            award: "Participation",
+            project: "National Innovation",
+            date: "2026",
+            team: "Anshu Shee",
+            description: "Participated in the Vikshit Bharat initiative, contributing to tech-driven national development ideas.",
+            color: "from-blue-500 to-green-500",
+            glow: "rgba(34, 197, 94, 0.3)",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1786427646/VikshitBharat-Certificate_page-0001_lfe80y.jpg"
+        },
+        {
+            title: "CryptoHeist 2026",
+            award: "Participation",
+            project: "Blockchain Challenge",
+            date: "2026",
+            team: "Anshu Shee",
+            description: "Participated in CryptoHeist 2026, an immersive hackathon centered around Web3 and blockchain technologies.",
+            color: "from-purple-500 to-indigo-600",
+            glow: "rgba(99, 102, 241, 0.3)",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1786427292/cryptoheist2026-participation-certificate_piahny.png"
+        },
+        {
+            title: "CRAFTATHON 2026",
+            award: "Participation",
+            project: "Innovation Challenge",
+            date: "April 2026",
+            team: "Team SQUAD 0",
+            description: "Successfully participated with Team SQUAD 0 in CRAFTATHON, a 36-hour national-level hackathon organized by Gandhinagar University in collaboration with IEEE.",
+            color: "from-orange-500 to-amber-600",
+            glow: "rgba(245, 158, 11, 0.3)",
+            image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1785571073/SQUAD_0_Anshu_Shee_smca5c.png"
+        },
+        {
             title: "HACKSAGON 2026",
             award: "Ideation Phase",
             project: "Social Innovation Challenge",
@@ -116,10 +149,10 @@ const Hackathons = () => {
                             {/* Image Header */}
                             <div className="relative w-full h-48 overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10" />
-                                <img 
-                                    src={hack.image} 
-                                    alt={hack.title} 
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" 
+                                <img
+                                    src={hack.image}
+                                    alt={hack.title}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100"
                                 />
                                 <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${hack.color} z-20`} />
                             </div>
@@ -146,7 +179,7 @@ const Hackathons = () => {
                                     <Rocket size={14} className="text-white/40" />
                                     <span className="text-white/70 font-semibold text-xs italic">{hack.project}</span>
                                 </div>
-                                
+
                                 <p className="text-white/50 text-xs leading-relaxed mb-8 font-light flex-1">
                                     {hack.description}
                                 </p>
@@ -159,7 +192,7 @@ const Hackathons = () => {
                                         </div>
                                         <span className="text-[10px] text-white/40 font-medium">{hack.team}</span>
                                     </div>
-                                    <motion.button 
+                                    <motion.button
                                         whileHover={{ x: 4 }}
                                         className="text-white/30 hover:text-white transition-colors"
                                     >
@@ -176,9 +209,9 @@ const Hackathons = () => {
 
                 {/* Craftathon 2026 Spotlight Section */}
                 <div className="mt-40 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-8 overflow-hidden lg:overflow-visible px-4">
-                    
+
                     {/* Left: Text Content */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
@@ -195,7 +228,7 @@ const Hackathons = () => {
                     </motion.div>
 
                     {/* Right: 3D Auto-Rotating Carousel */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
