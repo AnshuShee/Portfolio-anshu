@@ -8,114 +8,114 @@ import awsCert from '../assets/aws-cert.jpg';
 import forgeCert from '../assets/forge-cert.jpg';
 
 const certificates = [
-  { 
-      id: '01', 
-      issuer: 'Anthropic', 
-      title: 'Claude Code in Action', 
-      date: 'APR 2026', 
-      tag: 'New', 
-      tagColor: 'green', 
-      skills: ['Agentic AI', 'Claude Code', 'Developer Tools'], 
-      desc: 'Mastered advanced usage of Claude AI for building real-world applications and optimizing development workflows.',
-      link: '#',
-      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775709633/certificate-b3a4pd6wpuxv-1775709467_page-0001_htadhv.jpg"
-  },
-  { 
-      id: '02', 
-      issuer: 'AWS', 
-      title: 'Application Migration Service', 
-      date: '2025', 
-      tag: 'Cloud', 
-      tagColor: 'blue', 
-      skills: ['Cloud', 'AWS', 'Migration'], 
-      desc: 'Learned best practices for migrating applications to AWS using the Application Migration Service.',
-      link: '#',
-      image: awsCert
-  },
-  { 
-      id: '03', 
-      issuer: 'Forage', 
-      title: 'Software Development Job Simulation', 
-      date: '2025', 
-      tag: 'Dev', 
-      tagColor: 'amber', 
-      skills: ['Software Engineering', 'Agile', 'Problem Solving'], 
-      desc: 'Gained practical experience through simulated real-world software engineering tasks and team workflows.',
-      link: '#',
-      image: forgeCert
-  },
-  { 
-      id: '04', 
-      issuer: 'Udemy', 
-      title: 'HTML and CSS for Beginners', 
-      date: 'DEC 2025', 
-      tag: 'Dev', 
-      tagColor: 'amber', 
-      skills: ['HTML', 'CSS', 'Web Development'], 
-      desc: 'Built a solid foundation in web development covering semantic HTML and modern CSS styling.',
-      link: '#',
-      image: udemyCert
-  },
-  { 
-      id: '05', 
-      issuer: 'Outskill', 
-      title: 'Generative AI Mastermind', 
-      date: '2025', 
-      tag: 'AI', 
-      tagColor: 'purple', 
-      skills: ['Generative AI', 'Prompt Engineering', 'LLMs'], 
-      desc: 'Explored the fundamentals of generative AI and its applications in modern tech solutions.',
-      link: '#',
-      image: outskillCert
-  },
-  { 
-      id: '06', 
-      issuer: 'WsCube Tech', 
-      title: 'Build Your Own AI Assistant for a Brand', 
-      date: 'DEC 24, 2025', 
-      tag: 'AI', 
-      tagColor: 'purple', 
-      skills: ['AI Assistant', 'Branding', 'Chatbot Dev'], 
-      desc: 'Developed a customized AI assistant tailored for brand interaction and customer engagement.',
-      link: '#',
-      image: wscubeCert
-  },
-  { 
-      id: '07', 
-      issuer: 'Google', 
-      title: 'Introduction to Large Language Models', 
-      date: '2026', 
-      tag: 'AI', 
-      tagColor: 'purple', 
-      skills: ['LLMs', 'Generative AI', 'Machine Learning'], 
-      desc: 'Completed an introductory course on Large Language Models, covering their underlying architecture and practical applications.',
-      link: '#',
-      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104841_ubhjxt.png"
-  },
-  { 
-      id: '08', 
-      issuer: 'Google', 
-      title: 'Introduction to Generative AI', 
-      date: '2026', 
-      tag: 'AI', 
-      tagColor: 'purple', 
-      skills: ['Generative AI', 'Deep Learning', 'Neural Networks'], 
-      desc: 'Explored the foundational concepts of Generative AI, learning how to create and deploy generative models.',
-      link: '#',
-      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104941_j11ayn.png"
-  },
-  { 
-      id: '09', 
-      issuer: 'Google', 
-      title: 'Introduction to Responsible AI', 
-      date: '2026', 
-      tag: 'Ethics', 
-      tagColor: 'blue', 
-      skills: ['Responsible AI', 'AI Ethics', 'Fairness'], 
-      desc: 'Learned the core principles of Responsible AI, focusing on ethics, bias mitigation, and creating fair AI systems.',
-      link: '#',
-      image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104910_ph6koa.png"
-  },
+    {
+        id: '01',
+        issuer: 'Anthropic',
+        title: 'Claude Code in Action',
+        date: 'APR 2026',
+        tag: 'New',
+        tagColor: 'green',
+        skills: ['Agentic AI', 'Claude Code', 'Developer Tools'],
+        desc: 'Mastered advanced usage of Claude AI for building real-world applications and optimizing development workflows.',
+        link: '#',
+        image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1775709633/certificate-b3a4pd6wpuxv-1775709467_page-0001_htadhv.jpg"
+    },
+    {
+        id: '02',
+        issuer: 'AWS',
+        title: 'Application Migration Service',
+        date: '2025',
+        tag: 'Cloud',
+        tagColor: 'blue',
+        skills: ['Cloud', 'AWS', 'Migration'],
+        desc: 'Learned best practices for migrating applications to AWS using the Application Migration Service.',
+        link: '#',
+        image: awsCert
+    },
+    {
+        id: '03',
+        issuer: 'Forage',
+        title: 'Software Development Job Simulation',
+        date: '2025',
+        tag: 'Dev',
+        tagColor: 'amber',
+        skills: ['Software Engineering', 'Agile', 'Problem Solving'],
+        desc: 'Gained practical experience through simulated real-world software engineering tasks and team workflows.',
+        link: '#',
+        image: forgeCert
+    },
+    {
+        id: '04',
+        issuer: 'Udemy',
+        title: 'HTML and CSS for Beginners',
+        date: 'DEC 2025',
+        tag: 'Dev',
+        tagColor: 'amber',
+        skills: ['HTML', 'CSS', 'Web Development'],
+        desc: 'Built a solid foundation in web development covering semantic HTML and modern CSS styling.',
+        link: '#',
+        image: udemyCert
+    },
+    {
+        id: '05',
+        issuer: 'Outskill',
+        title: 'Generative AI Mastermind',
+        date: '2025',
+        tag: 'AI',
+        tagColor: 'purple',
+        skills: ['Generative AI', 'Prompt Engineering', 'LLMs'],
+        desc: 'Explored the fundamentals of generative AI and its applications in modern tech solutions.',
+        link: '#',
+        image: outskillCert
+    },
+    {
+        id: '06',
+        issuer: 'WsCube Tech',
+        title: 'Build Your Own AI Assistant for a Brand',
+        date: 'DEC 24, 2025',
+        tag: 'AI',
+        tagColor: 'purple',
+        skills: ['AI Assistant', 'Branding', 'Chatbot Dev'],
+        desc: 'Developed a customized AI assistant tailored for brand interaction and customer engagement.',
+        link: '#',
+        image: wscubeCert
+    },
+    {
+        id: '07',
+        issuer: 'Google',
+        title: 'Introduction to Large Language Models',
+        date: '2026',
+        tag: 'AI',
+        tagColor: 'purple',
+        skills: ['LLMs', 'Generative AI', 'Machine Learning'],
+        desc: 'Completed an introductory course on Large Language Models, covering their underlying architecture and practical applications.',
+        link: '#',
+        image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104841_ubhjxt.png"
+    },
+    {
+        id: '08',
+        issuer: 'Google',
+        title: 'Introduction to Generative AI',
+        date: '2026',
+        tag: 'AI',
+        tagColor: 'purple',
+        skills: ['Generative AI', 'Deep Learning', 'Neural Networks'],
+        desc: 'Explored the foundational concepts of Generative AI, learning how to create and deploy generative models.',
+        link: '#',
+        image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104941_j11ayn.png"
+    },
+    {
+        id: '09',
+        issuer: 'Google',
+        title: 'Introduction to Responsible AI',
+        date: '2026',
+        tag: 'Ethics',
+        tagColor: 'blue',
+        skills: ['Responsible AI', 'AI Ethics', 'Fairness'],
+        desc: 'Learned the core principles of Responsible AI, focusing on ethics, bias mitigation, and creating fair AI systems.',
+        link: '#',
+        image: "https://res.cloudinary.com/dhnczdpqj/image/upload/v1776489629/Screenshot_2026-04-18_104910_ph6koa.png"
+    },
 ];
 
 const colorMap = {
@@ -149,17 +149,17 @@ const CertificatesSection = () => {
     };
 
     return (
-        <section 
-            id="certificates" 
-            className="py-16 md:py-24 relative" 
-            style={{ 
-                backgroundColor: '#000000', 
+        <section
+            id="certificates"
+            className="py-16 md:py-24 relative"
+            style={{
+                backgroundColor: '#000000',
                 color: '#ffffff',
                 fontFamily: '"Inter", sans-serif'
             }}
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12">
-                
+
                 {/* Header Phase */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -171,8 +171,8 @@ const CertificatesSection = () => {
                     <p className="inline-block text-xl md:text-2xl font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-[#ff8a00] to-orange-600 uppercase drop-shadow-[0_0_10px_rgba(255,138,0,0.5)] mb-4">
                         Credentials Earned
                     </p>
-                    <h2 
-                        className="text-4xl md:text-5xl lg:text-6xl font-black text-white" 
+                    <h2
+                        className="text-4xl md:text-5xl lg:text-6xl font-black text-white"
                         style={{ fontFamily: '"Anton", sans-serif' }}
                     >
                         Certificates
@@ -184,14 +184,13 @@ const CertificatesSection = () => {
                     {certificates.map((cert) => {
                         const isActive = activeId === cert.id;
                         const colors = colorMap[cert.tagColor];
-                        
+
                         return (
-                            <div 
+                            <div
                                 key={cert.id}
                                 onClick={() => handleCardClick(cert.id)}
-                                className={`group relative flex flex-col p-6 rounded-2xl cursor-pointer transition-all duration-300 overflow-hidden ${
-                                    isActive ? 'bg-[rgba(255,255,255,0.04)]' : 'bg-transparent hover:bg-[rgba(255,255,255,0.04)]'
-                                }`}
+                                className={`group relative flex flex-col p-6 rounded-2xl cursor-pointer transition-all duration-300 overflow-hidden ${isActive ? 'bg-[rgba(255,255,255,0.04)]' : 'bg-transparent hover:bg-[rgba(255,255,255,0.04)]'
+                                    }`}
                                 style={{
                                     border: '1px solid rgba(255,255,255,0.08)',
                                 }}
@@ -199,8 +198,8 @@ const CertificatesSection = () => {
                                 {/* Hover Image Overlay Reveal */}
                                 <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-[#0a0a0a]/95 backdrop-blur-sm p-4 scale-95 group-hover:scale-100 pointer-events-none">
                                     {cert.image && (
-                                        <img 
-                                            src={cert.image} 
+                                        <img
+                                            src={cert.image}
                                             alt={cert.title}
                                             className="w-full h-full object-contain rounded-lg drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
                                         />
@@ -208,13 +207,13 @@ const CertificatesSection = () => {
                                 </div>
 
                                 {/* Accent Drop Line at very top */}
-                                <div 
+                                <div
                                     className={`absolute top-0 left-6 right-6 h-[2px] transition-opacity duration-300 z-10 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                                     style={{ backgroundColor: colors.accent }}
                                 />
 
                                 {/* Top Row - Index Number */}
-                                <div 
+                                <div
                                     className="text-white/40 font-bold tracking-widest text-sm mb-8 relative z-10 transition-opacity duration-300 group-hover:opacity-0"
                                     style={{ fontFamily: '"Inter", sans-serif' }}
                                 >
@@ -226,7 +225,7 @@ const CertificatesSection = () => {
                                     <span className="text-white/50 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] block mb-2">
                                         {cert.issuer}
                                     </span>
-                                    <h3 
+                                    <h3
                                         className="text-white text-xl font-bold uppercase tracking-wide leading-tight"
                                         style={{ fontFamily: '"Anton", sans-serif' }}
                                     >
@@ -239,9 +238,9 @@ const CertificatesSection = () => {
                                     <span className="text-white/50 text-xs font-bold tracking-[0.1em] uppercase">
                                         {cert.date}
                                     </span>
-                                    <div 
+                                    <div
                                         className="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider"
-                                        style={{ 
+                                        style={{
                                             backgroundColor: colors.bg,
                                             color: colors.accent,
                                             border: `1px solid ${colors.border}`
@@ -266,13 +265,13 @@ const CertificatesSection = () => {
                                 exit={{ opacity: 0, y: -8 }}
                                 transition={{ duration: 0.3 }}
                                 className="relative w-full rounded-3xl p-8 md:p-12 flex flex-col lg:flex-row gap-12 lg:gap-24 items-center mb-16"
-                                style={{ 
+                                style={{
                                     backgroundColor: 'rgba(255,255,255,0.02)',
                                     border: '1px solid rgba(255,255,255,0.08)'
                                 }}
                             >
                                 {/* Close Button */}
-                                <button 
+                                <button
                                     onClick={() => setActiveId(null)}
                                     className="absolute top-6 right-6 text-[#5c5952] hover:text-white transition-colors"
                                 >
@@ -284,7 +283,7 @@ const CertificatesSection = () => {
                                     <span className="text-white/50 text-xs font-bold uppercase tracking-[0.2em] mb-4">
                                         {activeCert.issuer}
                                     </span>
-                                    <h3 
+                                    <h3
                                         className="text-white text-5xl md:text-[3.5rem] leading-none mb-6 uppercase tracking-wide"
                                         style={{ fontFamily: '"Anton", sans-serif' }}
                                     >
@@ -296,8 +295,8 @@ const CertificatesSection = () => {
 
                                     <div className="flex flex-wrap gap-2 mb-10">
                                         {activeCert.skills.map((skill, idx) => (
-                                            <span 
-                                                key={idx} 
+                                            <span
+                                                key={idx}
                                                 className="px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase bg-white/5 border border-white/10 text-white/80"
                                             >
                                                 {skill}
@@ -311,7 +310,7 @@ const CertificatesSection = () => {
                                         rel="noopener noreferrer"
                                         className="group flex items-center gap-2 text-white font-bold uppercase tracking-widest hover:text-white/80 transition-colors text-sm md:text-base mt-2"
                                     >
-                                        View Credential 
+                                        View Credential
                                         <motion.span
                                             initial={{ x: 0 }}
                                             whileHover={{ x: 4 }}
@@ -324,16 +323,16 @@ const CertificatesSection = () => {
 
                                 {/* Right Column: Image */}
                                 <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-                                    <div 
+                                    <div
                                         className="w-full max-w-md aspect-[4/3] rounded-2xl overflow-hidden p-2 flex items-center justify-center relative"
-                                        style={{ 
+                                        style={{
                                             backgroundColor: colorMap[activeCert.tagColor].bg,
                                             border: `1px solid ${colorMap[activeCert.tagColor].border}`
                                         }}
                                     >
                                         {activeCert.image ? (
-                                            <img 
-                                                src={activeCert.image} 
+                                            <img
+                                                src={activeCert.image}
                                                 alt={activeCert.title}
                                                 className="w-full h-full object-cover rounded-xl opacity-90"
                                             />
@@ -348,7 +347,7 @@ const CertificatesSection = () => {
                 </div>
 
                 {/* Stats Bar */}
-                <div 
+                <div
                     className="flex flex-col md:flex-row items-center justify-center gap-4 text-white/40 text-xs font-bold uppercase tracking-[0.2em]"
                     style={{ fontFamily: '"Inter", sans-serif' }}
                 >
