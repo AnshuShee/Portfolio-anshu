@@ -17,21 +17,21 @@ const SteelFlower = () => {
     // Subtle scale and opacity
     const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.8, 1.05, 1.05, 0.9]);
     const opacity = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0, 1, 1, 0]);
-    
+
     const smoothScale = useSpring(scale, { stiffness: 60, damping: 20 });
 
     return (
         <div ref={containerRef} className="w-full flex justify-center items-center py-4 md:py-6 overflow-hidden relative" style={{ position: 'relative' }}>
             {/* Background ambient glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-black blur-[120px] rounded-full pointer-events-none" />
-            
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] md:w-[350px] md:h-[350px] bg-black blur-[120px] rounded-full pointer-events-none" />
+
             <motion.div
                 style={{
                     rotate: smoothRotation,
                     scale: smoothScale,
                     opacity: opacity,
                 }}
-                className="relative w-64 h-64 md:w-[400px] md:h-[400px] z-10"
+                className="relative w-48 h-48 md:w-[250px] md:h-[250px] z-10"
             >
                 <img
                     src="https://res.cloudinary.com/dhnczdpqj/image/upload/v1775798325/imgi_55_steel-flower_grtdxm.webp"
