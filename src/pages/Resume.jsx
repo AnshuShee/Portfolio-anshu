@@ -55,7 +55,7 @@ const Resume = () => {
             {/* Seamless PDF Viewer (Scroll Only) */}
             <div className="w-full flex-grow bg-[#1a1a1a]">
                 <iframe
-                    src="/Anshu_Shee_Resume.pdf"
+                    src="/Anshu_Shee_Resume.pdf#toolbar=0&navpanes=0"
                     title="Anshu Shee Resume"
                     className="w-full h-full"
                     style={{ border: 'none' }}
