@@ -1,57 +1,66 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Resume = () => {
-    return (
-        <div className="min-h-screen pt-[100px] pb-[60px] flex flex-col items-center px-4" style={{ backgroundColor: '#000000' }}>
+    // Hide body scroll when full-screen resume is open
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
 
-            {/* Header Text & Button */}
-            <div className="max-w-4xl w-full flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-                <h1 className="text-3xl font-bold text-white tracking-wide font-['EB_Garamond'] pt-2">
+    return (
+        <div className="fixed inset-0 z-[99999] bg-[#0a0a0a] flex flex-col">
+
+            {/* Top Bar - Only Title & Download Button */}
+            <div className="w-full flex justify-between items-center px-6 py-4 bg-[#111111] border-b border-white/10 shadow-lg relative z-10">
+                <h1 className="text-xl md:text-2xl font-bold text-white font-['EB_Garamond']">
                     My <span className="text-[#ff8a00]">Resume</span>
                 </h1>
 
-                <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href="/Anshu_Shee_Resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download="Anshu_Shee_Resume.pdf"
-                    style={{
-                        background: '#ff8a00',
-                        color: '#fff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '12px 32px',
-                        fontFamily: 'Inter, sans-serif',
-                        fontWeight: 700,
-                        fontSize: '15px',
-                        letterSpacing: '0.04em',
-                        cursor: 'pointer',
-                        boxShadow: '0 4px 18px rgba(255,138,0,0.35)',
-                        textDecoration: 'none',
-                        display: 'inline-block'
-                    }}
-                >
-                    Download PDF
-                </motion.a>
+                <div className="flex gap-4 items-center">
+                    <Link
+                        to="/"
+                        className="px-4 py-2 text-white/70 hover:text-white text-sm font-medium transition-colors"
+                    >
+                        Close
+                    </Link>
+
+                    <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href="/Anshu_Shee_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download="Anshu_Shee_Resume.pdf"
+                        style={{
+                            background: '#ff8a00',
+                            color: '#fff',
+                            borderRadius: '6px',
+                            padding: '8px 20px',
+                            fontFamily: 'Inter, sans-serif',
+                            fontWeight: 700,
+                            fontSize: '14px',
+                            textDecoration: 'none',
+                            boxShadow: '0 4px 15px rgba(255,138,0,0.3)',
+                        }}
+                    >
+                        Download PDF
+                    </motion.a>
+                </div>
             </div>
 
-            {/* PDF Embed / Viewport */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="w-full max-w-5xl h-[75vh] bg-[#111111] border border-white/20 rounded-xl overflow-hidden shadow-2xl relative"
-            >
+            {/* Seamless PDF Viewer (Scroll Only) */}
+            <div className="w-full flex-grow bg-[#1a1a1a]">
                 <iframe
                     src="/Anshu_Shee_Resume.pdf"
                     title="Anshu Shee Resume"
                     className="w-full h-full"
                     style={{ border: 'none' }}
                 />
-            </motion.div>
+            </div>
 
         </div>
     );
