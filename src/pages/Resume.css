@@ -2,16 +2,16 @@
 
 /* ── RESUME SECTION WRAPPER ── */
 .resume-section {
-    width: 100%;
-    background: #000000;
-    color: #ffffff;
+    padding: 80px 0 100px;
+    position: relative;
+    background: transparent;
 }
 
 /* ── RESUME DOCUMENT CARD (Screen Preview) ── */
 .resume-page {
-    width: 210mm;
+    width: 100%;
+    max-width: 210mm;
     min-height: 297mm;
-    max-height: 297mm;
     margin: 0 auto;
     background: #ffffff;
     color: #1a1a1a;
@@ -20,152 +20,125 @@
     display: flex;
     flex-direction: column;
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    line-height: 1.45;
+    font-size: 11.2px;
+    line-height: 1.58;
     box-sizing: border-box;
     text-align: left;
-    overflow: hidden;
+}
+
+.resume-page a {
+    color: inherit;
+    text-decoration: underline;
+    word-break: break-all;
+    transition: color 0.2s ease;
+}
+
+.resume-page a:hover {
+    color: #555;
 }
 
 /* ── HEADER ── */
 .resume-header {
-    padding: 24px 30px 8px;
+    padding: 24px 30px 16px;
+    border-bottom: 2.5px solid #1a1a1a;
 }
 
 .resume-header-top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 2px;
+    align-items: flex-start;
 }
 
-.resume-name-title {
+.resume-header-name h1 {
     font-family: 'EB Garamond', serif;
-    font-size: 34px;
+    font-size: 31px;
     font-weight: 700;
     letter-spacing: -0.5px;
-    line-height: 0.9;
-    color: #121212;
+    line-height: 1;
+    color: #1a1a1a;
     margin: 0;
-    border-bottom: 1.8px solid #1a1a1a;
-    display: inline-block;
-    padding-bottom: 2px;
+}
+
+.resume-header-name .resume-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    margin-top: 5px;
+    font-family: 'Inter', sans-serif;
 }
 
 .resume-header-contact {
     text-align: right;
-    font-size: 10.5px;
+    font-size: 12px;
     font-weight: 500;
-    line-height: 1.5;
-    color: #333;
+    line-height: 1.8;
+    color: #222;
 }
 
 .resume-header-contact a {
     text-decoration: none;
-    color: #333;
+    color: #222;
 }
 
 .resume-header-contact a:hover {
     text-decoration: underline;
 }
 
-.resume-divider {
-    border: 0;
-    border-top: 1px solid #1a1a1a;
-    margin: 6px 0;
-}
-
 .resume-header-links {
+    margin-top: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    font-size: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 11px;
     font-weight: 600;
-    color: #1a1a1a;
 }
 
 .resume-header-links a {
     text-decoration: none;
+    border-bottom: 1px solid #999;
+    padding-bottom: 1px;
     color: #1a1a1a;
 }
 
 .resume-header-links a:hover {
-    text-decoration: underline;
-}
-
-.link-divider {
-    color: #777;
-    font-weight: 400;
+    border-bottom-color: #1a1a1a;
 }
 
 /* ── BODY: two columns ── */
 .resume-body {
     display: flex;
     flex: 1;
-    overflow: hidden;
 }
 
 .resume-col-left {
     width: 42%;
-    padding: 8px 18px 24px 30px;
+    padding: 20px 18px 18px 30px;
     border-right: 1.5px solid #ddd;
     box-sizing: border-box;
 }
 
 .resume-col-right {
     width: 58%;
-    padding: 8px 30px 24px 18px;
+    padding: 20px 30px 18px 18px;
     box-sizing: border-box;
 }
 
-/* ── SECTION BLOCK ── */
+/* ── SECTION ── */
 .resume-section-block {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .resume-section-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 11.5px;
+    font-size: 10.5px;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    border-bottom: 1.5px solid #1a1a1a;
-    padding-bottom: 2px;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 3px;
     margin-bottom: 8px;
     color: #1a1a1a;
-}
-
-/* ── BULLET LISTS ── */
-.resume-bullet-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 9.8px;
-    line-height: 1.45;
-    color: #222;
-}
-
-.resume-bullet-list li {
-    position: relative;
-    padding-left: 12px;
-    margin-bottom: 3.5px;
-}
-
-.resume-bullet-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #1a1a1a;
-    font-weight: bold;
-}
-
-.resume-bullet-list li.no-bullet {
-    padding-left: 0;
-}
-
-.resume-bullet-list li.no-bullet::before {
-    content: "";
 }
 
 /* ── SKILLS ── */
@@ -174,58 +147,176 @@
 }
 
 .resume-skill-label {
-    font-size: 9.8px;
+    font-size: 10.5px;
     font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
 }
 
-.resume-skill-group .resume-bullet-list li {
-    margin-bottom: 0;
+.resume-skill-value {
+    font-size: 10.2px;
+    color: #555;
+    line-height: 1.55;
+}
+
+/* ── HACKATHONS ── */
+.resume-hack-item {
+    margin-bottom: 10px;
+}
+
+.resume-hack-num {
+    font-size: 10.5px;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: #1a1a1a;
+}
+
+.resume-hack-title {
+    font-size: 11.2px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a1a1a;
+}
+
+.resume-hack-meta {
+    font-size: 10px;
+    font-weight: 600;
+    color: #555;
+    margin: 1px 0 3px;
+    line-height: 1.4;
+}
+
+.resume-hack-desc {
+    font-size: 10px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 3px;
+}
+
+.resume-hack-links {
+    display: flex;
+    gap: 8px;
+    font-size: 10px;
+}
+
+.resume-hack-links a {
+    text-decoration: none;
+    border-bottom: 1px solid #aaa;
+    color: #1a1a1a;
 }
 
 /* ── EDUCATION ── */
 .resume-edu-item {
-    margin-bottom: 8px;
+    margin-bottom: 9px;
 }
 
 .resume-edu-school {
-    font-size: 10px;
+    font-size: 11.2px;
     font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 1px;
+}
+
+.resume-edu-degree {
+    font-size: 10.2px;
+    color: #555;
+    margin-top: 1.5px;
+    line-height: 1.4;
 }
 
 .resume-edu-year {
-    font-size: 9px;
-    font-style: italic;
-    color: #666;
+    font-size: 10.2px;
+    font-weight: 700;
+    float: right;
+    color: #333;
+}
+
+/* ── EXPERTISE / SUMMARY / INTERESTS ── */
+.resume-summary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resume-summary-list li {
+    font-size: 10.8px;
+    line-height: 1.58;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3.5px;
+    color: #222;
+}
+
+.resume-summary-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+
+.resume-summary-list li strong {
+    font-weight: 700;
+    color: #111;
 }
 
 /* ── CERTIFICATIONS ── */
-.resume-cert-subgroup {
-    margin-bottom: 8px;
-}
-
-.resume-cert-subgroup-title {
-    font-size: 9.8px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 3px;
-}
-
 .resume-cert-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 10px;
+    gap: 4px 12px;
 }
 
-/* ── PROFILE ── */
-.resume-profile-text {
-    font-size: 9.8px;
-    line-height: 1.45;
-    color: #222;
+.resume-cert-item {
+    font-size: 10.2px;
+    line-height: 1.65;
+    color: #1a1a1a;
+}
+
+.resume-cert-item a {
+    text-decoration: none;
+    border-bottom: 1px solid #aaa;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.resume-cert-num {
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+/* ── EXPERIENCE ── */
+.resume-exp-title {
+    font-size: 11.2px;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+.resume-exp-date {
+    font-size: 10.2px;
+    color: #555;
+    margin: 2px 0 7px;
+    font-weight: 500;
+}
+
+.resume-exp-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
+}
+
+.resume-exp-list li {
+    font-size: 10.2px;
+    line-height: 1.55;
+    padding-left: 12px;
+    position: relative;
+    color: #333;
+    margin-bottom: 3.5px;
+}
+
+.resume-exp-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
 }
 
 /* ── PROJECTS ── */
@@ -233,93 +324,81 @@
     margin-bottom: 9px;
 }
 
-.resume-project-heading {
+.resume-project-header {
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
-    flex-wrap: wrap;
-    gap: 2px;
 }
 
 .resume-project-name {
-    font-size: 10px;
+    font-size: 11.2px;
     font-weight: 800;
-    color: #131313;
-}
-
-.resume-project-meta {
-    font-size: 9px;
-    font-style: italic;
-    color: #555;
-}
-
-.resume-project-subtitle {
-    font-size: 9px;
-    font-style: italic;
-    color: #666;
-    margin-bottom: 2px;
-}
-
-.resume-project-desc {
-    font-size: 9.5px;
-    line-height: 1.4;
-    color: #333;
-    margin: 0 0 3px 0;
-}
-
-.resume-project-tech-role {
-    font-size: 9px;
-    line-height: 1.35;
-    color: #444;
-    background: #f8f8f8;
-    padding: 4px 6px;
-    border-left: 2px solid #ccc;
-    margin-bottom: 3px;
+    color: #1a1a1a;
 }
 
 .resume-project-links {
     display: flex;
-    gap: 12px;
-    font-size: 9px;
-}
-
-.resume-project-links li {
-    padding-left: 8px;
+    gap: 8px;
+    font-size: 9.8px;
 }
 
 .resume-project-links a {
-    text-decoration: underline;
-    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid #aaa;
+    white-space: nowrap;
+    color: #1a1a1a;
 }
 
-.resume-project-links a:hover {
-    color: #000;
+.resume-project-num {
+    font-weight: 800;
+    margin-right: 4px;
 }
 
-.resume-figma-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 0 10px;
+.resume-project-tech {
+    font-size: 9.2px;
+    color: #777;
+    margin-top: 1.5px;
+    font-style: italic;
 }
 
-/* ── TEXT COLOR CLASS UTILS ── */
-.text-muted {
-    color: #555 !important;
+.resume-project-desc {
+    font-size: 10px;
+    color: #555;
+    margin-top: 2.5px;
+    line-height: 1.55;
 }
 
-/* ── SCREEN RESPONSIVENESS ── */
+.resume-view-all {
+    display: block;
+    margin-top: 10px;
+    padding: 7px 0;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #1a1a1a !important;
+    background-color: transparent !important;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.resume-view-all:hover {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+}
+
+/* ── SCREEN RESPONSIVENESS (for smaller viewport previews) ── */
 @media screen and (max-width: 860px) {
     .resume-page {
         width: 94%;
         min-height: auto;
-        max-height: none;
         border-radius: 6px;
-        padding: 10px 0;
-        overflow: visible;
     }
 
     .resume-body {
         flex-direction: column;
-        overflow: visible;
     }
 
     .resume-col-left,
@@ -335,76 +414,10 @@
 
     .resume-header-top {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        gap: 12px;
     }
 
     .resume-header-contact {
         text-align: left;
-    }
-
-    .resume-header-links {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 8px;
-    }
-
-    .link-divider {
-        display: none;
-    }
-}
-
-/* ── PRINT RULES (PDF GENERATION) ── */
-@media print {
-    @page {
-        size: A4;
-        margin: 0;
-    }
-
-    body {
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #ffffff !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    /* Hide everything except the resume card */
-    nav,
-    footer,
-    button,
-    .chatbot-container,
-    .back-to-top,
-    .scroll-progress,
-    [class*="cursor"],
-    [class*="loader"],
-    [class*="particles"],
-    [class*="three-bg"] {
-        display: none !important;
-    }
-
-    .resume-section {
-        padding: 0 !important;
-        background: #ffffff !important;
-    }
-
-    .resume-page {
-        width: 210mm !important;
-        min-height: 297mm !important;
-        max-height: none !important;
-        margin: 0 !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        overflow: visible !important;
-        page-break-after: avoid;
-    }
-
-    .resume-body {
-        overflow: visible !important;
-    }
-
-    a {
-        color: inherit !important;
-        text-decoration: none !important;
     }
 }
