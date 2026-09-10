@@ -5,17 +5,18 @@ import ExperienceCard from './ExperienceCard';
 const ExperienceSection = () => {
     const experienceData = [
         {
-            title: "Campus Ride Sharing Platform (ShareMyRide)",
-            type: "Full Stack / SaaS",
-            duration: "Present (Under Development)",
+            title: "Global Earthquakes Analytics & Auth API",
+            type: "Backend / API",
+            duration: "2026",
             description: {
-                what: "A web and desktop-enabled platform where students can seamlessly offer rides, find companions on similar routes, and share travel expenses.",
-                problem: "Students consistently faced daily commuting inconvenience, high transportation costs, and a lack of eco-friendly peer transit options.",
-                impact: "Engineered core routing modules focused on drastically reducing commuter costs and building a sustainable, connected campus transit community."
+                what: "A robust Express/MongoDB backend providing global earthquake analytics data.",
+                problem: "Need for a secure backend handling JWT authentication (access & refresh tokens) and paginated earthquake statistics.",
+                impact: "Developed secure auth flows, RESTful endpoints with pagination, and comprehensive Postman documentation for seamless frontend integration."
             },
-            techStack: ["React.js", "Electron.js", "Node.js", "Express.js", "MongoDB", "Figma", "Postman"],
-            githubLink: "https://github.com/anshu/sharemyride",
-            liveLink: ""
+            techStack: ["Node.js", "Express.js", "MongoDB", "JWT", "Postman", "REST APIs"],
+            githubLink: "https://github.com/AnshuShee",
+            liveLink: "",
+            postmanLink: "https://documenter.getpostman.com/view/50862709/2sBXwnsBTD"
         },
         {
             title: "Craftathon 2026",
